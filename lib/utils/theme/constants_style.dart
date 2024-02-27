@@ -118,12 +118,25 @@ extension CustomTextStyle on TextStyle{
       fontWeight: FontWeight.w700
   );
 
+  static TextStyle get blackMediumFont16Style=> TextStyle(
+      color: kBlackColor,
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w500
+  );
+
 
   static TextStyle get mainColorBoldFont16Style=> TextStyle(
       color: kSecondaryColor,
       fontSize: 16.sp,
       fontWeight: FontWeight.w700
   );
+
+  static TextStyle get mainColorMediumFont16Style=> TextStyle(
+      color: kSecondaryColor,
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w500
+  );
+
 
   static TextStyle get mainColorRegularFont18Style=> TextStyle(
       color: kSecondaryColor,

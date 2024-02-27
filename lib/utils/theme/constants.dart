@@ -12,6 +12,7 @@ const Color kLightGrayColor = Color(0xff666666);
 const Color kLightWhiteColor = Color(0xfff4f4f4);
 const Color transparentColor = Color(0x00000000);
 const Color borderColor = Color(0xffD9D9D9);
+ Color txtBorderColor = Color(0xffD9D9D9).withOpacity(0.20);
 const Color kTextFiledFillColor = Color(0xFFF4F4F4);
 const Color kTextFiledBorderColor = Color(0xFFC92486);
 const Color kTextFiledTextColor = Color(0xff000000);
