@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:odhani_design_sqt/app/tab/route/tab_route.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 import '../../../../base/view/base_components/custom_button.dart';
 import 'package:odhani_design_sqt/base/view/base_components/custom_text_form_filed.dart';
@@ -113,7 +112,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
                             CustomButton(
                               onTap: (){
-                                TabRoute.goToTabPage(context);
+
                               },
                               isLoading: false,
                               btnColor: kPrimaryColor,
