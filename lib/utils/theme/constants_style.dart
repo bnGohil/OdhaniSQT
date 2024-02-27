@@ -3,9 +3,22 @@ part of utils;
 extension CustomTextStyle on TextStyle{
 
   static TextStyle get regularFont16Style=> TextStyle(
-      color: kMainTextColor,
+      color: kTextPrimaryColor,
       fontSize: 16.sp,
       fontWeight: FontWeight.w400
+  );
+
+
+  static TextStyle get semiBoldFont14Style=> TextStyle(
+      color: kBlackColor,
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w600
+  );
+
+  static TextStyle get lightFont16Style=> TextStyle(
+      color: kMainTextColor,
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w300
   );
 
   static TextStyle get regularFont18Style=> TextStyle(
@@ -50,7 +63,20 @@ extension CustomTextStyle on TextStyle{
       fontWeight: FontWeight.w400
   );
 
-  static TextStyle get whiteRegularFont12Style=> TextStyle(
+  static TextStyle get mediumFont18Style=> TextStyle(
+      color: kBlackColor,
+      fontSize: 18.sp,
+      fontWeight: FontWeight.w500
+  );
+  static TextStyle get mediumFont16Style=> TextStyle(
+      color: kBlackColor,
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w500
+  );
+
+
+
+  static TextStyle get whiteMediumFont12Style=> TextStyle(
       color: kWhiteColor,
       fontSize: 12.sp,
       fontWeight: FontWeight.w500
@@ -74,6 +100,19 @@ extension CustomTextStyle on TextStyle{
       fontWeight: FontWeight.w700
   );
 
+
+  static TextStyle get boldFont30Style=> TextStyle(
+      color: kWhiteColor,
+      fontSize: 30.sp,
+      fontWeight: FontWeight.w700
+  );
+
+  static TextStyle get boldFont12Style=> TextStyle(
+      color: kWhiteColor,
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w700
+  );
+
   static TextStyle get blackBoldFont14Style=> TextStyle(
       color: kBlackColor,
       fontSize: 14.sp,
@@ -84,6 +123,19 @@ extension CustomTextStyle on TextStyle{
       color: kPrimaryColor,
       fontSize: 16.sp,
       fontWeight: FontWeight.w400
+  );
+
+
+  static TextStyle get semiBoldRegularFont20Style=> TextStyle(
+      color: kBlackColor,
+      fontSize: 20.sp,
+      fontWeight: FontWeight.w600
+  );
+
+  static TextStyle get semiBoldRegularFont16Style=> TextStyle(
+      color: kTextPrimaryColor,
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w600
   );
 
   static TextStyle get hintTextStyle=> TextStyle(
