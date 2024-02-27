@@ -11,11 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../app/auth/route/auth_route/auth_route.dart';
-import 'package:odhani_design_sqt/app/home/route/home_route.dart';
-import 'package:odhani_design_sqt/app/menu/route/menu_route.dart';
-import 'package:odhani_design_sqt/app/order/route/order_route.dart';
-
-import '../app/auth/route/auth_route/auth_route.dart';
 // import 'package:CravzRestaurant/app/lending/route/lending_route.dart';
 
 part 'common_utils/enums.dart';
