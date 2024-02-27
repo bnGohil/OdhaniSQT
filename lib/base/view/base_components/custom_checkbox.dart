@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/utils.dart';
-
-
-
-
 class CustomCheckBox extends StatelessWidget {
   const CustomCheckBox({Key? key, this.onChanged, this.value, this.borderColor}) : super(key: key);
 
@@ -15,18 +11,18 @@ class CustomCheckBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    const themeColor = kPrimaryColor;
+    const themeColor = kBlackColor;
 
     return SizedBox(
       width: 24.sp,
       height: 24.sp,
       child: Theme(
           data: Theme.of(context).copyWith(
-            unselectedWidgetColor: kPrimaryColor.withOpacity(0.1),
+            unselectedWidgetColor: kBlackColor.withOpacity(0.1),
           ),
           child: CheckboxTheme(
             data: CheckboxThemeData(
-                side: BorderSide(width: 1.5,color: borderColor ?? kPrimaryColor),
+                side: BorderSide(width: 1.5,color: borderColor ?? kBlackColor),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2.5.sp))
             ),
             child: Checkbox(
