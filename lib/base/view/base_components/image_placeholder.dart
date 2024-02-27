@@ -15,30 +15,21 @@ class ImagePlaceHolder extends StatelessWidget {
        Positioned(bottom: 0,left: 0,right: 0,top: 0,child: Container(
          height: 184.sp,
          decoration: BoxDecoration(
-            color: Colors.white,
+            color: kTextFiledFillColor,
              borderRadius: BorderRadius.circular(100),
-           boxShadow: [
-             BoxShadow(
-               offset: Offset(0,0),
-               color: kPrimaryColor.withOpacity(0.30),
-               blurRadius: 50.sp,
-               spreadRadius:0
-
-             )
-           ]
-
          ),
          padding: EdgeInsets.all(2.sp),
          child: child ??
              Container(
                height: 182.sp,
+           padding: EdgeInsets.all(25.sp),
            decoration: BoxDecoration(
-             border: Border.all(color: Colors.black),
+             border: Border.all(color: kLightGrayColor.withOpacity(0.2)),
                borderRadius: BorderRadius.circular(100)
            ),
            child: ClipRRect(
                borderRadius: BorderRadius.circular(100),
-               child: Icon(Icons.image,size: 50.sp,)
+               child: ImageUtil.iconImageClass.sProfileIcon
            ),
          ),
        )),
@@ -53,15 +44,16 @@ class ImagePlaceHolder extends StatelessWidget {
         Positioned(
           bottom: 5.sp,right: 5.sp,
           child: Container(
-            height: 40.sp,
-            width: 40.sp,
+            height: 32.sp,
+            width: 32.sp,
             decoration: BoxDecoration(
               border: Border.all(color: kWhiteColor,width: 2),
-              color: kTextSecondaryColor.withOpacity(0.2),
+              color: kBlackColor,
               shape: BoxShape.circle
             ),
               padding: EdgeInsets.all(3.sp),
-              child: ImageUtil.iconImageClass.addIcon),)
+              child:CustomSvgPictures.asset("$iconPath/add.svg", fit: BoxFit.cover,color: Colors.white,)
+          ),)
       ],
     );
   }

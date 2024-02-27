@@ -4,34 +4,13 @@ import 'package:odhani_design_sqt/utils/utils.dart';
 
 
 
-class CustomTextField extends StatefulWidget {
-  CustomTextField(
-      {Key? key,
-        FocusNode? focusNode,
-        this.hint,
-        bool? isOptional,
-        bool? isSecure,
-        this.controller,
-        this.onChanged,
-        this.inputType,
-        this.inputFormatters,
-        this.isEnable,
-        this.errorText,
-        this.textInputAction,
-        this.onEditingComplete,
-        this.regex,
-        this.validationMessage,
-        this.emptyMessage,
-        this.name,
-        this.suffix, this.instructions, this.maxLength, this.prefix, this.radius, this.hintTextStyle})
-      : focusNode = focusNode ?? FocusNode(),
-        isOptional = isOptional ?? true,
-        isSecure = isSecure ?? false,
-        super(key: key);
+class CustomTextField extends StatelessWidget {
+  const CustomTextField({Key? key, this.hint, this.label, this.isOptional, this.focusNode, this.controller, this.onChanged, this.inputType, this.inputFormatters, this.isEnable, this.errorText, this.textInputAction, this.onEditingComplete, this.regex, this.validationMessage, required this.name, this.instructions, this.emptyMessage, this.isSecure, this.suffix, this.prefix, this.maxLength, this.readOnly, this.onTap, this.suffixIcon, this.validatorExtra, this.autofillHints}) : super(key: key);
 
   final String? hint;
-  final bool isOptional;
-  final FocusNode focusNode;
+  final String? label;
+  final bool? isOptional;
+  final FocusNode? focusNode;
   final TextEditingController? controller;
   final ValueChanged<String>? onChanged;
   final TextInputType? inputType;
@@ -42,39 +21,31 @@ class CustomTextField extends StatefulWidget {
   final Function()? onEditingComplete;
   final String? regex;
   final String? validationMessage;
-  final String? name;
+  final String name;
+  final Iterable<String>? autofillHints;
   final String? instructions;
   final String? emptyMessage;
-  final bool isSecure;
+  final bool? isSecure;
   final Widget? suffix;
   final Widget? prefix;
   final int? maxLength;
-  final double? radius;
-  final TextStyle? hintTextStyle;
-
-
-  @override
-  State<CustomTextField> createState() => _CustomTextFieldState();
-}
-
-class _CustomTextFieldState extends State<CustomTextField> {
-
-  bool hasTypedSomething = false;
-
-  String? error;
+  final bool? readOnly;
+  final GestureTapCallback? onTap;
+  final Widget? suffixIcon;
+  final String? Function(String? value)? validatorExtra;
 
   String? validator(String? text) {
-    if (widget.isOptional && (text == null || text.isTrimEmpty)) return null;
+    if ((isOptional ?? true) && (text == null || text.isTrimEmpty)) return null;
 
-    if (text == null) return widget.emptyMessage ?? "Please Enter ${widget.name}.";
+    if (text == null) return emptyMessage ?? "Please Enter $name.";
 
-    if (text.isTrimEmpty) return widget.emptyMessage ?? "Please Enter ${widget.name}.";
+    if (text.isTrimEmpty) return emptyMessage ?? "Please Enter $name.";
 
-    if (widget.regex != null) {
-      final isMatch = RegExp(widget.regex!).hasMatch(text);
+    if (regex != null) {
+      final isMatch = RegExp(regex!).hasMatch(text);
 
       if (!isMatch) {
-        return widget.validationMessage ?? "Please Enter Valid ${widget.name}.";
+        return validationMessage ?? "Please Enter Valid $name.";
       }
     }
 
@@ -83,120 +54,57 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
-
     return Opacity(
-      opacity: widget.isEnable == false ? 0.5 : 1.0,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 50.sp,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Row(
-                  children: [
-                    if(widget.prefix != null)
-                      Padding(padding: EdgeInsets.all(10.sp),
-                        child: widget.prefix!,
-                      ),
+      opacity: isEnable == false ? 0.8 : 1.0,
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100.sp)
+        ),
+        child: TextFormField(
+          cursorColor: kBlackColor,
+          cursorHeight: 20.sp,
+          onTap: onTap,
+          readOnly: readOnly ?? false,
+          maxLength: maxLength,
+          obscureText: isSecure ?? false,
+          onEditingComplete: onEditingComplete,
+          textInputAction: textInputAction,
+          enabled: isEnable,
+          keyboardType: inputType,
+          inputFormatters: inputFormatters,
+          controller: controller,
+          focusNode: focusNode,
+          onChanged: onChanged,
+          autofillHints: autofillHints,
+          validator: (value) {
 
-                    Expanded(
-                      child: TextFormField(
-                          maxLength: widget.maxLength,
-                          obscureText: widget.isSecure,
-                          autofocus: false,
-                          showCursor: true,
-                          onEditingComplete: widget.onEditingComplete,
-                          textInputAction: widget.textInputAction,
-                          validator: (value) {
-                            setState(() {
-                              error = validator(value);
-                            });
+            if(validatorExtra != null) {
+              final val = validatorExtra!(value);
 
-                            return error;
-                          },
-                          enabled: widget.isEnable,
-                          keyboardType: widget.inputType,
-                          inputFormatters: widget.inputFormatters,
-                          controller: widget.controller,
-                          focusNode: widget.focusNode,
-                          onChanged: (value) {
-                            setState(() {
-                              hasTypedSomething = value.isNotEmpty;
-                            });
+              if(val != null) {
+                return val;
+              }
+            }
 
-                            if(widget.onChanged != null) {
-                              widget.onChanged!(value);
-                              widget.controller?.selection = TextSelection.fromPosition(TextPosition(offset: widget.controller?.text.length ?? 0));
-                            }
-
-                            setState(() {
-                              error = validator(value);
-                            });
-
-                          },
-                          style:CustomTextStyle.textFieldStyle,
-                          cursorColor: kPrimaryColor,
-                          cursorHeight: 16,
-                          decoration: InputDecoration(
-                              counter: const SizedBox.shrink(),
-                              counterStyle: const TextStyle(
-                                  height: 0.0,
-                                  fontSize: 0.0,
-                                  color: Colors.transparent),
-                              counterText: "",
-                              errorStyle: const TextStyle(height: 1,color: Colors.red,fontSize: 0,),
-                              border: InputBorder.none,
-                              contentPadding: EdgeInsets.only(left: widget.prefix == null ? 10.sp : 0.sp,right: 15.sp,bottom: 5.sp)
-                          ),
-                      ),
-                    ),
-
-                    if(widget.suffix != null)
-                      widget.suffix!
-                  ],
-                ),
-                if(!hasTypedSomething && widget.hint != null && (widget.controller?.text ?? "").isEmpty)
-                  GestureDetector(
-                    onTap: () {
-
-                      if(!widget.focusNode.hasFocus) {
-                        widget.focusNode.requestFocus();
-                      }
-
-                    },
-                    child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: EdgeInsets.only(bottom: 2.sp,left: 15.sp + (widget.prefix != null ? 45.sp : 0),right: 15.sp),
-                          child: Text.rich(TextSpan(text: widget.hint, style: widget.hintTextStyle ?? CustomTextStyle.hintTextStyle, children: [
-                            if(!widget.isOptional)
-                              TextSpan(text: "*", style: CustomTextStyle.hintTextStyle.copyWith(color: const Color(0xffFE4545)))
-                          ])),
-                        )),
-                  )
-              ],
-            ),
+            return validator(value);
+          },
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          decoration: InputDecoration(
+            counter: maxLength != null ? const SizedBox.shrink() : null,
+            fillColor: kTextFiledFillColor,
+            filled: true,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            suffixIcon: suffixIcon,
+            suffix: suffix,
+            labelText: label,
+            hintText: hint,
+            contentPadding: EdgeInsets.symmetric(horizontal: 15.sp),
+            border: OutlineInputBorder(borderSide:  BorderSide(color: txtBorderColor), borderRadius: BorderRadius.circular(100.sp)),
+            disabledBorder: OutlineInputBorder(borderSide:  BorderSide(color: txtBorderColor), borderRadius: BorderRadius.circular(100.sp)),
+            enabledBorder: OutlineInputBorder(borderSide:  BorderSide(color: txtBorderColor), borderRadius: BorderRadius.circular(100.sp)),
+            focusedBorder: OutlineInputBorder(borderSide: const BorderSide(color: kPrimaryColor), borderRadius: BorderRadius.circular(100.sp)),
           ),
-          if(widget.radius == null)
-            Container(
-              height: 1.sp,
-              width: double.infinity,
-              color:error == null ? kTextSecondaryColor.withOpacity(0.3) : kRedColor,
-            ),
-          if(error != null)
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.sp),
-              child: Column(
-                children: [
-                  SizedBox(height: 5.sp),
-                  Text(error ?? "", style: CustomTextStyle.hintTextStyle.copyWith(color: kRedColor)),
-                ],
-              ),
-            ),
-
-        ],
+        ),
       ),
     );
   }
