@@ -28,6 +28,7 @@ class IconImageClass{
   Widget get eyeCloseIcon => const CustomSvgPictures.asset("$iconPath/eye_close.svg", fit: BoxFit.cover);
   Widget get eyeOpenIcon => const CustomSvgPictures.asset("$iconPath/eye_open.svg", fit: BoxFit.cover);
   Widget get verifyIcon => const CustomSvgPictures.asset("$iconPath/blue_tick.svg", fit: BoxFit.cover);
+  Widget get searchIcon => const CustomSvgPictures.asset("$iconPath/search.svg", fit: BoxFit.cover);
   Widget get addIcon => const CustomSvgPictures.asset("$iconPath/add.svg", fit: BoxFit.cover);
   Widget get logoutIcon => const CustomSvgPictures.asset("$iconPath/logout.svg", fit: BoxFit.cover);
   Widget get sendIcon => const CustomSvgPictures.asset("$iconPath/send.svg", fit: BoxFit.cover);
@@ -41,9 +42,10 @@ class IconImageClass{
   Widget get circleCancelIcon => const CustomSvgPictures.asset("$iconPath/circle_cancel.svg",fit: BoxFit.cover);
   Widget get closeBottomSheetIcon => const CustomSvgPictures.asset("$iconPath/close_icon.svg", fit: BoxFit.cover);
   Widget get deleteIcon => const CustomSvgPictures.asset("$iconPath/delete.svg", fit: BoxFit.cover,color: kWhiteColor,);
+  Widget get dressIcon => const CustomSvgPictures.asset("$iconPath/dress.svg", fit: BoxFit.cover);
   Widget get cameraIcon =>  CustomSvgPictures.asset("$iconPath/camera.svg", fit: BoxFit.cover,width: 30.sp,height: 30.sp);
   Widget get galleryIcon => const CustomSvgPictures.asset("$iconPath/gallery.svg", fit: BoxFit.cover);
-  Widget get calenderIcon =>  CustomSvgPictures.asset("$iconPath/calender.svg", fit: BoxFit.cover,width: 30.sp,height: 30.sp,);
+  Widget get calenderIcon =>  const CustomSvgPictures.asset("$iconPath/calander.svg", fit: BoxFit.cover);
   Widget get backArrowIcon =>  CustomSvgPictures.asset("$iconPath/left_arrow.svg", fit: BoxFit.cover,color: kBlackColor,width: 30.sp,height: 30.sp,);
 }
 
@@ -56,7 +58,7 @@ class CustomSvgPictures extends StatelessWidget {
         this.height,
         this.fit = BoxFit.cover,
         this.alignment = Alignment.center,
-        this.color
+        this.color, this.colorFilter
       }) : super(key: key);
 
   final double? width;
@@ -64,6 +66,7 @@ class CustomSvgPictures extends StatelessWidget {
   final String assetName;
   final double? height;
   final BoxFit fit;
+  final ui.ColorFilter? colorFilter;
   final AlignmentGeometry alignment;
 
   @override
@@ -75,6 +78,7 @@ class CustomSvgPictures extends StatelessWidget {
       fit: fit,
       alignment: alignment,
       color: color,
+      colorFilter: colorFilter,
       placeholderBuilder: (context) {
         return const SizedBox.shrink();
       },

@@ -3,11 +3,15 @@ part of utils;
 
 const int primaryColorValue = 0xffC92486;
 const Color kWhiteColor = Color(0xffFFFFFF);
+const Color kBackground = Color(0xffFFFFFF);
+const Color kBorderColor = Color(0xffE6E6E6);
 const Color kPrimaryColor = Color(0xffC92486);
+const Color kLightPinkPrimaryColor = Color(0xffFFB2E0);
 const Color kTextPrimaryColor = Color(0xff444444);
 const Color kTextSecondaryColor = Color(0xff444444);
 const Color kSecondaryColor = Color(0xff444444);
 const Color kBlackColor = Color(0xff000000);
+const Color kDarkOrangeColor = Color(0xffEE0303);
 const Color kLightGrayColor = Color(0xff666666);
 const Color kLightWhiteColor = Color(0xfff4f4f4);
 const Color transparentColor = Color(0x00000000);
