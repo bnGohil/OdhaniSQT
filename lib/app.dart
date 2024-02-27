@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:odhani_design_sqt/app/tab/route/tab_route.dart';
+import 'app/splash/view/splash_screen.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 
 
@@ -14,17 +14,16 @@ class OdhaniApp extends StatelessWidget {
         FocusManager.instance.primaryFocus?.unfocus();
       },
       child: Sizer(
-        builder: (context, orientation, deviceType) {
-
-          return MaterialApp(
-            title: 'Odhani',
-            routes: Routes().routes,
-            theme: appTheme(context),
-             initialRoute: TabRoute.route,
-
-          );
-        },
-
+      builder: (context, orientation, deviceType) {
+        return MaterialApp(
+          title: 'Odhani',
+          routes: Routes().routes,
+          theme: appTheme(context),
+          // initialRoute: LendingRoute.route,
+          home:  SplashScreen(),
+          debugShowCheckedModeBanner: false,
+        );
+      }
       ),
     );
   }

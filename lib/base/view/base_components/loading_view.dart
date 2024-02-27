@@ -17,7 +17,7 @@ class Loading extends StatelessWidget {
       child: SizedBox(
         height: size ?? 22,
         width: size ?? 22,
-        child: Platform.isIOS ? const CupertinoActivityIndicator(animating: true) : CircularProgressIndicator(
+        child: Platform.isIOS ?  CupertinoActivityIndicator(animating: true,color: color ?? kBlackColor,) : CircularProgressIndicator(
           strokeWidth: 2,
           valueColor: AlwaysStoppedAnimation<Color>(color ?? kWhiteColor),
         ),

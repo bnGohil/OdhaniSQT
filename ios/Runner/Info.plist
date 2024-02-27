@@ -45,5 +45,17 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+    <key>NSCameraUsageDescription</key>
+    <string>Please provide permission to upload profile picture</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Please provide location permission to receive notifications based on your region.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Please provide location permission to receive notifications based on your region.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Please provide location permission to receive notifications based on your region.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Please provide permission to upload profile picture</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Please provide permission to upload profile picture</string>
 </dict>
 </plist>

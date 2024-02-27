@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_image_compress/flutter_image_compress.dart';
+// import 'package:flutter_image_compress/flutter_image_compress.dart';
 
 import '../../../utils/utils.dart';
 
@@ -245,7 +245,8 @@ class PickImageSheet extends StatelessWidget {
                                       SizedBox(
                                           height: 40.sp,
                                           width: 40.sp,
-                                          child: ImageUtil.iconImageClass.galleryIcon),
+                                          child: ImageUtil.iconImageClass.galleryIcon
+                                      ),
                                       Text("Gallery",style: CustomTextStyle.blackBoldFont18Style)
                                     ],
                                   ),
@@ -272,7 +273,8 @@ class PickImageSheet extends StatelessWidget {
                                       SizedBox(
                                           height: 40.sp,
                                           width: 40.sp,
-                                          child: ImageUtil.iconImageClass.cameraIcon),
+                                          child: ImageUtil.iconImageClass.cameraIcon
+                                      ),
                                       Text("Camera",style: CustomTextStyle.blackBoldFont18Style)
                                     ],
                                   ),
