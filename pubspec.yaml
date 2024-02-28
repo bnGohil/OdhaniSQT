@@ -49,7 +49,7 @@ flutter:
     - assets/images/icons/
     - assets/images/logo/
     - assets/images/graphics/
-#    - assets/images/dummy_img/
+    - assets/images/dummy_img/
 
   fonts:
     - family: Outfit

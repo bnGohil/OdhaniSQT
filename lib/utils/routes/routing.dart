@@ -9,6 +9,9 @@ class Routes {
     AuthRoute.changePasswordRoute : (context) => AuthRoute.changePasswordChild,
     TabRoute.route : (context) => TabRoute.child,
     NotificationRoute.route : (context) => NotificationRoute.child,
-    JobRoute.route : (context) => JobRoute.child
+    OrderRoute.orderDetailRoute : (context) => OrderRoute.child,
+    OrderRoute.orderCompletedRoute : (context) => OrderRoute.completedChild,
+    JobRoute.route : (context) => JobRoute.child,
+    ChatRoute.route : (context) => ChatRoute.child
   };
 }
