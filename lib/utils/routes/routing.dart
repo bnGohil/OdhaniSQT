@@ -11,5 +11,9 @@ class Routes {
     JobRoute.route : (context) => JobRoute.child,
     OrderRoute.createOrderRoute: (context) => OrderRoute.createOrderChild,
     NotificationRoute.route : (context) => NotificationRoute.child,
+    OrderRoute.orderDetailRoute : (context) => OrderRoute.child,
+    OrderRoute.orderCompletedRoute : (context) => OrderRoute.completedChild,
+    JobRoute.route : (context) => JobRoute.child,
+    ChatRoute.route : (context) => ChatRoute.child
   };
 }

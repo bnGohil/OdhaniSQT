@@ -8,10 +8,23 @@ extension CustomTextStyle on TextStyle{
       fontWeight: FontWeight.w400
   );
 
+  static TextStyle get regularFont14Style=> TextStyle(
+      color: kTextPrimaryColor,
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w400
+  );
+
 
   static TextStyle get semiBoldFont14Style=> TextStyle(
       color: kBlackColor,
       fontSize: 14.sp,
+      fontWeight: FontWeight.w600
+  );
+
+
+  static TextStyle get semiBoldFont18Style=> TextStyle(
+      color: kBlackColor,
+      fontSize: 18.sp,
       fontWeight: FontWeight.w600
   );
 
@@ -135,6 +148,12 @@ extension CustomTextStyle on TextStyle{
   static TextStyle get semiBoldRegularFont16Style=> TextStyle(
       color: kTextPrimaryColor,
       fontSize: 16.sp,
+      fontWeight: FontWeight.w600
+  );
+
+  static TextStyle get semiBoldRegularFont24Style=> TextStyle(
+      color: kTextPrimaryColor,
+      fontSize: 24.sp,
       fontWeight: FontWeight.w600
   );
 
