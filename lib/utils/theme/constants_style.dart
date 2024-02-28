@@ -138,6 +138,8 @@ extension CustomTextStyle on TextStyle{
       fontWeight: FontWeight.w600
   );
 
+
+
   static TextStyle get hintTextStyle=> TextStyle(
       color: kTextPrimaryColor,
       fontSize: 16.sp,

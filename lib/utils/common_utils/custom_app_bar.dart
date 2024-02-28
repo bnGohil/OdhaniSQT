@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget{
   final double? height;
@@ -50,15 +51,34 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget{
                 ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.all(14.sp),
-              decoration: BoxDecoration(
-                color: kWhiteColor,
-                borderRadius: BorderRadius.circular(100),
-                border: Border.all(color: kBorderColor),
-              ),
-              child: action,
-            ),
+            Stack(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(14.sp),
+                  decoration: BoxDecoration(
+                    color: kWhiteColor,
+                    borderRadius: BorderRadius.circular(100),
+                    border: Border.all(color: kBorderColor),
+                  ),
+                  child: action,
+                ),
+                Positioned(
+                  right: 0,
+                  child: Container(
+                    padding: EdgeInsets.only(right: 8.sp,top: 2.sp),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: kPrimaryColor
+                      ),
+                      height: 7.sp,
+                      width: 7.sp,
+                    ),
+                  ),
+                )
+
+              ],
+            )
 
           ],
         ),

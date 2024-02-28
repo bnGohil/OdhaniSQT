@@ -6,5 +6,7 @@ class Routes {
     AuthRoute.introRoute : (context) => AuthRoute.introChild,
     AuthRoute.signUpRoute : (context) => AuthRoute.signUpChild,
     TabRoute.route : (context) => TabRoute.child,
+    NotificationRoute.route : (context) => NotificationRoute.child,
+    JobRoute.route : (context) => JobRoute.child
   };
 }
