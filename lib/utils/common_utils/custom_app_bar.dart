@@ -6,8 +6,9 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget{
   final double? height;
   final Widget? leading;
   final Widget? action;
+  final Widget? actionWidget;
   final String? title;
-  const CustomAppbar({super.key, this.height, this.leading, this.title, this.action});
+  const CustomAppbar({super.key, this.height, this.leading, this.title, this.action, this.actionWidget});
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +52,9 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget{
                 ),
               ),
             ),
+            actionWidget != null ? Container(
+              child: actionWidget,
+            ) :
             Stack(
               children: [
                 Container(

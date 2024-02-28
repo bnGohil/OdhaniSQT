@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:odhani_design_sqt/app/tab/domian/tab_model.dart';
-import 'package:odhani_design_sqt/utils/common_utils/custom_tabbar_view.dart';
+import 'package:odhani_design_sqt/app/order/route/order_route.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
-
 import '../../../utils/common_utils/custom_app_bar.dart';
 import '../../app_custom_component/jobs_and_order_card.dart';
 import '../../home/domian/dummy/jobs_and_order_dummy_model.dart';
+import 'package:odhani_design_sqt/utils/common_utils/custom_tabbar_view.dart';
+
 class OrderPage extends StatefulWidget {
   const OrderPage({super.key});
 
@@ -32,10 +32,22 @@ class _OrderPageState extends State<OrderPage> {
           child: ImageUtil.iconImageClass.searchIcon,
         ),
         title: "Order",
-        action: SizedBox(
-          child: ImageUtil.iconImageClass.notificationIcon,
+        actionWidget: GestureDetector(
+          onTap: (){
+            OrderRoute.goToCreateOrderPage(context);
+          },
+          child: Container(
+            padding: EdgeInsets.all(10.sp),
+            decoration: BoxDecoration(
+              color: kWhiteColor,
+              borderRadius: BorderRadius.circular(100),
+              border: Border.all(color: kBorderColor),
+            ),
+            child: CustomSvgPictures.asset("$iconPath/add.svg", fit: BoxFit.cover,color: Colors.black,height: 30.sp,width: 30.sp,),
+          ),
         ),
       ),
+
       body: Column(
         children: [
           SizedBox(height: 5.sp,),

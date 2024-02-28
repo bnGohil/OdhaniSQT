@@ -8,6 +8,8 @@ class Routes {
     AuthRoute.forgotRoute : (context) => AuthRoute.forgotChild,
     AuthRoute.changePasswordRoute : (context) => AuthRoute.changePasswordChild,
     TabRoute.route : (context) => TabRoute.child,
+    JobRoute.route : (context) => JobRoute.child,
+    OrderRoute.createOrderRoute: (context) => OrderRoute.createOrderChild,
     NotificationRoute.route : (context) => NotificationRoute.child,
     OrderRoute.orderDetailRoute : (context) => OrderRoute.child,
     OrderRoute.orderCompletedRoute : (context) => OrderRoute.completedChild,
