@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:odhani_design_sqt/app/auth/route/auth_route/auth_route.dart';
 import 'package:odhani_design_sqt/app/tab/route/tab_route.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 import '../../../../base/view/base_components/custom_button.dart';
@@ -101,7 +102,9 @@ class _SignInScreenState extends State<SignInScreen> {
                             Align(
                               alignment: Alignment.centerRight,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  AuthRoute.goToForgotPage(context);
+                                },
                                 child: Text(
                                 "Forgot Password?",
                                 style: CustomTextStyle.mainColorRegularFont18Style.copyWith(fontSize: 16.sp),
@@ -197,4 +200,79 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
+
+   forgotBottomView({Key? key}){
+    return showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return  Padding(
+          padding:  EdgeInsets.symmetric(horizontal: 20.sp),
+          child: Form(
+            key: key,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+
+                Text("Forgot Password", style: CustomTextStyle.mainColorBoldFont18Style),
+
+                // SizedBox(
+                //   height: 170.sp,
+                //   width: 160.sp,
+                //   child: ImageUtil.imageClass.forgotImage,
+                // ),
+
+                SizedBox(height: 50.sp),
+
+                Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 15.sp),
+                  child: Text(
+                    "Enter the email associated with your account and we’ll send an email with instructions to reset your password.",
+                    style: CustomTextStyle.blackRegularFont16Style,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+
+                SizedBox(height: 30.sp),
+
+                CustomTextField(
+                  maxLength: 50,
+                  // focusNode: emailNode,
+                  controller: emailController,
+                  hint: "Enter Email",
+                  isOptional: false,
+                  isEnable: true,
+                  inputType: TextInputType.emailAddress,
+                  name: "Email Address",
+                  regex: StringValidation.emailValidation,
+                  textInputAction: TextInputAction.next,
+                  onEditingComplete: () {
+                    // emailNode.unfocus();
+                  },
+                ),
+
+                SizedBox(height: 30.sp),
+
+                CustomButton(
+                  onTap: (){
+                    // TabRoute.goToTabPage(context);
+                  },
+                  isLoading: false,
+                  btnColor: kPrimaryColor,
+                  btnText: "Send",
+                  textStyle: CustomTextStyle.whiteBoldFont18Style,
+                  radius: 100.sp,
+                  isBoxShadow: false,
+                ),
+
+                SizedBox(height: 15.sp),
+
+              ],
+            ),
+          ),
+        );
+      },
+
+    );
+  }
+
 }
