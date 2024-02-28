@@ -5,6 +5,7 @@ import 'package:odhani_design_sqt/app/tab/domian/tab_model.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 
 import '../../../utils/common_utils/custom_app_bar.dart';
+import '../../notification/route/notification_route.dart';
 import '../domian/dummy/jobs_and_order_dummy_model.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -29,9 +30,11 @@ class _HomePageState extends State<HomePage> {
             child: ImageUtil.iconImageClass.searchIcon,
           ),
           title: "Home",
-          action: SizedBox(
-            child: ImageUtil.iconImageClass.notificationIcon,
-          ),
+          action: GestureDetector(
+              onTap: () {
+                NotificationRoute.goToNotification(context);
+              },
+              child: ImageUtil.iconImageClass.notificationIcon),
         ),
       backgroundColor: kBackground,
       body: Padding(

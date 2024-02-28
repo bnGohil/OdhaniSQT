@@ -25,6 +25,7 @@ class _MenuPageState extends State<MenuPage> {
       appBar: AppBar(
         scrolledUnderElevation: 0,
         toolbarHeight: kToolbarHeight + 110.sp,
+      automaticallyImplyLeading: false,
       flexibleSpace: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.sp),
         decoration: BoxDecoration(
@@ -32,7 +33,7 @@ class _MenuPageState extends State<MenuPage> {
               topLeft: Radius.circular(25.sp),
             topRight: Radius.circular(25.sp),
           ),
-          image: DecorationImage(image: AssetImage("assets/images/graphics/card_back_ground.png"),fit: BoxFit.fill)
+          image: const DecorationImage(image: AssetImage("assets/images/graphics/card_back_ground.png"),fit: BoxFit.fill)
         ),
         child: SafeArea(
           child: Column(
