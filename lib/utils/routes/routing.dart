@@ -5,6 +5,8 @@ class Routes {
     AuthRoute.signInRoute : (context) => AuthRoute.signInChild,
     AuthRoute.introRoute : (context) => AuthRoute.introChild,
     AuthRoute.signUpRoute : (context) => AuthRoute.signUpChild,
+    AuthRoute.forgotRoute : (context) => AuthRoute.forgotChild,
+    AuthRoute.changePasswordRoute : (context) => AuthRoute.changePasswordChild,
     TabRoute.route : (context) => TabRoute.child,
   };
 }
