@@ -57,6 +57,9 @@ class IconImageClass{
   Widget get cameraIcon =>  CustomSvgPictures.asset("$iconPath/camera.svg", fit: BoxFit.cover,width: 30.sp,height: 30.sp);
   Widget get galleryIcon => const CustomSvgPictures.asset("$iconPath/gallery.svg", fit: BoxFit.cover);
   Widget get calenderIcon =>  const CustomSvgPictures.asset("$iconPath/calander.svg", fit: BoxFit.cover);
+  Widget get stichIcon =>  const CustomSvgPictures.asset("$iconPath/stich.svg", fit: BoxFit.cover);
+  Widget get rupeesIcon =>  const CustomSvgPictures.asset("$iconPath/rup.svg", fit: BoxFit.cover);
+  Widget get rupees2Icon =>  const CustomSvgPictures.asset("$iconPath/rupee_2.svg", fit: BoxFit.cover);
   Widget get backArrowIcon =>  CustomSvgPictures.asset("$iconPath/left_arrow.svg", fit: BoxFit.cover,color: kBlackColor,width: 30.sp,height: 30.sp,);
 }
 

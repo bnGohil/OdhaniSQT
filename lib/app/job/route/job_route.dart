@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
-
-import '../../notification/view/notification_page.dart';
+import 'package:odhani_design_sqt/app/job/view/job_detail_page.dart';
 
 class JobRoute{
 
-  static String route = "/job_details_route";
+  static String route = "job_route";
 
-  static Widget child = const NotificationPage();
+  static Widget child = const JobDetailsPage();
 
-  static goToNotification(BuildContext context){
+  static goToJobDetailsPage(BuildContext context){
     Navigator.pushNamed(context,route);
   }
 

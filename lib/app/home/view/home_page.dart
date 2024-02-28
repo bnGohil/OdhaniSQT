@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:odhani_design_sqt/app/app_custom_component/jobs_and_order_card.dart';
 import 'package:odhani_design_sqt/app/home/component/home_grid_card.dart';
+import 'package:odhani_design_sqt/app/job/route/job_route.dart';
 import 'package:odhani_design_sqt/app/tab/domian/tab_model.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 
 import '../../../utils/common_utils/custom_app_bar.dart';
 import '../../notification/route/notification_route.dart';
+import '../../order/route/order_route.dart';
 import '../domian/dummy/jobs_and_order_dummy_model.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -53,8 +55,13 @@ class _HomePageState extends State<HomePage> {
                 itemCount: JobsAndOrderDummyModel.jobsListData.length,
                 itemBuilder: (context, index) {
                   final jobsAndOrderDummyModel = JobsAndOrderDummyModel.jobsListData[index];
-                return JobsAndOrderCardWidget(
-                  jobsAndOrderDummyModel: jobsAndOrderDummyModel,
+                return GestureDetector(
+                  onTap: () {
+                    JobRoute.goToJobDetailsPage(context);
+                  },
+                  child: JobsAndOrderCardWidget(
+                    jobsAndOrderDummyModel: jobsAndOrderDummyModel,
+                  ),
                 );
               },),
               SizedBox(height: 10.sp,),
@@ -65,8 +72,13 @@ class _HomePageState extends State<HomePage> {
                 itemCount: JobsAndOrderDummyModel.orderListData.length,
                 itemBuilder: (context, index) {
                   final jobsAndOrderDummyModel = JobsAndOrderDummyModel.orderListData[index];
-                  return JobsAndOrderCardWidget(
-                    jobsAndOrderDummyModel: jobsAndOrderDummyModel,
+                  return GestureDetector(
+                    onTap: () {
+                      OrderRoute.goToOrderDetailsPage(context);
+                    },
+                    child: JobsAndOrderCardWidget(
+                      jobsAndOrderDummyModel: jobsAndOrderDummyModel,
+                    ),
                   );
                 },),
             ],
