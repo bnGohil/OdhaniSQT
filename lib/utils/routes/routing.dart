@@ -10,6 +10,7 @@ class Routes {
     TabRoute.route : (context) => TabRoute.child,
     JobRoute.route : (context) => JobRoute.child,
     OrderRoute.createOrderRoute: (context) => OrderRoute.createOrderChild,
+    OrderRoute.createSubOrderDetailsRoute: (context) => OrderRoute.createSubOrderDetailsChild,
     NotificationRoute.route : (context) => NotificationRoute.child,
     OrderRoute.orderDetailRoute : (context) => OrderRoute.child,
     OrderRoute.orderCompletedRoute : (context) => OrderRoute.completedChild,

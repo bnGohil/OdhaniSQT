@@ -34,7 +34,9 @@ class _OrderPageState extends State<OrderPage> {
         title: "Order",
         actionWidget: GestureDetector(
           onTap: (){
-            OrderRoute.goToCreateOrderPage(context);
+            selectedIndex == 0
+                ? OrderRoute.goToCreateOrderPage(context)
+                : OrderRoute.goToCreateOrderPage(context);
           },
           child: Container(
             padding: EdgeInsets.all(10.sp),
@@ -55,6 +57,7 @@ class _OrderPageState extends State<OrderPage> {
             tabList: tabList,
             callBackFun: (p0) {
               setState(() {
+                selectedIndex = p0;
                 print("selected Po is $p0");
               });
             },

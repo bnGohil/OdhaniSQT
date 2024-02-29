@@ -1,21 +1,21 @@
 import 'dart:io';
 
+import 'package:intl/intl.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:intl/intl.dart';
+import 'package:odhani_design_sqt/app/order/route/order_route.dart';
+import '../../component/form_to_datepicker.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
-import 'package:provider/provider.dart';
-
-import '../../../base/domin/asset/asset_model.dart';
-import '../../../base/view/base_components/auto_suggestion_textfield.dart';
-import '../../../base/view/base_components/custom_auto_suggestion_textfield.dart';
-import '../../../base/view/base_components/multi_selection_photo.dart';
-import '../../../utils/common_utils/custom_app_bar.dart';
-import '../../notification/route/notification_route.dart';
-import '../component/form_to_datepicker.dart';
-import 'demo_screen.dart';
+import '../../../../base/domin/asset/asset_model.dart';
+import '../../../../utils/common_utils/custom_app_bar.dart';
+import '../../../notification/route/notification_route.dart';
+import '../../../../base/view/base_components/custom_button.dart';
+import '../../../../base/view/base_components/multi_selection_photo.dart';
+import '../../../../base/view/base_components/auto_suggestion_textfield.dart';
+import '../../../../base/view/base_components/custom_auto_suggestion_textfield.dart';
+import 'package:odhani_design_sqt/app/order/component/chip_textfield.dart';
 
 class CreateOrderScreen extends StatefulWidget {
   const CreateOrderScreen({super.key});
@@ -58,6 +58,22 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
 
   final FocusNode stateFocus = FocusNode();
   final TextEditingController stateController = TextEditingController();
+
+
+  final FocusNode productNameFocus = FocusNode();
+  final TextEditingController productNameController = TextEditingController();
+
+  final FocusNode productQuantityFocus = FocusNode();
+  final TextEditingController productQuantityController = TextEditingController();
+
+  final FocusNode productPriceFocus = FocusNode();
+  final TextEditingController productPriceController = TextEditingController();
+
+  final FocusNode advancePaymentFocus = FocusNode();
+  final TextEditingController advancePaymentController = TextEditingController();
+
+  final FocusNode descriptionFocus = FocusNode();
+  final TextEditingController descriptionController = TextEditingController();
 
 
   var suggestions = <String>[];
@@ -480,7 +496,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                   suggestions: empty.map((e) => SearchFieldListItem<String>(e, child: searchChild(e))).toList(),
                   // controller: ,
                   hint: "Product Name",
-                  focusNode: addressFocus ,
+                  focusNode: productNameFocus ,
                   onSearchTextChanged: (query) {
                     final filter = empty
                         .where((element) =>
@@ -503,8 +519,8 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                   headerText: "Product Quantity",
                   suggestions: empty.map((e) => SearchFieldListItem<String>(e, child: searchChild(e))).toList(),
                   // controller: ,
-                  hint: "Product Name",
-                  focusNode: addressFocus ,
+                  hint: "Product Quantity",
+                  focusNode: productQuantityFocus ,
                   onSearchTextChanged: (query) {
                     final filter = empty
                         .where((element) =>
@@ -520,6 +536,10 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                   //   child: Icon(Icons.arrow_drop_down),
                   // ),
                 ),
+
+                SizedBox(height: 10.sp),
+
+                ChipTextField(selectedList: []),
 
                 SizedBox(height: 10.sp),
 
@@ -646,7 +666,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                   suggestions: empty.map((e) => SearchFieldListItem<String>(e, child: searchChild(e))).toList(),
                   // controller: ,
                   hint: "Price",
-                  focusNode: addressFocus ,
+                  focusNode: productPriceFocus ,
                   onSearchTextChanged: (query) {
                     final filter = empty
                         .where((element) =>
@@ -670,7 +690,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                   suggestions: empty.map((e) => SearchFieldListItem<String>(e, child: searchChild(e))).toList(),
                   // controller: ,
                   hint: "Advance Payment",
-                  focusNode: addressFocus ,
+                  focusNode: advancePaymentFocus ,
                   onSearchTextChanged: (query) {
                     final filter = empty
                         .where((element) =>
@@ -695,7 +715,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                   // controller: ,
                   hint: "Description",
                   maxLine: 4,
-                  focusNode: addressFocus ,
+                  focusNode: descriptionFocus ,
                   onSearchTextChanged: (query) {
                     final filter = empty
                         .where((element) =>
@@ -743,6 +763,25 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
 
 
         ],
+      ),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20.sp),
+          height: 70.sp,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomButton(
+                radius: 100.sp,
+                btnText: "Next",
+                onTap: () {
+                  OrderRoute.goToCreateSubOrderDetails(context);
+                  // ChatRoute.goToChatPage(context);
+                },
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
