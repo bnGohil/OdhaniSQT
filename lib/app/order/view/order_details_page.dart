@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:odhani_design_sqt/app/app_custom_component/app_bar_component.dart';
+import 'package:odhani_design_sqt/app/job/route/job_route.dart';
 import 'package:odhani_design_sqt/base/view/base_components/custom_button.dart';
 import 'package:odhani_design_sqt/utils/common_utils/custom_tabbar_view.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
@@ -222,6 +223,9 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
             CustomButton(
               radius: 100.sp,
               btnText: "Create Job Order",
+              onTap: (){
+                JobRoute.goToCreateJobPage(context);
+              },
             ),
           ],
         ),

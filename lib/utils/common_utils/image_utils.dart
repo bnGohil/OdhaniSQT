@@ -50,7 +50,7 @@ class IconImageClass{
   Widget get notificationIcon => const CustomSvgPictures.asset("$iconPath/notification.svg", fit: BoxFit.cover);
   Widget get rightArrowIcon => const CustomSvgPictures.asset("$iconPath/right_arrow.svg", fit: BoxFit.cover);
   Widget get profileEditIcon => const CustomSvgPictures.asset("$iconPath/edit.svg", fit: BoxFit.cover);
-  Widget get circleCancelIcon => const CustomSvgPictures.asset("$iconPath/circle_cancel.svg",fit: BoxFit.cover);
+  Widget get circleCancelIcon => const CustomSvgPictures.asset("$iconPath/circle_cancel.svg",fit: BoxFit.cover,color: Colors.white,);
   Widget get closeBottomSheetIcon => const CustomSvgPictures.asset("$iconPath/close_icon.svg", fit: BoxFit.cover);
   Widget get deleteIcon => const CustomSvgPictures.asset("$iconPath/delete.svg", fit: BoxFit.cover,color: kWhiteColor,);
   Widget get dressIcon => const CustomSvgPictures.asset("$iconPath/dress.svg", fit: BoxFit.cover);

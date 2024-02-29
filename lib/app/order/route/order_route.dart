@@ -12,11 +12,8 @@ class OrderRoute{
 
 
   static String createOrderRoute = "create_order";
+
   static String createSubOrderDetailsRoute = "create_order_sub_order";
-
-
-
-
 
   static String orderDetailRoute = "/order_details_route";
 
