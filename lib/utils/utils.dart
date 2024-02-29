@@ -17,6 +17,7 @@ import 'package:odhani_design_sqt/app/tab/route/tab_route.dart';
 import '../app/auth/route/auth_route/auth_route.dart';
 
 import '../app/chat/route/chat_route.dart';
+import '../app/customer_list/route/customer_route.dart';
 import '../app/job/route/job_route.dart';
 import '../app/notification/route/notification_route.dart';
 import '../app/order/route/order_route.dart';

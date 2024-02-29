@@ -120,6 +120,12 @@ enum MenuType{
   Logout
 }
 
+enum ScreenType{
+
+  CUSTOMER,AGENCY
+
+}
+
 
 extension MenuTypeEx on MenuType{
 

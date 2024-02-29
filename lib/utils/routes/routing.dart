@@ -19,6 +19,8 @@ class Routes {
     ProfileRoute.route : (context) => ProfileRoute.child,
     ProfileRoute.editRoute : (context) => ProfileRoute.editChild,
     PersonalRoute.route : (context) => PersonalRoute.child,
-    PersonalRoute.editPerRoute : (context) => PersonalRoute.editChild
+    PersonalRoute.editPerRoute : (context) => PersonalRoute.editChild,
+    CustomerRoute.route : (context) => CustomerRoute.child,
+    CustomerRoute.customerOrderRoute : (context) => CustomerRoute.customerOrderChild,
   };
 }
