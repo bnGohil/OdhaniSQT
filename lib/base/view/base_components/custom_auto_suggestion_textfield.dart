@@ -13,10 +13,11 @@ class CustomAutoSearchTextField<T> extends StatefulWidget {
   final TextEditingController? controller;
   final String? hint;
   final int? maxLine;
+  final TextInputAction? textInputAction;
   final String? headerText;
   final Widget? suffixIcon;
 
-  const CustomAutoSearchTextField({super.key, this.onSearchTextChanged, this.hint, this.suggestionStyle, this.searchStyle, this.searchInputDecoration, this.focusNode, this.controller, required this.suggestions, this.suffixIcon, this.headerText, this.maxLine});
+  const CustomAutoSearchTextField({super.key, this.onSearchTextChanged, this.hint, this.suggestionStyle, this.searchStyle, this.searchInputDecoration, this.focusNode, this.controller, required this.suggestions, this.suffixIcon, this.headerText, this.maxLine, this.textInputAction});
 
   @override
   State<CustomAutoSearchTextField> createState() => _CustomAutoSearchTextFieldState();
@@ -35,7 +36,6 @@ class _CustomAutoSearchTextFieldState extends State<CustomAutoSearchTextField> {
           maxLine: widget.maxLine,
           suggestionDirection: SuggestionDirection.flex,
           onSearchTextChanged: widget.onSearchTextChanged ,
-
           //     ?? (query) {
           //   final filter = suggestions
           //       .where((element) =>
@@ -47,6 +47,7 @@ class _CustomAutoSearchTextFieldState extends State<CustomAutoSearchTextField> {
           //       .toList();
           // },
           onTap: () {},
+
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (value) {
             if (value == null ||
@@ -65,6 +66,7 @@ class _CustomAutoSearchTextFieldState extends State<CustomAutoSearchTextField> {
           },
           suggestionStyle: widget.suggestionStyle ?? TextStyle(fontSize: 16.sp, color: Colors.white),
           searchStyle:widget.searchStyle ??  TextStyle(fontSize: 16.sp, color: Colors.black),
+          textInputAction: widget.textInputAction,
           searchInputDecoration: InputDecoration(
             hintStyle: TextStyle(fontSize: 16.sp, color: Colors.grey),
             isDense: true,

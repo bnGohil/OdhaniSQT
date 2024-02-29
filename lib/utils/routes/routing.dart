@@ -15,6 +15,10 @@ class Routes {
     OrderRoute.orderDetailRoute : (context) => OrderRoute.child,
     OrderRoute.orderCompletedRoute : (context) => OrderRoute.completedChild,
     JobRoute.route : (context) => JobRoute.child,
-    ChatRoute.route : (context) => ChatRoute.child
+    ChatRoute.route : (context) => ChatRoute.child,
+    ProfileRoute.route : (context) => ProfileRoute.child,
+    ProfileRoute.editRoute : (context) => ProfileRoute.editChild,
+    PersonalRoute.route : (context) => PersonalRoute.child,
+    PersonalRoute.editPerRoute : (context) => PersonalRoute.editChild
   };
 }

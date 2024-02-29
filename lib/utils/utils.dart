@@ -20,6 +20,8 @@ import '../app/chat/route/chat_route.dart';
 import '../app/job/route/job_route.dart';
 import '../app/notification/route/notification_route.dart';
 import '../app/order/route/order_route.dart';
+import '../app/personal/route/personal_route.dart';
+import '../app/profile/route/profile_route.dart';
 // import 'package:CravzRestaurant/app/lending/route/lending_route.dart';
 
 part 'common_utils/enums.dart';
