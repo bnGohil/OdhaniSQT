@@ -108,6 +108,51 @@ enum GetTermType {
 }
 
 
+enum MenuType{
+  BoutiqueDetail,
+  CustomerList,
+  AgencyList,
+  CompletedOrders,
+  Report,
+  Query,
+  Gallery,
+  DeleteAccount,
+  Logout
+}
+
+
+extension MenuTypeEx on MenuType{
+
+  String? get menuType {
+
+
+    switch(this){
+
+      case MenuType.BoutiqueDetail:
+        return "Boutique Detail";
+      case MenuType.CustomerList:
+        return "Customer List";
+      case MenuType.AgencyList:
+        return "Agency List";
+      case MenuType.CompletedOrders:
+        return "Completed Orders";
+      case MenuType.Report:
+        return "Reports";
+      case MenuType.Query:
+        return "Query";
+      case MenuType.Gallery:
+        return "Gallery";
+      case MenuType.DeleteAccount:
+        return "Delete Account";
+      case MenuType.Logout:
+        return "Logout";
+    }
+
+
+  }
+
+
+}
 
 
 

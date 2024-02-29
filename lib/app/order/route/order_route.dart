@@ -11,7 +11,7 @@ class OrderRoute{
   static String createOrderRoute = "create_order";
 
 
-  static Widget child = const TabPage();
+
   static Widget createOrderChild = const CreateOrderScreen();
 
   static String orderDetailRoute = "/order_details_route";
