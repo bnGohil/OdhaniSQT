@@ -33,7 +33,7 @@ class _CustomAutoSearchTextFieldState extends State<CustomAutoSearchTextField> {
         SizedBox(height: widget.headerText == null ? 0 : 6.sp),
         SearchField(
           controller: widget.controller,
-          maxLine: widget.maxLine,
+          maxLine: widget.maxLine ?? 1,
           suggestionDirection: SuggestionDirection.flex,
           onSearchTextChanged: widget.onSearchTextChanged ,
           //     ?? (query) {
