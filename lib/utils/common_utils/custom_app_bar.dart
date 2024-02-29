@@ -52,6 +52,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget{
                 ),
               ),
             ),
+            if(action != null)
             actionWidget != null ? Container(
               child: actionWidget,
             ) :

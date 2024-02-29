@@ -6,7 +6,7 @@ class MenuModel{
 
   static List<MenuModel> menuList = [
     MenuModel(menuType: MenuType.BoutiqueDetail),
-    MenuModel(menuType: MenuType.CompletedOrders),
+    MenuModel(menuType: MenuType.CustomerList),
     MenuModel(menuType: MenuType.AgencyList),
     MenuModel(menuType: MenuType.CompletedOrders),
     MenuModel(menuType: MenuType.Report),

@@ -10,6 +10,9 @@ import '../../../base/view/base_components/custom_button.dart';
 import '../../../base/view/base_components/custom_image_picker.dart';
 import '../../../base/view/base_components/image_placeholder.dart';
 import '../../../utils/common_utils/custom_app_bar.dart';
+import '../../../utils/common_utils/custom_chipe_widget.dart';
+import '../../order/component/chip_textfield.dart';
+import '../domian/personal_user_chip_model.dart';
 class EditPersonalDetailsPage extends StatefulWidget {
   const EditPersonalDetailsPage({super.key});
 
@@ -21,6 +24,18 @@ class _EditPersonalDetailsPageState extends State<EditPersonalDetailsPage> {
 
   CustomImagePicker customImagePicker = CustomImagePicker();
 
+
+
+  List<PersonalChipData> updateTimeList = [
+
+    // PersonalChipData(text: "Choli"),
+
+  ];
+
+  List<PersonalChipData> apiList = [
+    PersonalChipData(text: "Choli"),
+    PersonalChipData(text: "Kurti"),
+  ];
 
 
   File? file;
@@ -73,6 +88,7 @@ class _EditPersonalDetailsPageState extends State<EditPersonalDetailsPage> {
         padding: EdgeInsets.symmetric(horizontal: 20.sp),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Align(
                 alignment: Alignment.center,
@@ -169,6 +185,14 @@ class _EditPersonalDetailsPageState extends State<EditPersonalDetailsPage> {
                 // ),
               ),
               SizedBox(height: 10.sp,),
+              Text("Product Type",style: CustomTextStyle.mediumFont18Style,),
+              SizedBox(height: 5.sp,),
+              CustomChipeWidget(
+                list: updateTimeList,
+                apiList: apiList,
+                hintText: "Product Type",
+              ),
+              SizedBox(height: 10.sp),
               CustomAutoSearchTextField(
                 headerText: "Website URL",
                 maxLine: 1,

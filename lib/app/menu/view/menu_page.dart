@@ -6,6 +6,7 @@ import 'package:odhani_design_sqt/app/personal/route/personal_route.dart';
 import 'package:odhani_design_sqt/app/tab/domian/tab_model.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 
+import '../../customer_list/route/customer_route.dart';
 import '../../profile/route/profile_route.dart';
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -119,9 +120,9 @@ class _MenuPageState extends State<MenuPage> {
               case MenuType.BoutiqueDetail:
                 PersonalRoute.goToPersonalDetailsPage(context);
               case MenuType.CustomerList:
-                // TODO: Handle this case.
+                CustomerRoute.goToCustomerListPage(context,ScreenType.CUSTOMER);
               case MenuType.AgencyList:
-                // TODO: Handle this case.
+                CustomerRoute.goToCustomerListPage(context,ScreenType.AGENCY);
               case MenuType.CompletedOrders:
                 // TODO: Handle this case.
               case MenuType.Report:
@@ -135,7 +136,7 @@ class _MenuPageState extends State<MenuPage> {
               case MenuType.Logout:
                 // TODO: Handle this case.
               case null:
-              // TODO: Handle this case.
+              print("TYerst ");
             }
           },
           child: Column(
