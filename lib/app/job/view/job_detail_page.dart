@@ -499,43 +499,45 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.sp),
-        height: 100.sp,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: CustomButton(
-                    btnColor: kLightWhiteColor,
-                    radius: 100.sp,
-                    onTap: () {
-                      if(workingStatus == WorkingStatus.COMPLETED){
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20.sp),
+          height: 100.sp,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: CustomButton(
+                      btnColor: kLightWhiteColor,
+                      radius: 100.sp,
+                      onTap: () {
+                        if(workingStatus == WorkingStatus.COMPLETED){
 
-                        OrderRoute.goToCompletedOrder(context);
+                          OrderRoute.goToCompletedOrder(context);
 
-                      }
-                    },
-                    textStyle: CustomTextStyle.mediumFont18Style,
-                    btnText: workingStatus == WorkingStatus.PENDING ?  "Cancel Order" : workingStatus?.title,
-                    isBoxShadow: false,
+                        }
+                      },
+                      textStyle: CustomTextStyle.mediumFont18Style,
+                      btnText: workingStatus == WorkingStatus.PENDING ?  "Cancel Order" : workingStatus?.title,
+                      isBoxShadow: false,
+                    ),
                   ),
-                ),
-                SizedBox(width: 10.sp,),
-                Expanded(
-                  child: CustomButton(
-                    radius: 100.sp,
-                    btnText: "Query Log",
-                    onTap: () {
-                      ChatRoute.goToChatPage(context);
-                    },
+                  SizedBox(width: 10.sp,),
+                  Expanded(
+                    child: CustomButton(
+                      radius: 100.sp,
+                      btnText: "Query Log",
+                      onTap: () {
+                        ChatRoute.goToChatPage(context);
+                      },
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
