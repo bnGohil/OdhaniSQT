@@ -1,43 +1,28 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
+import 'package:odhani_design_sqt/base/view/base_components/custom_auto_suggestion_textfield.dart';
 
-import '../../../base/view/base_components/custom_auto_suggestion_textfield.dart';
 import '../../../base/view/base_components/multi_selection_photo.dart';
 import '../../../utils/utils.dart';
-import 'chip_textfield.dart';
-import 'form_to_datepicker.dart';
+import '../../order/component/chip_textfield.dart';
+import '../../order/component/form_to_datepicker.dart';
 
-class OrderDetailsCustomView extends StatefulWidget {
-  CustomOrderDetailsModel? customOrderDetailsData;
+class JobDetailCustomView extends StatefulWidget {
+  CustomJobDetailsModel? customJobDetailsData;
   final GestureTapCallback? onTap;
-  OrderDetailsCustomView({Key? key,this.customOrderDetailsData, this.onTap}) : super(key: key);
+   JobDetailCustomView({super.key,this.customJobDetailsData, this.onTap});
 
   @override
-  _OrderDetailsCustomViewState createState() {
-    return _OrderDetailsCustomViewState();
-  }
+  State<JobDetailCustomView> createState() => _JobDetailCustomViewState();
 }
 
-class _OrderDetailsCustomViewState extends State<OrderDetailsCustomView> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
+class _JobDetailCustomViewState extends State<JobDetailCustomView> {
   @override
   Widget build(BuildContext context) {
-
-    return Column(
+     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Order Detail",style: CustomTextStyle.blackMediumFont16Style.copyWith(fontSize: 20.sp),),
+        Text("Agency",style: CustomTextStyle.blackMediumFont16Style.copyWith(fontSize: 20.sp),),
 
         Stack(
           children: [
@@ -53,16 +38,16 @@ class _OrderDetailsCustomViewState extends State<OrderDetailsCustomView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 10.sp),
+
                       FromToDatePicker(
                         startDate: CustomDatePickerWidget(
-                            initialDate: widget.customOrderDetailsData?.orderDate,
+                            initialDate: widget.customJobDetailsData?.jobOrderDate,
                             firstDate: DateTime(1800),
                             lastDate: DateTime.now(),
                             radius: 8,
                             onSelectedDateTime: (p0) async{
                               setState((){
-                                widget.customOrderDetailsData?.orderDate = p0;
+                                widget.customJobDetailsData?.jobOrderDate = p0;
                               });
                               // try{
                               //   final reportProvider = context.read<ReportProvider>();
@@ -79,19 +64,19 @@ class _OrderDetailsCustomViewState extends State<OrderDetailsCustomView> {
 
                             shoDatePicker: false,
 
-                            name: widget.customOrderDetailsData?.orderDate != null
-                                ? DateFormat("dd/MM/yyyy").format(widget.customOrderDetailsData?.orderDate ?? DateTime.now())
-                                : "Start Date"),
+                            name: widget.customJobDetailsData?.jobOrderDate != null
+                                ? DateFormat("dd/MM/yyyy").format(widget.customJobDetailsData?.jobOrderDate ?? DateTime.now())
+                                : "Order Date"),
 
 
                         lastDate: CustomDatePickerWidget(
-                            initialDate: widget.customOrderDetailsData?.deliveryDate,
-                            firstDate: widget.customOrderDetailsData?.orderDate,
+                            initialDate: widget.customJobDetailsData?.jobDeliveryDate,
+                            firstDate: widget.customJobDetailsData?.jobOrderDate,
                             lastDate: DateTime.now(),
                             radius: 8,
                             onSelectedDateTime: (p0) async{
                               setState((){
-                                widget.customOrderDetailsData?.deliveryDate = p0;
+                                widget.customJobDetailsData?.jobDeliveryDate = p0;
                               });
 
                               // try{
@@ -106,19 +91,48 @@ class _OrderDetailsCustomViewState extends State<OrderDetailsCustomView> {
                               // }
                             },
                             shoDatePicker: false,
-                            name:  widget.customOrderDetailsData?.deliveryDate != null
-                                ? DateFormat("dd/MM/yyyy").format( widget.customOrderDetailsData?.deliveryDate ?? DateTime.now())
-                                : "End Date"),
+                            name:  widget.customJobDetailsData?.jobDeliveryDate != null
+                                ? DateFormat("dd/MM/yyyy").format( widget.customJobDetailsData?.jobDeliveryDate ?? DateTime.now())
+                                : "Delivery Date"),
                       ),
 
                       SizedBox(height: 10.sp),
 
                       CustomAutoSearchTextField(
-                        headerText: "Product Name",
+                        headerText: "Agency Name",
                         suggestions: [],
                         // controller: ,
-                        hint: "Product Name",
-                        focusNode: widget.customOrderDetailsData?.productFN ,
+                        hint: "Agency Name",
+                        focusNode: widget.customJobDetailsData?.agencyNameFN,
+                        controller: widget.customJobDetailsData?.agencyNameController,
+                        // onSearchTextChanged: (query) {
+                        //   final filter = empty
+                        //       .where((element) =>
+                        //       element.toLowerCase().contains(query.toLowerCase()))
+                        //       .toList();
+                        //   return filter
+                        //       .map((e) =>
+                        //       SearchFieldListItem<String>(e, child: searchChild(e)))
+                        //       .toList();
+                        // },
+                      ),
+
+                      SizedBox(height: 10.sp),
+
+                      ChipTextField(
+                        selectedList: [],
+                        apiList: materialList,
+                        headerText: "Select Services"
+                      ),
+
+                      SizedBox(height: 10.sp),
+
+                      CustomAutoSearchTextField(
+                        headerText: "Price",
+                        suggestions: [],
+                        // controller: ,
+                        hint: "Price",
+                        focusNode: widget.customJobDetailsData?.priceFN,
                         // onSearchTextChanged: (query) {
                         //   final filter = empty
                         //       .where((element) =>
@@ -134,95 +148,19 @@ class _OrderDetailsCustomViewState extends State<OrderDetailsCustomView> {
                       SizedBox(height: 10.sp),
 
                       CustomAutoSearchTextField(
-                        headerText: "Product Quantity",
-                        suggestions: [],
-                        // controller: ,
-                        hint: "Product Quantity",
-                        focusNode: widget.customOrderDetailsData?.productQuantityFN,
-                      ),
-
-                      SizedBox(height: 10.sp),
-
-                      ChipTextField(selectedList: []),
-
-                      SizedBox(height: 10.sp),
-
-                      Text("Attributes",style: CustomTextStyle.blackMediumFont16Style.copyWith(fontSize: 20.sp),),
-
-                      SizedBox(height: 10.sp),
-
-                      GridView.builder(
-                        itemCount: 4 ?? 0,
-                        shrinkWrap: true,
-                        padding: EdgeInsets.zero,
-                        physics: NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 5.sp,
-                          childAspectRatio: 2.3,
-                          crossAxisSpacing: 10.sp,
-                        ),
-                        itemBuilder: (context, index) {
-                          final itemFN = widget.customOrderDetailsData?.attributesList?[index].attributeFN;
-                          final itemController = widget.customOrderDetailsData?.attributesList?[index].attributeController;
-
-                          return  CustomAutoSearchTextField(
-                            headerText: "Attribute$index",
-                            suggestions: [],
-                            hint: "Attribute$index",
-                            focusNode: itemFN ,
-                            controller: itemController,
-                            // onSearchTextChanged: (query) {
-                            //   final filter = empty
-                            //       .where((element) =>
-                            //       element.toLowerCase().contains(query.toLowerCase()))
-                            //       .toList();
-                            //   return filter
-                            //       .map((e) =>
-                            //       SearchFieldListItem<String>(e, child: searchChild(e)))
-                            //       .toList();
-                            // },
-                          );
-                        },
-                      ),
-
-                      SizedBox(height: 10.sp),
-
-                      CustomAutoSearchTextField(
-                        headerText: "Price",
-                        suggestions: [],
-                        controller: widget.customOrderDetailsData?.priceController,
-                        hint: "Price",
-                        focusNode: widget.customOrderDetailsData?.priceFN ,
-                      ),
-
-                      SizedBox(height: 10.sp),
-
-                      CustomAutoSearchTextField(
-                        headerText: "Advance Payment",
-                        suggestions: [],
-                        hint: "Advance Payment",
-                        focusNode: widget.customOrderDetailsData?.advicePayFN ,
-                        controller: widget.customOrderDetailsData?.advicePayController,
-
-                      ),
-
-                      SizedBox(height: 10.sp),
-
-                      CustomAutoSearchTextField(
                         headerText: "Description",
                         suggestions: [],
-                        controller:widget.customOrderDetailsData?.descriptionController  ,
+                        controller:widget.customJobDetailsData?.descriptionController  ,
                         hint: "Description",
                         maxLine: 4,
-                        focusNode: widget.customOrderDetailsData?.descriptionFN ,
+                        focusNode: widget.customJobDetailsData?.descriptionFN ,
                       ),
 
                       SizedBox(height: 10.sp),
 
                       MultiSelectionImage(
-                        apiImgList: widget.customOrderDetailsData?.imageList,
-                        imageFileList: widget.customOrderDetailsData?.imageFileList,
+                        apiImgList: widget.customJobDetailsData?.imageList,
+                        imageFileList: widget.customJobDetailsData?.imageFileList,
                         imageFileDataTap: (val){
                           setState(() {});
                         },
@@ -271,6 +209,3 @@ class _OrderDetailsCustomViewState extends State<OrderDetailsCustomView> {
     );
   }
 }
-
-
-

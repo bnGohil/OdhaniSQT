@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:odhani_design_sqt/app/job/view/create_job_order_screen.dart';
+import 'package:odhani_design_sqt/app/job/view/create_job/create_job_order_screen.dart';
+import 'package:odhani_design_sqt/app/job/view/create_job/sub_job_order_details.dart';
 import 'package:odhani_design_sqt/app/job/view/job_detail_page.dart';
 
 class JobRoute{
@@ -7,7 +8,12 @@ class JobRoute{
   static String route = "job_route";
   static String createJobRoute = "create_job_route";
 
+  static String subJobOrderDetailsJobRoute = "sub_job_order_route";
+
   static Widget child = const JobDetailsPage();
+
+  static Widget subJobDetailsOrderChild = const SubJobOrderDetails();
+
   static Widget createJobChild = const CreateJobOrderScreen();
 
   static goToJobDetailsPage(BuildContext context){
@@ -16,6 +22,10 @@ class JobRoute{
 
   static goToCreateJobPage(BuildContext context){
     Navigator.pushNamed(context,createJobRoute);
+  }
+
+  static goToSubJobOrderDetailPage(BuildContext context){
+    Navigator.pushNamed(context,subJobOrderDetailsJobRoute);
   }
 
 }

@@ -9,9 +9,10 @@ class MultiSelectChipOrder extends StatefulWidget {
   // final Function(List<TagData> selectedChoices)? onSelectionChanged;
   // final List<ServiceType>? selectedList;
   final List<String>? selectedList;
+  final List<String>? apiList;
   MultiSelectChipOrder({Key? key,
     // this.onSelectionChanged,
-     this.selectedList
+     this.selectedList, this.apiList
   }) : super(key: key);
 
   @override
@@ -21,7 +22,6 @@ class MultiSelectChipOrder extends StatefulWidget {
 }
 
 class _MultiSelectChipOrderState extends State<MultiSelectChipOrder> {
-
   // List<ServiceType> selectedChoices = [];
   List<String> selectedChoices = [];
 
@@ -74,7 +74,7 @@ class _MultiSelectChipOrderState extends State<MultiSelectChipOrder> {
                     child: Wrap(
                       runSpacing: 8,
                       spacing: 5,
-                      children: _buildChoiceList(),
+                      children: _buildChoiceList(mainList: widget.apiList ),
                     ),
                   ),
                 ],
@@ -116,7 +116,7 @@ class _MultiSelectChipOrderState extends State<MultiSelectChipOrder> {
     );
   }
 
-  _buildChoiceList() {
+  _buildChoiceList({List<String>? mainList}) {
     // final getTagProvider = context.watch<AuthProvider>();
 
     // final getTagRes = getTagProvider.getTagResponse.data?.data?.terms ?? [];
@@ -139,7 +139,7 @@ class _MultiSelectChipOrderState extends State<MultiSelectChipOrder> {
     //
     // }
 
-    return materialList.map((item) {
+    return mainList?.map((item) {
 
       // final isSelected = selectedChoices.map((e) => e.value ?? "").contains(item.value) == true;
       final isSelected = selectedChoices.map((e) => e ?? "").contains(item) == true;
@@ -178,7 +178,4 @@ class _MultiSelectChipOrderState extends State<MultiSelectChipOrder> {
       );
     }).toList();
   }
-
-
-  List<String> materialList = ["Canvas","Cloth","Khakhi","Linin","Cotton","Wool","Leather"];
 }

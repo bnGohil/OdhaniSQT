@@ -5,7 +5,4 @@ class PersonalChipData{
 
   PersonalChipData({this.index,this.text});
 
-
-
-
 }
