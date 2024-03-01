@@ -24,5 +24,10 @@ class Routes {
     CustomerRoute.route : (context) => CustomerRoute.child,
     CustomerRoute.customerOrderRoute : (context) => CustomerRoute.customerOrderChild,
     ReportRoute.route: (context) => ReportRoute.child,
-  };
+    OrderRoute.orderListCompletedRoute : (context) => OrderRoute.orderCompletedListChild,
+    OrderRoute.orderDetailsCompletedRoute : (context) => OrderRoute.orderDetailsCompletedChild,
+    QueryRoute.route : (context) => QueryRoute.child,
+    GalleryRoute.route : (context) => GalleryRoute.child
+
+ };
 }

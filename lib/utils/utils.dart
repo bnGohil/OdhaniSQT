@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:ui' as ui;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -15,19 +16,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:odhani_design_sqt/app/order/route/order_route.dart';
 import 'package:odhani_design_sqt/app/report/route/report_route.dart';
 import 'package:odhani_design_sqt/app/tab/route/tab_route.dart';
-
 import '../app/auth/route/auth_route/auth_route.dart';
-
 import '../app/chat/route/chat_route.dart';
 import '../app/customer_list/route/customer_route.dart';
+import '../app/gallery/route/gallery_route.dart';
 import '../app/job/route/job_route.dart';
 import '../app/notification/route/notification_route.dart';
 import '../app/order/route/order_route.dart';
 import '../app/personal/route/personal_route.dart';
 import '../app/profile/route/profile_route.dart';
 import '../app/report/commonent/custom_report_card.dart';
+import '../app/query/route/query_route.dart';
 import '../base/domin/asset/asset_model.dart';
-// import 'package:CravzRestaurant/app/lending/route/lending_route.dart';
 
 part 'common_utils/enums.dart';
 part 'common_utils/image_utils.dart';
