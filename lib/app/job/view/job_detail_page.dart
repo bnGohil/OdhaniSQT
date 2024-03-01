@@ -283,7 +283,7 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
       bottomNavigationBar: SafeArea(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20.sp),
-          height: 100.sp,
+          height: 70.sp,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
