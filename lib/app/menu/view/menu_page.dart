@@ -146,10 +146,10 @@ class _MenuPageState extends State<MenuPage> {
                       break;
 
                     case MenuType.Query:
-                    // TODO: Handle this case.
+                    QueryRoute.goToQueryPage(context);
                       break;
                     case MenuType.Gallery:
-                      // return ;
+                      GalleryRoute.goToGalleryPage(context);
                       break;
                     case MenuType.DeleteAccount:
                       // return ;
