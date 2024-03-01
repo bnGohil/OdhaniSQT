@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:odhani_design_sqt/app/menu/domian/menu_model.dart';
 import 'package:odhani_design_sqt/app/personal/route/personal_route.dart';
+import 'package:odhani_design_sqt/app/report/route/report_route.dart';
 import 'package:odhani_design_sqt/app/tab/domian/tab_model.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 
+import '../../../base/view/base_components/custom_option_bottom_sheet.dart';
 import '../../customer_list/route/customer_route.dart';
 import '../../profile/route/profile_route.dart';
 class MenuPage extends StatefulWidget {
@@ -114,44 +116,74 @@ class _MenuPageState extends State<MenuPage> {
         itemCount: MenuModel.menuList.length,
         itemBuilder: (context, index) {
         final menu = MenuModel.menuList[index];
-        return GestureDetector(
-          onTap: () {
-            switch(menu.menuType){
-              case MenuType.BoutiqueDetail:
-                PersonalRoute.goToPersonalDetailsPage(context);
-              case MenuType.CustomerList:
-                CustomerRoute.goToCustomerListPage(context,ScreenType.CUSTOMER);
-              case MenuType.AgencyList:
-                CustomerRoute.goToCustomerListPage(context,ScreenType.AGENCY);
-              case MenuType.CompletedOrders:
-                // TODO: Handle this case.
-              case MenuType.Report:
-                // TODO: Handle this case.
-              case MenuType.Query:
-                // TODO: Handle this case.
-              case MenuType.Gallery:
-                // TODO: Handle this case.
-              case MenuType.DeleteAccount:
-                // TODO: Handle this case.
-              case MenuType.Logout:
-                // TODO: Handle this case.
-              case null:
-              print("TYerst ");
-            }
-          },
-          child: Column(
-            children: [
-              SizedBox(height: 10.sp,),
-              Row(
-                children: [
-                  Expanded(child: Text(menu.menuType?.menuType ?? "",style: CustomTextStyle.regularFont18Style,)),
-                  Icon(Icons.arrow_forward_ios_outlined,color: kBlackColor,size: 18.sp,)
-                ],
+        return Column(
+          children: [
+            Padding(
+              padding:  EdgeInsets.symmetric(vertical: 2.sp),
+              child: GestureDetector(
+                onTap: () {
+                  switch(menu.menuType){
+                    case MenuType.BoutiqueDetail:
+                      PersonalRoute.goToPersonalDetailsPage(context);
+                      break;
+                    case MenuType.CustomerList:
+                      CustomerRoute.goToCustomerListPage(context,ScreenType.CUSTOMER);
+                      break;
+                    case MenuType.AgencyList:
+                      CustomerRoute.goToCustomerListPage(context,ScreenType.AGENCY);
+                      break;
+                    case MenuType.CompletedOrders:
+                    // TODO: Handle this case.
+                      break;
+                    case MenuType.Report:
+                      ReportRoute.goToReportPage(context);
+                      break;
+
+                    case MenuType.Query:
+                    // TODO: Handle this case.
+                      break;
+                    case MenuType.Gallery:
+                      // return ;
+                      break;
+                    case MenuType.DeleteAccount:
+                      // return ;
+                      break;
+                    case MenuType.Logout:
+                      CustomShowModalBottomSheetPopup(context,
+                          title: "Logout",
+                          message: "Are you sure you want to logout?",
+                          primaryBtnTxt: "Yes",
+                          secondaryBtnTxt: "Cancel",
+                          primaryAction: () {
+                            // userProvider.logoutAccount();
+                            // lendingProvider.clearAppState();
+                            Navigator.popUntil(context, (route) => route.isFirst);
+                          },
+                          secondaryAction: (){
+
+                          }
+                      );
+                    // case null:
+                    //   print("TYerst ");
+
+                      default:
+                        return ;
+                  }
+                },
+                child: Padding(
+                  padding:  EdgeInsets.symmetric(vertical: 15.sp),
+                  child: Row(
+                    children: [
+                      Expanded(child: Text(menu.menuType?.menuType ?? "",style: CustomTextStyle.regularFont18Style,)),
+                      Icon(Icons.arrow_forward_ios_outlined,color: kBlackColor,size: 18.sp,)
+                    ],
+                  ),
+                ),
               ),
-              SizedBox(height: 10.sp,),
-              const Divider(color: Color(0xffD9D9D9),)
-            ],
-          ),
+            ),
+            
+            Container(height: 1.sp,width: double.infinity,color: Colors.grey.withOpacity(0.2),)
+          ],
         );
       },),
 

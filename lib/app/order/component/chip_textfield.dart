@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:odhani_design_sqt/app/order/component/multi_select_chip_order.dart';
 import '../../../../../utils/utils.dart';
 class ChipTextField extends StatefulWidget {
-
   // List<ServiceType>? selectedList;
   List<String>? selectedList;
+  List<String>? apiList;
+  String? headerText;
   // final Function(List<TagData>)? onTapSelectedList;
-  ChipTextField({Key? key,this.selectedList,   }) : super(key: key);
+  ChipTextField({Key? key,this.selectedList, this.apiList ,this.headerText }) : super(key: key);
 
   @override
   _ChipTextFieldState createState() {
@@ -34,7 +35,7 @@ class _ChipTextFieldState extends State<ChipTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 
-        Text("Product Category",style: CustomTextStyle.blackMediumFont16Style.copyWith(fontSize: 18.sp),),
+        Text(widget.headerText ?? "Product Category",style: CustomTextStyle.blackMediumFont16Style.copyWith(fontSize: 18.sp),),
 
         SizedBox(height: 10.sp),
 
@@ -42,7 +43,10 @@ class _ChipTextFieldState extends State<ChipTextField> {
           onTap: () async{
 
             final selectedData = await Navigator.of(context).push(
-                MaterialPageRoute(builder: (context)=> MultiSelectChipOrder(selectedList: widget.selectedList,))
+                MaterialPageRoute(builder: (context)=> MultiSelectChipOrder(
+                  selectedList: widget.selectedList,
+                  apiList: widget.apiList,
+                ))
             );
 
             if(selectedData != null) {

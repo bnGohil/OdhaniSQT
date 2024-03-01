@@ -116,11 +116,11 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
     return Scaffold(
       appBar: CustomAppbar(
         height: 100.sp,
-        leading: SizedBox(
-          height: 24.sp,
-          width: 24.sp,
-          child: ImageUtil.iconImageClass.searchIcon,
-        ),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+            child: Icon(Icons.arrow_back_outlined,size: 24.sp,color: kBlackColor)),
         title: "Create Order",
         action: GestureDetector(
             onTap: () {

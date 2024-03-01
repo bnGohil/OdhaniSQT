@@ -6,7 +6,7 @@ import 'package:odhani_design_sqt/utils/utils.dart';
 import '../../../../base/view/base_components/custom_button.dart';
 import '../../../../utils/common_utils/custom_app_bar.dart';
 import '../../../notification/route/notification_route.dart';
-import '../../component/odrer_detail_custom_widgets.dart';
+import '../../component/odrer_detail_custom_view.dart';
 
 class CreateSubOrderDetails extends StatefulWidget {
   const CreateSubOrderDetails({super.key});
@@ -151,6 +151,7 @@ class _CreateSubOrderDetailsState extends State<CreateSubOrderDetails> {
                       btnColor: kLightWhiteColor,
                       radius: 100.sp,
                       onTap: () {
+                        Navigator.pop(context);
                       },
                       textStyle: CustomTextStyle.mediumFont18Style,
                       btnText:"Previous",

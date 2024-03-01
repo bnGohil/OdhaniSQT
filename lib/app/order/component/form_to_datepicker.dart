@@ -41,6 +41,7 @@ class _FromToDatePickerState extends State<FromToDatePicker> {
                     },
 
                     shoDatePicker: false,
+                    color: kWhiteColor,
 
                     name: startDate != null
                         ? DateFormat("MM/dd/yyyy").format(startDate ?? DateTime.now())
@@ -57,6 +58,7 @@ class _FromToDatePickerState extends State<FromToDatePicker> {
             children: [
               Expanded(
                 child: widget.lastDate ?? CustomDatePickerWidget(
+                  color: kWhiteColor,
                     radius: 8,
                     onSelectedDateTime: (p0) async{
                       setState((){

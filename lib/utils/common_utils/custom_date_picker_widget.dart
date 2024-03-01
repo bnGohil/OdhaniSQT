@@ -10,9 +10,10 @@ class CustomDatePickerWidget extends StatefulWidget {
   final String? hintText;
   final double? radius;
   final TextStyle? textStyle;
+   final Color? color;
   final Function(DateTime)? onSelectedDateTime;
  CustomDatePickerWidget({Key? key,this.initialDate,
-   this.firstDate, this.lastDate,  this.radius, this.name, this.edgeInsets, this.onSelectedDateTime, this.shoDatePicker, this.hintText, this.textStyle}) : super(key: key);
+   this.firstDate, this.lastDate,  this.radius, this.name, this.edgeInsets, this.onSelectedDateTime, this.shoDatePicker, this.hintText, this.textStyle, this.color}) : super(key: key);
 
   @override
   State<CustomDatePickerWidget> createState() => _CustomDatePickerWidgetState();
@@ -26,7 +27,7 @@ class _CustomDatePickerWidgetState extends State<CustomDatePickerWidget> {
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 10.sp,vertical: 8.sp),
       decoration: BoxDecoration(
-          color: Colors.transparent,
+          color: widget.color ?? kWhiteColor,
           shape: BoxShape.rectangle,
           border: Border.all(color: Colors.grey.withOpacity(0.6)),
           borderRadius: BorderRadius.circular(widget.radius ?? 0)
@@ -50,7 +51,7 @@ class _CustomDatePickerWidgetState extends State<CustomDatePickerWidget> {
         },
         child: Row(
           children: [
-            Expanded(child: Text(widget.name ?? "", style: CustomTextStyle.blackRegularFont16Style.copyWith(fontSize: 15.sp))),
+            Expanded(child: Text(widget.name ?? "", style: CustomTextStyle.blackRegularFont16Style.copyWith(fontSize: 15.sp,color: Colors.grey))),
             SizedBox(
                 height: 24.sp,
                 width: 24.sp,

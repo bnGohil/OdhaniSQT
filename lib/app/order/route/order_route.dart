@@ -10,7 +10,6 @@ class OrderRoute{
 
   static String route = "order_route";
 
-
   static String createOrderRoute = "create_order";
 
   static String createSubOrderDetailsRoute = "create_order_sub_order";
@@ -42,10 +41,5 @@ class OrderRoute{
   static goToCompletedOrder(BuildContext context){
     Navigator.pushNamed(context,orderCompletedRoute);
   }
-
-  
-
-  
-
 
 }

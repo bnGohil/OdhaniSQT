@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:odhani_design_sqt/app/job/route/job_route.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
+import '../../../../utils/common_utils/custom_app_bar.dart';
+import '../../../notification/route/notification_route.dart';
+import '../../../../base/view/base_components/custom_button.dart';
+import '../../../../base/view/base_components/auto_suggestion_textfield.dart';
+import '../../../../base/view/base_components/custom_auto_suggestion_textfield.dart';
+import 'package:odhani_design_sqt/utils/common_utils/custom_chipe_widget.dart';
 
-import '../../../base/view/base_components/auto_suggestion_textfield.dart';
-import '../../../base/view/base_components/custom_auto_suggestion_textfield.dart';
-import '../../../base/view/base_components/custom_button.dart';
-import '../../../utils/common_utils/custom_app_bar.dart';
-import '../../notification/route/notification_route.dart';
+import '../../../order/component/chip_textfield.dart';
 
 class CreateJobOrderScreen extends StatefulWidget {
   const CreateJobOrderScreen({super.key});
@@ -73,11 +76,11 @@ class _CreateJobOrderScreenState extends State<CreateJobOrderScreen> {
     return Scaffold(
       appBar: CustomAppbar(
         height: 100.sp,
-        leading: SizedBox(
-          height: 24.sp,
-          width: 24.sp,
-          child: ImageUtil.iconImageClass.searchIcon,
-        ),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+            child: Icon(Icons.arrow_back_outlined,size: 24.sp,color: kBlackColor)),
         title: "Job Order",
         action: GestureDetector(
             onTap: () {
@@ -199,6 +202,12 @@ class _CreateJobOrderScreenState extends State<CreateJobOrderScreen> {
 
             SizedBox(height: 10.sp),
 
+            ChipTextField(
+              selectedList: [],
+              apiList: materialList,
+              headerText: "Product Material",
+            ),
+
           ],
         ),
       ),
@@ -213,7 +222,7 @@ class _CreateJobOrderScreenState extends State<CreateJobOrderScreen> {
                 radius: 100.sp,
                 btnText: "Next",
                 onTap: () {
-                  // OrderRoute.goToCreateSubOrderDetails(context);
+                  JobRoute.goToSubJobOrderDetailPage(context);
                   // ChatRoute.goToChatPage(context);
                 },
               ),
@@ -228,4 +237,7 @@ class _CreateJobOrderScreenState extends State<CreateJobOrderScreen> {
     padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12),
     child: Text(x, style: TextStyle(fontSize: 16, color: Colors.black)),
   );
+
+  
+
 }

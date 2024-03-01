@@ -13,6 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:odhani_design_sqt/app/order/route/order_route.dart';
+import 'package:odhani_design_sqt/app/report/route/report_route.dart';
 import 'package:odhani_design_sqt/app/tab/route/tab_route.dart';
 
 import '../app/auth/route/auth_route/auth_route.dart';
@@ -24,6 +25,7 @@ import '../app/notification/route/notification_route.dart';
 import '../app/order/route/order_route.dart';
 import '../app/personal/route/personal_route.dart';
 import '../app/profile/route/profile_route.dart';
+import '../app/report/commonent/custom_report_card.dart';
 import '../base/domin/asset/asset_model.dart';
 // import 'package:CravzRestaurant/app/lending/route/lending_route.dart';
 
