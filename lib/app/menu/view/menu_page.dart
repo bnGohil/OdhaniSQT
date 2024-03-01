@@ -139,7 +139,7 @@ class _MenuPageState extends State<MenuPage> {
                       CustomerRoute.goToCustomerListPage(context,ScreenType.AGENCY);
                       break;
                     case MenuType.CompletedOrders:
-                    // TODO: Handle this case.
+                      OrderRoute.goToCompletedListOrder(context);
                       break;
                     case MenuType.Report:
                       ReportRoute.goToReportPage(context);

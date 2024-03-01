@@ -73,8 +73,9 @@ class _ChatPageState extends State<ChatPage> {
                       ],
                     ));
               },)),
+
             Padding(
-              padding: EdgeInsets.only(bottom: !isKeyBoardOpen ? 30.sp : 0,right: 20.sp,left: 20.sp),
+              padding: EdgeInsets.only(bottom: !isKeyBoardOpen ? 10.sp : 0,right: 20.sp,left: 20.sp,top: 10.sp),
               child: TextFormField(
                 // style: CustomTextStyle.primaryTextColorFont16W400,
                 minLines: 1,
