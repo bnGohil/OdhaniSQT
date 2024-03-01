@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:odhani_design_sqt/app/menu/domian/menu_model.dart';
 import 'package:odhani_design_sqt/app/personal/route/personal_route.dart';
+import 'package:odhani_design_sqt/app/query/route/query_route.dart';
 import 'package:odhani_design_sqt/app/tab/domian/tab_model.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 
+import '../../../base/view/base_components/custom_option_bottom_sheet.dart';
 import '../../customer_list/route/customer_route.dart';
+import '../../gallery/route/gallery_route.dart';
+import '../../order/route/order_route.dart';
 import '../../profile/route/profile_route.dart';
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -124,19 +128,19 @@ class _MenuPageState extends State<MenuPage> {
               case MenuType.AgencyList:
                 CustomerRoute.goToCustomerListPage(context,ScreenType.AGENCY);
               case MenuType.CompletedOrders:
-                // TODO: Handle this case.
+                OrderRoute.goToCompletedListOrder(context);
               case MenuType.Report:
                 // TODO: Handle this case.
               case MenuType.Query:
-                // TODO: Handle this case.
+                QueryRoute.goToQueryPage(context);
               case MenuType.Gallery:
-                // TODO: Handle this case.
+                GalleryRoute.goToGalleryPage(context);
               case MenuType.DeleteAccount:
-                // TODO: Handle this case.
+
               case MenuType.Logout:
-                // TODO: Handle this case.
+
               case null:
-              print("TYerst ");
+
             }
           },
           child: Column(

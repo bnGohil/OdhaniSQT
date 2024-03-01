@@ -61,6 +61,8 @@ class IconImageClass{
   Widget get rupeesIcon =>  const CustomSvgPictures.asset("$iconPath/rup.svg", fit: BoxFit.cover);
   Widget get rupees2Icon =>  const CustomSvgPictures.asset("$iconPath/rupee_2.svg", fit: BoxFit.cover);
   Widget get dropDownIcon =>  const CustomSvgPictures.asset("$iconPath/drop_down_icon.svg", fit: BoxFit.cover);
+  Widget get dropDownWhiteIcon =>  const CustomSvgPictures.asset("$iconPath/drop_down_icon.svg", fit: BoxFit.cover,colorFilter: ColorFilter.mode(kWhiteColor,BlendMode.srcIn),);
+  Widget get arrowDropUpOutlined =>  const CustomSvgPictures.asset("$iconPath/arrow_drop_up_outlined.svg", fit: BoxFit.cover,colorFilter: ColorFilter.mode(kWhiteColor,BlendMode.srcIn),);
   Widget get backArrowIcon =>  CustomSvgPictures.asset("$iconPath/left_arrow.svg", fit: BoxFit.cover,color: kBlackColor,width: 30.sp,height: 30.sp,);
 }
 
