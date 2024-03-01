@@ -23,5 +23,9 @@ class Routes {
     PersonalRoute.editPerRoute : (context) => PersonalRoute.editChild,
     CustomerRoute.route : (context) => CustomerRoute.child,
     CustomerRoute.customerOrderRoute : (context) => CustomerRoute.customerOrderChild,
+    OrderRoute.orderListCompletedRoute : (context) => OrderRoute.orderCompletedListChild,
+    OrderRoute.orderDetailsCompletedRoute : (context) => OrderRoute.orderDetailsCompletedChild,
+    QueryRoute.route : (context) => QueryRoute.child,
+    GalleryRoute.route : (context) => GalleryRoute.child
   };
 }

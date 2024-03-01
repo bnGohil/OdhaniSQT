@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:odhani_design_sqt/utils/theme/custom_decocarion.dart';
 
-import '../../../utils/common_utils/custom_app_bar.dart';
-import '../../../utils/sizer/enum.dart';
-import '../../../utils/utils.dart';
-import '../../notification/route/notification_route.dart';
-import '../component/job_status_widget.dart';
+import '../../../../utils/common_utils/custom_app_bar.dart';
+import '../../../../utils/sizer/enum.dart';
+import '../../../../utils/utils.dart';
+import '../../../notification/route/notification_route.dart';
+import '../../component/job_status_widget.dart';
 class CompletedOrderPage extends StatefulWidget {
   const CompletedOrderPage({super.key});
 
@@ -43,22 +43,22 @@ class _CompletedOrderPageState extends State<CompletedOrderPage> {
             },
             child: ImageUtil.iconImageClass.notificationIcon),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          JobStatusWidget(
-            isStatus: false,
-            workingStatus: workingStatus,
-            onWorkingOnTap: (p0) {
-              setState(() {
-                workingStatus = p0;
-              });
-            },
-          ),
-          SizedBox(height: 20.sp,),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.sp),
-            child: Container(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.sp),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            JobStatusWidget(
+              isStatus: false,
+              workingStatus: workingStatus,
+              onWorkingOnTap: (p0) {
+                setState(() {
+                  workingStatus = p0;
+                });
+              },
+            ),
+            SizedBox(height: 20.sp,),
+            Container(
               decoration: CustomDecoration.detailDecoration,
               padding: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 15.sp),
               child: Column(
@@ -106,11 +106,8 @@ class _CompletedOrderPageState extends State<CompletedOrderPage> {
                 ],
               ),
             ),
-          ),
-          SizedBox(height: 10.sp,),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.sp),
-            child: Container(
+            SizedBox(height: 10.sp,),
+            Container(
               decoration: CustomDecoration.detailDecoration,
               padding: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 15.sp),
               child: Column(
@@ -158,11 +155,8 @@ class _CompletedOrderPageState extends State<CompletedOrderPage> {
                 ],
               ),
             ),
-          ),
-          SizedBox(height: 10.sp,),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.sp),
-            child: Row(
+            SizedBox(height: 10.sp,),
+            Row(
               children: [
                 Expanded(
                   child: Text.rich(TextSpan(
@@ -185,11 +179,8 @@ class _CompletedOrderPageState extends State<CompletedOrderPage> {
                 ))
               ],
             ),
-          ),
-          SizedBox(height: 10.sp,),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.sp),
-            child: Container(
+            SizedBox(height: 10.sp,),
+            Container(
               padding: EdgeInsets.all(5.sp),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5.sp),
@@ -208,31 +199,31 @@ class _CompletedOrderPageState extends State<CompletedOrderPage> {
                 ],
               ),
             ),
-          ),
-          SizedBox(height: 20.sp,),
-          GestureDetector(
-            onTap: () {
+            SizedBox(height: 20.sp,),
+            GestureDetector(
+              onTap: () {
 
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  padding: EdgeInsets.all(5.sp),
-                  decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(8),
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(5.sp),
+                    decoration: BoxDecoration(
+                      color: kPrimaryColor,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Icon(Icons.add,color: kWhiteColor,),
                   ),
-                  child: Icon(Icons.add,color: kWhiteColor,),
-                ),
-                SizedBox(width: 10.sp,),
-                Text("Add payment",style: CustomTextStyle.semiBoldFont18Style.copyWith(
-                  color: kPrimaryColor
-                ),)
-              ],
-            ),
-          )
-        ],
+                  SizedBox(width: 10.sp,),
+                  Text("Add payment",style: CustomTextStyle.semiBoldFont18Style.copyWith(
+                    color: kPrimaryColor
+                  ),)
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

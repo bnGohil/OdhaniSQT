@@ -62,6 +62,36 @@ class GetCustomerDummyData{
 
   );
 
+  static GetCustomerData completedOrderList = GetCustomerData(
+      list: [
+        CustomerData(
+            item: "Chaniya choli",
+            orderDate: DateTime.now().formatCommonDate(),
+            completedDate: DateTime.now().formatCommonDate(),
+            count: "10000",
+            name: "ABC Agency",
+            profilePic: "assets/images/dummy_img/dummy_profile_image.png",
+            imageList: [
+              "assets/images/dummy_img/image_1.png",
+              "assets/images/dummy_img/image_2.png"
+            ]
+        ),
+        CustomerData(
+            item: "Chaniya choli",
+            orderDate: DateTime.now().formatCommonDate(),
+            completedDate: DateTime.now().formatCommonDate(),
+            count: "10000",
+            name: "ABC Agency",
+            profilePic: "assets/images/dummy_img/dummy_profile_image.png",
+            imageList: [
+              "assets/images/dummy_img/image_1.png",
+              "assets/images/dummy_img/image_2.png"
+            ]
+        ),
+      ]
+
+  );
+
 
 }
 
@@ -80,6 +110,8 @@ class GetCustomerData {
 }
 
 class CustomerData {
+  String? name;
+  String? profilePic;
   String? item;
   String? count;
   String? orderDate;
@@ -92,6 +124,8 @@ class CustomerData {
     this.orderDate,
     this.completedDate,
     this.imageList,
+    this.name,
+    this.profilePic
   });
 
   
