@@ -6,6 +6,8 @@ import '../../app_custom_component/jobs_and_order_card.dart';
 import '../../home/domian/dummy/jobs_and_order_dummy_model.dart';
 import 'package:odhani_design_sqt/utils/common_utils/custom_tabbar_view.dart';
 
+import '../../job/route/job_route.dart';
+
 class OrderPage extends StatefulWidget {
   const OrderPage({super.key});
 
@@ -68,8 +70,21 @@ class _OrderPageState extends State<OrderPage> {
             itemCount: JobsAndOrderDummyModel.jobsListData.length,
             itemBuilder: (context, index) {
               final jobsAndOrderDummyModel = JobsAndOrderDummyModel.jobsListData[index];
-              return JobsAndOrderCardWidget(
-                jobsAndOrderDummyModel: jobsAndOrderDummyModel,
+              return GestureDetector(
+                onTap: () {
+                  if(selectedIndex == 0){
+
+                    OrderRoute.goToOrderDetailsPage(context);
+
+                  }else{
+
+                    JobRoute.goToJobDetailsPage(context);
+
+                  }
+                },
+                child: JobsAndOrderCardWidget(
+                  jobsAndOrderDummyModel: jobsAndOrderDummyModel,
+                ),
               );
             },))
         ],
