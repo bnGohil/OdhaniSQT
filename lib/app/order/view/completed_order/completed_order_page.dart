@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:odhani_design_sqt/base/view/base_components/custom_auto_suggestion_textfield.dart';
+import 'package:odhani_design_sqt/base/view/base_components/custom_button.dart';
 import 'package:odhani_design_sqt/utils/theme/custom_decocarion.dart';
 
 import '../../../../utils/common_utils/custom_app_bar.dart';
@@ -19,6 +21,14 @@ class _CompletedOrderPageState extends State<CompletedOrderPage> {
 
 
   WorkingStatus? workingStatus = WorkingStatus.COMPLETED;
+
+
+  List<String> list = ["GPay","PhonePe","Ptm"];
+
+
+  String? selectedValue;
+  String? _selectedItem;
+  List<String> _items = ["GPay","PhonePe","Ptm"];
 
 
   @override
@@ -202,7 +212,87 @@ class _CompletedOrderPageState extends State<CompletedOrderPage> {
             SizedBox(height: 20.sp,),
             GestureDetector(
               onTap: () {
+                showModalBottomSheet(context: context, builder: (context) {
+                  return StatefulBuilder(
+                    builder: (context, setState) {
+                    return Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 20.sp),
+                      width: double.infinity,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            height: 1.sp,width: 50.sp,
+                            color: kLightGrayColor,
+                          ),
+                          SizedBox(height: 10.sp,),
+                          Row(
+                            children: [
+                              Expanded(child: Text("Due Amount",style: CustomTextStyle.semiBoldRegularFont20Style,)),
+                              Container(
+                                padding: EdgeInsets.all(5.sp),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8.sp),
+                                    border: Border.all(width: 1.sp,color: Color(0xffD9D9D9))
+                                ),
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                        width: 13.sp,
+                                        height: 13.sp,
+                                        child: ImageUtil.iconImageClass.rupees2Icon),
+                                    Text("800",style: CustomTextStyle.semiBoldRegularFont16Style,)
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(height: 10.sp,),
+                          Row(
+                            children: [
+                              Expanded(child: Text("Mode of Payment",style: CustomTextStyle.semiBoldRegularFont20Style,)),
+                              Expanded(child: Container(
+                                padding: EdgeInsets.symmetric(horizontal: 5.sp),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.sp),
+                                  border: Border.all(width: 1.sp,color: Color(0xffD9D9D9))
+                                ),
+                                child: DropdownButtonHideUnderline(
+                                  child: DropdownButton<String>(
+                                    hint: Text("Payment Type",style: CustomTextStyle.hintTextStyle,),
+                                    value: _selectedItem,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _selectedItem = value ?? "";
+                                      });
+                                    },
+                                    items: _items.map((String item) {
+                                      return DropdownMenuItem<String>(
+                                        value: item,
+                                        child: Text(item,style: CustomTextStyle.mainColorBoldFont16Style),
+                                      );
+                                    }).toList(),
+                                  ),
+                                ),
+                              ))
+                            ],
+                          ),
+                          SizedBox(height: 10.sp,),
+                          CustomButton(
+                            onTap: () {
+                              Navigator.of(context).pop();
+                            },
+                            radius: 100,
+                            btnText: "Done",
+                            btnColor: kPrimaryColor,
+                          )
+                        ],
+                      ),
+                    );
+                    },
 
+                  );
+                },);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
