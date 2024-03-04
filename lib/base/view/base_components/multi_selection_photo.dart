@@ -129,17 +129,17 @@ class _MultiSelectionImageState extends State<MultiSelectionImage> {
                         child: Container(
                           height: 80.sp,
                           width: 80.sp,
-                          child: CustomImageView(
-                            uri:  e.imagePahUrl ?? "",
-                            placeholder: Container(
-                                alignment: Alignment.center,
-                                color: kWhiteColor,
-                                child: Padding(
-                                    padding:  EdgeInsets.all(15.sp),
-                                    child: ImageUtil.logo.appLogo
-                                )
-                            ), //show progress  while loading image,
-                          ),
+                          // child: CustomImageView(
+                          //   uri:  e.imagePahUrl ?? "",
+                          //   placeholder: Container(
+                          //       alignment: Alignment.center,
+                          //       color: kWhiteColor,
+                          //       child: Padding(
+                          //           padding:  EdgeInsets.all(15.sp),
+                          //           child: ImageUtil.logo.appLogo
+                          //       )
+                          //   ), //show progress  while loading image,
+                          // ),
                         ),
                       ),
                     ),

@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:odhani_design_sqt/base/view/base_components/custom_button.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
+import 'package:odhani_design_sqt/base/view/base_components/custom_button.dart';
 
 import '../../route/auth_route/auth_route.dart';
 
@@ -43,7 +43,7 @@ class _SignInSState extends State<IntroScreen> {
 
             SafeArea(
               child: Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 24.sp),
+                padding:  EdgeInsets.only(right: 24.sp,left: 24.sp,bottom: MediaQuery.of(context).padding.bottom + 50.sp),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
