@@ -14,4 +14,10 @@ class TabModel{
    TabModel(name: "Menu",icon: "$iconPath/menu.svg"),
  ];
 
+  static List<TabModel> agencyTabList = [
+    TabModel(name: "Home",icon: "$iconPath/home.svg"),
+    TabModel(name: "Order",icon: "$iconPath/order.svg"),
+    TabModel(name: "Menu",icon: "$iconPath/menu.svg"),
+  ];
+
 }
