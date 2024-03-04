@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:odhani_design_sqt/app/agency_app/agency_tab/route/agency_tab_route.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 import 'package:odhani_design_sqt/base/view/base_components/custom_button.dart';
 
@@ -63,7 +64,8 @@ class _SignInSState extends State<IntroScreen> {
 
                     CustomButton(
                       onTap: (){
-                        AuthRoute.goToSignUpPage(context);
+                        // AuthRoute.goToSignUpPage(context);
+                        AgencyTabRoute.goToAgeTabPage(context);
                       },
                       isLoading: false,
                       btnColor: kWhiteColor,
