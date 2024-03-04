@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:odhani_design_sqt/base/view/base_components/custom_button.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
-
-import '../../app/personal/domian/personal_user_chip_model.dart';
+import '../../app/boutique_app/personal/domian/personal_user_chip_model.dart';
 import 'custom_app_bar.dart';
 class MultipleSelectedChipWidget extends StatefulWidget {
   final List<PersonalChipData>? list;

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:odhani_design_sqt/provider.dart';
 import 'package:provider/provider.dart';
-import 'app/splash/view/splash_screen.dart';
+import 'package:odhani_design_sqt/provider.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
+import 'app/boutique_app/splash/view/splash_screen.dart';
 
 
 class OdhaniApp extends StatelessWidget {
