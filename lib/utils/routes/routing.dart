@@ -27,7 +27,12 @@ class Routes {
     OrderRoute.orderListCompletedRoute : (context) => OrderRoute.orderCompletedListChild,
     OrderRoute.orderDetailsCompletedRoute : (context) => OrderRoute.orderDetailsCompletedChild,
     QueryRoute.route : (context) => QueryRoute.child,
-    GalleryRoute.route : (context) => GalleryRoute.child
+    GalleryRoute.route : (context) => GalleryRoute.child,
+
+    // ======================================================================
+
+    AgencyTabRoute.route : (context) => AgencyTabRoute.child
+
 
  };
 }
