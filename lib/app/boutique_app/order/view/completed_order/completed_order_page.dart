@@ -19,8 +19,10 @@ class CompletedOrderPage extends StatefulWidget {
 class _CompletedOrderPageState extends State<CompletedOrderPage> {
 
 
-  WorkingStatus? workingStatus = WorkingStatus.COMPLETED;
+  // WorkingStatus? workingStatus = WorkingStatus.COMPLETED;
 
+
+  JobStatus jobStatus = JobStatus.COMPLETED;
 
   List<String> list = ["GPay","PhonePe","Ptm"];
 
@@ -59,10 +61,11 @@ class _CompletedOrderPageState extends State<CompletedOrderPage> {
           children: [
             JobStatusWidget(
               isStatus: false,
-              workingStatus: workingStatus,
-              onWorkingOnTap: (p0) {
+              status: jobStatus,
+              // workingStatus: workingStatus,
+              onStatusOnTap: (p0) {
                 setState(() {
-                  workingStatus = p0;
+                  jobStatus = p0;
                 });
               },
             ),

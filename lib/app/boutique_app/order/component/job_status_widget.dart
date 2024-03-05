@@ -7,9 +7,11 @@ import 'package:odhani_design_sqt/utils/sizer/enum.dart';
 class JobStatusWidget extends StatefulWidget {
   final bool? isStatus;
   final WorkingStatus? workingStatus;
+  final JobStatus? status;
   final Function(WorkingStatus)? onWorkingOnTap;
+  final Function(JobStatus)? onStatusOnTap;
   final bool? isEdit;
-  const JobStatusWidget({super.key, this.workingStatus, this.onWorkingOnTap, this.isStatus, this.isEdit});
+  const JobStatusWidget({super.key, this.workingStatus, this.onWorkingOnTap, this.isStatus, this.isEdit, this.status, this.onStatusOnTap});
 
   @override
   State<JobStatusWidget> createState() => _JobStatusWidgetState();
@@ -18,24 +20,43 @@ class JobStatusWidget extends StatefulWidget {
 class _JobStatusWidgetState extends State<JobStatusWidget> {
 
 
-  WorkingStatus? workingStatus;
+  // WorkingStatus? workingStatus;
+
+  JobStatus? jobStatus;
 
   @override
   void initState() {
     // TODO: implement initState
+
+    // setState(() {
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //   // workingStatus = widget.workingStatus;
+    //
+    //
+    //
+    // });
+
     super.initState();
 
+
+    jobStatus = widget.status;
     setState(() {
 
-      workingStatus = widget.workingStatus;
-
     });
+
   }
 
   @override
   Widget build(BuildContext context) {
-
-    final isPending = workingStatus == WorkingStatus.PENDING;
+print("jobStatus is :::::::::::::::::::::::${jobStatus}");
+    // final isPending = workingStatus == WorkingStatus.PENDING;
+    final isPending = jobStatus == JobStatus.PENDING;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -64,12 +85,18 @@ class _JobStatusWidgetState extends State<JobStatusWidget> {
               switch(p0){
 
                 case 0 :
-                  workingStatus = WorkingStatus.PENDING;
-                  widget.onWorkingOnTap!(workingStatus!);
+                  // workingStatus = WorkingStatus.PENDING;
+                  // widget.onWorkingOnTap!(workingStatus!);
+
+                  jobStatus = JobStatus.PENDING;
+                  widget.onStatusOnTap!(jobStatus!);
 
                 case 1 :
-                  workingStatus = WorkingStatus.COMPLETED;
-                  widget.onWorkingOnTap!(workingStatus!);
+                  // workingStatus = WorkingStatus.COMPLETED;
+                  // widget.onWorkingOnTap!(workingStatus!);
+
+                  jobStatus = JobStatus.COMPLETED;
+                  widget.onStatusOnTap!(jobStatus!);
 
 
               }
@@ -89,7 +116,7 @@ class _JobStatusWidgetState extends State<JobStatusWidget> {
                     borderRadius: BorderRadius.circular(100.sp),
                     color: kPrimaryColor
                 ),
-                child: Text(workingStatus?.title ?? "",style: CustomTextStyle.regularFont14Style.copyWith(
+                child: Text(jobStatus?.jobTitle ?? "",style: CustomTextStyle.regularFont14Style.copyWith(
                     color: kWhiteColor
                 )))
           ],
