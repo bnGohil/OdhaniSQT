@@ -120,6 +120,18 @@ enum MenuType{
   Logout
 }
 
+
+enum MenuAgencyType{
+  AgencyDetail,
+  CompletedOrders,
+  BoutiqueList,
+  Report,
+  Query,
+  DeleteAccount,
+  Logout
+}
+
+
 enum ScreenType{
 
   CUSTOMER,AGENCY
@@ -130,10 +142,7 @@ enum ScreenType{
 extension MenuTypeEx on MenuType{
 
   String? get menuType {
-
-
     switch(this){
-
       case MenuType.BoutiqueDetail:
         return "Boutique Detail";
       case MenuType.CustomerList:
@@ -158,6 +167,30 @@ extension MenuTypeEx on MenuType{
   }
 
 
+}
+
+extension MenuAgencyTypeEx on MenuAgencyType {
+
+  String? get menuAgencyType {
+    switch(this){
+      case MenuAgencyType.AgencyDetail:
+        return "Agency Detail";
+      case MenuAgencyType.BoutiqueList:
+        return "Boutique List";
+      case MenuAgencyType.CompletedOrders:
+        return "Completed Orders";
+      case MenuAgencyType.Report:
+        return "Report";
+      case MenuAgencyType.Query:
+        return "Query";
+      case MenuAgencyType.DeleteAccount:
+        return "Delete Account";
+      case MenuAgencyType.Logout:
+        return "Logout";
+    }
+
+
+  }
 }
 
 

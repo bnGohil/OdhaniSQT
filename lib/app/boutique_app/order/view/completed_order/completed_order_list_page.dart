@@ -1,10 +1,10 @@
+import '../../route/order_route.dart';
 import 'package:flutter/material.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 import '../../../../../utils/common_utils/custom_app_bar.dart';
-import '../../../customer_list/domian/dummy/customer_order_data_model.dart';
 import '../../../notification/route/notification_route.dart';
 import '../../component/completed_order_list_widget.dart';
-import '../../route/order_route.dart';
+import '../../../customer_list/domian/dummy/customer_order_data_model.dart';
 class CompletedOrderListPage extends StatefulWidget {
   const CompletedOrderListPage({super.key});
 

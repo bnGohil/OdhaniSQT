@@ -1,24 +1,25 @@
 import 'dart:io';
-import '../route/profile_route.dart';
-import 'package:flutter/material.dart';
-import 'package:odhani_design_sqt/base/base.dart';
-import 'package:odhani_design_sqt/utils/utils.dart';
-import '../../../../utils/common_utils/custom_app_bar.dart';
-import '../../../../base/view/base_components/image_placeholder.dart';
-import '../../../../base/view/base_components/custom_image_picker.dart';
-import '../../../../base/view/base_components/auto_suggestion_textfield.dart';
-import 'package:odhani_design_sqt/base/view/base_components/custom_button.dart';
-import '../../../../base/view/base_components/custom_auto_suggestion_textfield.dart';
 
-class EditProfilePage extends StatefulWidget {
-  const EditProfilePage({super.key});
+import 'package:flutter/material.dart';
+import 'package:odhani_design_sqt/utils/utils.dart';
+
+import '../../../../base/base.dart';
+import '../../../../base/view/base_components/auto_suggestion_textfield.dart';
+import '../../../../base/view/base_components/custom_auto_suggestion_textfield.dart';
+import '../../../../base/view/base_components/custom_button.dart';
+import '../../../../base/view/base_components/custom_image_picker.dart';
+import '../../../../base/view/base_components/image_placeholder.dart';
+import '../../../../utils/common_utils/custom_app_bar.dart';
+import '../../../boutique_app/profile/route/profile_route.dart';
+
+class AgencyEditProfileScreen extends StatefulWidget {
+  const AgencyEditProfileScreen({super.key});
 
   @override
-  State<EditProfilePage> createState() => _EditProfilePageState();
+  State<AgencyEditProfileScreen> createState() => _AgencyEditProfileScreenState();
 }
 
-class _EditProfilePageState extends State<EditProfilePage> {
-
+class _AgencyEditProfileScreenState extends State<AgencyEditProfileScreen> {
 
   CustomImagePicker customImagePicker = CustomImagePicker();
 
@@ -35,6 +36,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
 
   File? file;
+
+  DateTime? dateTime;
   @override
   void initState() {
     super.initState();
@@ -57,11 +60,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
     };
   }
 
-  DateTime? dateTime;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kWhiteColor,
       appBar: CustomAppbar(
         height: 100.sp,
         leading: GestureDetector(
@@ -157,7 +160,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 textInputAction: TextInputAction.next,
                 // controller: ,
                 hint: "User Type",
-                 focusNode: userTypeFocus,
+                focusNode: userTypeFocus,
                 // suffixIcon: Padding(
                 //   padding:  EdgeInsets.only(right: 10.sp),
                 //   child: Icon(Icons.arrow_drop_down),
