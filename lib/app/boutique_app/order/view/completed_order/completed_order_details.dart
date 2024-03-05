@@ -21,6 +21,7 @@ class _CompletedOrderDetailsPageState extends State<CompletedOrderDetailsPage> {
   bool isOrderDetail = false;
   bool isJobDetail = false;
 
+   ScrollController controller = ScrollController();
 
 
 
@@ -29,16 +30,6 @@ class _CompletedOrderDetailsPageState extends State<CompletedOrderDetailsPage> {
     return Scaffold(
       appBar: CustomAppbar(
         height: 100.sp,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.of(context).pop();
-          },
-          child: SizedBox(
-            height: 24.sp,
-            width: 24.sp,
-            child: ImageUtil.iconImageClass.backArrowIcon,
-          ),
-        ),
         title: "Completed Orders",
         action: GestureDetector(
             onTap: () {
@@ -47,6 +38,8 @@ class _CompletedOrderDetailsPageState extends State<CompletedOrderDetailsPage> {
             child: ImageUtil.iconImageClass.notificationIcon),
       ),
       body: SingleChildScrollView(
+        controller: controller,
+        scrollDirection: Axis.vertical,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -123,6 +116,14 @@ class _CompletedOrderDetailsPageState extends State<CompletedOrderDetailsPage> {
                 onTap: () {
                   setState(() {
                     isOrderDetail =! isOrderDetail;
+
+                    if(isOrderDetail){
+
+                      controller.animateTo(controller.position.extentTotal,
+                        duration: const Duration(seconds: 1),
+                        curve: Curves.ease);
+
+                    }
                   });
                 },
                 child: AnimatedContainer(
@@ -288,6 +289,14 @@ class _CompletedOrderDetailsPageState extends State<CompletedOrderDetailsPage> {
                 onTap: () {
                   setState(() {
                     isJobDetail =! isJobDetail;
+
+                    if(isJobDetail){
+
+                      controller.animateTo(controller.position.extentTotal,
+                          duration: const Duration(seconds: 1),
+                          curve: Curves.ease);
+
+                    }
                   });
                 },
                 child: AnimatedContainer(
@@ -321,12 +330,10 @@ class _CompletedOrderDetailsPageState extends State<CompletedOrderDetailsPage> {
                   SizedBox(height: 15.sp),
                   JobStatusWidget(
                     isEdit: false,
-                    workingStatus: WorkingStatus.PENDING,
+                    status: JobStatus.PENDING,
                     isStatus: true,
-                    onWorkingOnTap: (p0) {
-                      setState(() {
+                    onStatusOnTap: (p0) {
 
-                      });
                     },
                   ),
                   SizedBox(height: 15.sp),

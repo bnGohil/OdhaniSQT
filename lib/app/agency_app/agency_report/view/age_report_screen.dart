@@ -42,11 +42,6 @@ class _ReportAgencyScreenState extends State<ReportAgencyScreen>with SingleTicke
           backgroundColor: kWhiteColor,
           appBar: CustomAppbar(
             height: 100.sp,
-            leading: GestureDetector(
-                onTap: (){
-                  Navigator.pop(context);
-                },
-                child: Icon(Icons.arrow_back_outlined,size: 24.sp,color: kBlackColor)),
             title: "Report",
             action: GestureDetector(
                 onTap: () {

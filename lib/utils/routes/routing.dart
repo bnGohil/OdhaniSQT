@@ -40,7 +40,7 @@ class Routes {
     CompletedOrderAgencyRoute.completedOrderDetailsRoute: (context) => CompletedOrderAgencyRoute.completedOrderDetailsChild,
     CompletedOrderAgencyRoute.sendRequestForDeuAmountRoute: (context) => CompletedOrderAgencyRoute.sendRequestForDeuAmountChild,
     AgencyJobDetailsRoute.agencyJobDetailsRoute : (context) => AgencyJobDetailsRoute.agencyJobDetailsChild,
-    AgencyChatRoute.route : (context) => AgencyChatRoute.child
+    AgencyChatRoute.route : (context) => AgencyChatRoute.child,
     PersonalAgencyRoute.route: (context) => PersonalAgencyRoute.child,
     PersonalAgencyRoute.editPerRoute: (context) => PersonalAgencyRoute.editChild,
     BoutiqueListRoute.route:(context) => BoutiqueListRoute.child,

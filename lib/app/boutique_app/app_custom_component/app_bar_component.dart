@@ -63,7 +63,10 @@ class AppBarComponent extends StatelessWidget {
               borderRadius: BorderRadius.circular(100),
               border: Border.all(color: kBorderColor),
             ),
-            child: action,
+            child: SizedBox(
+                height: 24.sp,
+                width: 24.sp,
+                child: action),
           ),
         )
 

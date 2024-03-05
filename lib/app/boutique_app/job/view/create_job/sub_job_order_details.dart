@@ -42,16 +42,7 @@ class _SubJobOrderDetailsState extends State<SubJobOrderDetails> {
     return Scaffold(
         appBar: CustomAppbar(
           height: 100.sp,
-          leading: GestureDetector(
-            onTap: (){
-              Navigator.pop(context);
-            },
-            child: SizedBox(
-              height: 24.sp,
-              width: 24.sp,
-              child: ImageUtil.iconImageClass.backArrowIcon,
-            ),
-          ),
+
           title: "Sub Job Details",
           action: GestureDetector(
               onTap: () {

@@ -16,7 +16,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget{
     return SafeArea(
       bottom: false,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 10.sp),
+        padding: EdgeInsets.symmetric(horizontal: 20.sp),
         child: Row(
           children: [
             GestureDetector(
@@ -38,7 +38,10 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget{
                     borderRadius: BorderRadius.circular(100),
                     border: Border.all(color: kBorderColor),
                   ),
-                  child: leading ?? ImageUtil.iconImageClass.backArrowIcon,
+                  child: SizedBox(
+                      width: 24.sp,
+                      height: 24.sp,
+                      child: leading ?? ImageUtil.iconImageClass.backArrowIcon),
                 ),
             ),
             if(title != null)
