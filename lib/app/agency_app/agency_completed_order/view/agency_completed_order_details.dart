@@ -7,6 +7,7 @@ import '../../../../utils/theme/custom_decocarion.dart';
 import '../../../../utils/utils.dart';
 import '../../../boutique_app/notification/route/notification_route.dart';
 import '../../../boutique_app/order/component/job_status_widget.dart';
+import '../route/completed_order_agency_route.dart';
 
 class CompletedOrderAgencyDetailsScreen extends StatefulWidget {
   const CompletedOrderAgencyDetailsScreen({super.key});
@@ -16,16 +17,13 @@ class CompletedOrderAgencyDetailsScreen extends StatefulWidget {
 }
 
 class _CompletedOrderAgencyDetailsScreenState extends State<CompletedOrderAgencyDetailsScreen> {
-  WorkingStatus? workingStatus = WorkingStatus.COMPLETED;
+  // WorkingStatus? workingStatus = WorkingStatus.COMPLETED;
 
 
-  List<String> list = ["GPay","PhonePe","Ptm"];
 
 
-  String? selectedValue;
-  String? _selectedItem;
-  List<String> _items = ["GPay","PhonePe","Ptm"];
 
+  JobStatus jobStatus = JobStatus.COMPLETED;
 
   @override
   Widget build(BuildContext context) {
@@ -56,12 +54,26 @@ class _CompletedOrderAgencyDetailsScreenState extends State<CompletedOrderAgency
           children: [
             JobStatusWidget(
               isStatus: false,
-              workingStatus: workingStatus,
-              onWorkingOnTap: (p0) {
+              status: jobStatus,
+              name: "Odhani Boutiue",
+              onStatusOnTap: (p0) {
+
                 setState(() {
-                  workingStatus = p0;
+
+                  jobStatus = p0;
+
                 });
+
               },
+              onWorkingOnTap: (p0) {
+
+              },
+              // workingStatus: workingStatus,
+              // onWorkingOnTap: (p0) {
+              //   setState(() {
+              //     workingStatus = p0;
+              //   });
+              // },
             ),
             SizedBox(height: 20.sp,),
             Container(
@@ -161,156 +173,28 @@ class _CompletedOrderAgencyDetailsScreenState extends State<CompletedOrderAgency
                 ],
               ),
             ),
-            SizedBox(height: 10.sp,),
-            Row(
-              children: [
-                Expanded(
-                  child: Text.rich(TextSpan(
-                      children: [
-                        TextSpan(
-                            text: "Payment Request By",
-                            style: CustomTextStyle.regularFont18Style,
-                            children: [
-                              TextSpan(
-                                  text: "ABC Agency ",
-                                  style: CustomTextStyle.semiBoldFont18Style
-                              )
-                            ]
-                        )
-                      ]
-                  )),
-                ),
-                Text(DateTime.now().formatCommonDate(),style: CustomTextStyle.semiBoldRegularFont16Style.copyWith(
-                    color: kBlackColor
-                ))
-              ],
-            ),
-            SizedBox(height: 10.sp,),
-            Container(
-              padding: EdgeInsets.all(5.sp),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.sp),
-                  border: Border.all(color: kBorderColor)
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(
-                      height: 13.sp,
-                      width: 13.sp,
-                      child: ImageUtil.iconImageClass.rupees2Icon),
-                  Text("800",style: CustomTextStyle.semiBoldRegularFont16Style.copyWith(
-                      color: kBlackColor
-                  ),),
-                ],
-              ),
-            ),
-            SizedBox(height: 20.sp,),
-            GestureDetector(
-              onTap: () {
-                showModalBottomSheet(context: context, builder: (context) {
-                  return StatefulBuilder(
-                    builder: (context, setState) {
-                      return Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 20.sp),
-                        width: double.infinity,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Container(
-                              height: 1.sp,width: 50.sp,
-                              color: kLightGrayColor,
-                            ),
-                            SizedBox(height: 10.sp,),
-                            Row(
-                              children: [
-                                Expanded(child: Text("Due Amount",style: CustomTextStyle.semiBoldRegularFont20Style,)),
-                                Container(
-                                  padding: EdgeInsets.all(5.sp),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8.sp),
-                                      border: Border.all(width: 1.sp,color: Color(0xffD9D9D9))
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      SizedBox(
-                                          width: 13.sp,
-                                          height: 13.sp,
-                                          child: ImageUtil.iconImageClass.rupees2Icon),
-                                      Text("800",style: CustomTextStyle.semiBoldRegularFont16Style,)
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                            SizedBox(height: 10.sp,),
-                            Row(
-                              children: [
-                                Expanded(child: Text("Mode of Payment",style: CustomTextStyle.semiBoldRegularFont20Style,)),
-                                Expanded(child: Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 5.sp),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15.sp),
-                                      border: Border.all(width: 1.sp,color: Color(0xffD9D9D9))
-                                  ),
-                                  child: DropdownButtonHideUnderline(
-                                    child: DropdownButton<String>(
-                                      hint: Text("Payment Type",style: CustomTextStyle.hintTextStyle,),
-                                      value: _selectedItem,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          _selectedItem = value ?? "";
-                                        });
-                                      },
-                                      items: _items.map((String item) {
-                                        return DropdownMenuItem<String>(
-                                          value: item,
-                                          child: Text(item,style: CustomTextStyle.mainColorBoldFont16Style),
-                                        );
-                                      }).toList(),
-                                    ),
-                                  ),
-                                ))
-                              ],
-                            ),
-                            SizedBox(height: 10.sp,),
-                            CustomButton(
-                              onTap: () {
-                                Navigator.of(context).pop();
-                              },
-                              radius: 100,
-                              btnText: "Done",
-                              btnColor: kPrimaryColor,
-                            )
-                          ],
-                        ),
-                      );
-                    },
-
-                  );
-                },);
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(5.sp),
-                    decoration: BoxDecoration(
-                      color: kPrimaryColor,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Icon(Icons.add,color: kWhiteColor,),
-                  ),
-                  SizedBox(width: 10.sp,),
-                  Text("Add payment",style: CustomTextStyle.semiBoldFont18Style.copyWith(
-                      color: kPrimaryColor
-                  ),)
-                ],
-              ),
-            )
           ],
         ),
       ),
+      bottomNavigationBar: SafeArea(child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(height: 10.sp,),
+          Container(
+              margin: EdgeInsets.symmetric(horizontal: 20.sp),
+              height: 50.sp,
+              child: CustomButton(
+                btnText: "Sent request for Due Amount",
+                textStyle: CustomTextStyle.mediumFont18Style.copyWith(color: kWhiteColor),
+                radius: 100,
+                onTap: () {
+                  CompletedOrderAgencyRoute.goToSendRequestPage(context);
+                },
+              )),
+          SizedBox(height: 10.sp,),
+        ],
+      )),
     );
   }
 }

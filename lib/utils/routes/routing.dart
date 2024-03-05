@@ -36,7 +36,11 @@ class Routes {
     ProfileAgencyRoute.editRoute : (context) => ProfileAgencyRoute.editChild,
     ReportAgencyRoute.route:(context) => ReportAgencyRoute.child,
     QueryAgencyRoute.route:(context) => QueryAgencyRoute.child,
-    AgencyJobDetailsRoute.agencyJobDetailsRoute : (context) => AgencyJobDetailsRoute.agencyJobDetailsChild
+    CompletedOrderAgencyRoute.route: (context) => CompletedOrderAgencyRoute.child,
+    CompletedOrderAgencyRoute.completedOrderDetailsRoute: (context) => CompletedOrderAgencyRoute.completedOrderDetailsChild,
+    CompletedOrderAgencyRoute.sendRequestForDeuAmountRoute: (context) => CompletedOrderAgencyRoute.sendRequestForDeuAmountChild,
+    AgencyJobDetailsRoute.agencyJobDetailsRoute : (context) => AgencyJobDetailsRoute.agencyJobDetailsChild,
+    AgencyChatRoute.route : (context) => AgencyChatRoute.child
 
 
 

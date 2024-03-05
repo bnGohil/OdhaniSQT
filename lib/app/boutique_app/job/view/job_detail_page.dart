@@ -42,7 +42,6 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                     leadingOnTap: () {
                       Navigator.of(context).pop();
                     },
-                    leading: Icon(Icons.arrow_back_outlined,size: 24.sp,color: kBlackColor),
                     action: Icon(Icons.add,size: 24.sp,color: kBlackColor),
                     title: "Jobs Detail",
                   ),

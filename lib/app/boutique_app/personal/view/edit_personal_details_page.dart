@@ -64,17 +64,7 @@ class _EditPersonalDetailsPageState extends State<EditPersonalDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppbar(
-        height: 70.sp,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.of(context).pop();
-          },
-          child: SizedBox(
-            height: 24.sp,
-            width: 24.sp,
-            child: ImageUtil.iconImageClass.backArrowIcon,
-          ),
-        ),
+        height: 100.sp,
         title: "Personal Detail",
         action: GestureDetector(
             onTap: () {

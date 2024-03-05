@@ -142,7 +142,7 @@ class JobsAndOrderDummyModel{
   ];
 
 
-  static List<JobsAndOrderDummyModel> jobAgencyListData = [
+  static List<JobsAndOrderDummyModel> jobAgencyPendingListData = [
     JobsAndOrderDummyModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
         location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
         ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
@@ -180,6 +180,50 @@ class JobsAndOrderDummyModel{
         ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
         typesOfApp: TypesOfApp.AGENCY,
         jobStatus: JobStatus.PENDING,
+        ordersValue:
+        ["Anarkali Kurti","Blouse"]
+    ),
+  ];
+
+
+  static List<JobsAndOrderDummyModel> jobAgencyRejectListData = [
+    JobsAndOrderDummyModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
+        location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
+        ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
+        typesOfApp: TypesOfApp.AGENCY,
+        jobStatus: JobStatus.REJECT,
+        ordersValue:
+        ["Anarkali Kurti","Blouse"]
+    ),
+    JobsAndOrderDummyModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
+        location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
+        ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
+        typesOfApp: TypesOfApp.AGENCY,
+        jobStatus: JobStatus.REJECT,
+        ordersValue:
+        ["Anarkali Kurti","Blouse"]
+    ),
+    JobsAndOrderDummyModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
+        location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
+        ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
+        typesOfApp: TypesOfApp.AGENCY,
+        jobStatus: JobStatus.REJECT,
+        ordersValue:
+        ["Anarkali Kurti","Blouse"]
+    ),
+    JobsAndOrderDummyModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
+        location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
+        ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
+        typesOfApp: TypesOfApp.AGENCY,
+        jobStatus: JobStatus.REJECT,
+        ordersValue:
+        ["Anarkali Kurti","Blouse"]
+    ),
+    JobsAndOrderDummyModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
+        location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
+        ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
+        typesOfApp: TypesOfApp.AGENCY,
+        jobStatus: JobStatus.REJECT,
         ordersValue:
         ["Anarkali Kurti","Blouse"]
     ),

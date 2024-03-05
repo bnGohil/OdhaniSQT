@@ -13,7 +13,7 @@ class AppBarComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Row(
       children: [
-        if(action != null)
+
         GestureDetector(
           onTap: leadingOnTap,
           child: Container(
@@ -24,7 +24,10 @@ class AppBarComponent extends StatelessWidget {
               borderRadius: BorderRadius.circular(100),
               border: Border.all(color: kBorderColor),
             ),
-            child: leading,
+            child: SizedBox(
+                height: 24.sp,
+                width: 24.sp,
+                child: leading ?? ImageUtil.iconImageClass.backArrowIcon),
           ),
         ),
         Expanded(
