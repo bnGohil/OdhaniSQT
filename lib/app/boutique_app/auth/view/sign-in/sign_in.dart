@@ -35,7 +35,8 @@ class _SignInScreenState extends State<SignInScreen> {
         child: Stack(
           fit: StackFit.loose,
           children: [
-             _keyboardVisible ? SizedBox() : ImageUtil.graphicsImage.signInImage  ,
+             _keyboardVisible ? SizedBox() :
+             ImageUtil.graphicsImage.signInImage  ,
 
             Padding(
               padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 30.sp),

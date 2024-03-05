@@ -31,7 +31,7 @@ class _TabPageState extends State<TabPage> {
         ],
       ),
       bottomNavigationBar: Padding(
-        padding:  EdgeInsets.all(20.sp),
+        padding:  EdgeInsets.all(10.sp),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 41.sp,vertical: 16.sp),
           decoration: BoxDecoration(
