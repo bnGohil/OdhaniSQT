@@ -74,7 +74,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             child: ImageUtil.iconImageClass.backArrowIcon,
           ),
         ),
-        title: "Edit Profile",
+        title: "Edit",
         action: GestureDetector(
             onTap: () {
 

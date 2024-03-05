@@ -36,9 +36,12 @@ class Routes {
     ProfileAgencyRoute.editRoute : (context) => ProfileAgencyRoute.editChild,
     ReportAgencyRoute.route:(context) => ReportAgencyRoute.child,
     QueryAgencyRoute.route:(context) => QueryAgencyRoute.child,
-    AgencyJobDetailsRoute.agencyJobDetailsRoute : (context) => AgencyJobDetailsRoute.agencyJobDetailsChild
-
-
-
+    CompletedOrderAgencyRoute.route: (context) => CompletedOrderAgencyRoute.child,
+    AgencyJobDetailsRoute.agencyJobDetailsRoute : (context) => AgencyJobDetailsRoute.agencyJobDetailsChild,
+    CompletedOrderAgencyRoute.completedOrderDetailsRoute: (context) => CompletedOrderAgencyRoute.completedOrderDetailsChild,
+    PersonalAgencyRoute.route: (context) => PersonalAgencyRoute.child,
+    PersonalAgencyRoute.editPerRoute: (context) => PersonalAgencyRoute.editChild,
+    BoutiqueListRoute.route:(context) => BoutiqueListRoute.child,
+    BoutiqueListRoute.boutiqueAgencyDetailsRoute:(context) => BoutiqueListRoute.boutiqueAgencyDetailsChild,
  };
 }

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:odhani_design_sqt/app/agency_app/agency_profile/route/agency_profile_route.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 
 import '../../../../base/base.dart';
@@ -95,7 +96,7 @@ class _AgencyEditProfileScreenState extends State<AgencyEditProfileScreen> {
                 CustomButton(
                   radius: 100,
                   onTap: () {
-                    ProfileRoute.goToProfilePage(context);
+                    ProfileAgencyRoute.goToProfilePage(context);
                   },
                   btnColor: kPrimaryColor,
                   btnText: "Update",

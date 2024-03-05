@@ -1,13 +1,14 @@
-import 'package:odhani_design_sqt/app/agency_app/agency_profile/route/agency_profile_route.dart';
-import 'package:odhani_design_sqt/app/agency_app/agency_query/route/query_agency_route.dart';
-import 'package:odhani_design_sqt/app/agency_app/agency_report/route/report_agency_route.dart';
-import 'package:odhani_design_sqt/app/boutique_app/profile/route/profile_route.dart';
+import 'package:odhani_design_sqt/app/agency_app/agency_boutique_list/route/agency_boutique_route.dart';
 
-import '../../../../base/view/base_components/custom_option_bottom_sheet.dart';
 import '../../../../utils/utils.dart';
 import 'package:flutter/material.dart';
 import '../../../boutique_app/menu/domian/menu_model.dart';
 import '../../agency_completed_order/route/completed_order_agency_route.dart';
+import '../../../../base/view/base_components/custom_option_bottom_sheet.dart';
+import 'package:odhani_design_sqt/app/agency_app/agency_query/route/query_agency_route.dart';
+import 'package:odhani_design_sqt/app/agency_app/agency_report/route/report_agency_route.dart';
+import 'package:odhani_design_sqt/app/agency_app/agency_profile/route/agency_profile_route.dart';
+import 'package:odhani_design_sqt/app/agency_app/agency_details/route/personal_agency_detail_route.dart';
 
 class AgencyMenuPage extends StatefulWidget {
   const AgencyMenuPage({super.key});
@@ -117,13 +118,14 @@ class _AgencyMenuPageState extends State<AgencyMenuPage> {
                   onTap: () {
                     switch(menu.menuAgencyType){
                       case MenuAgencyType.AgencyDetail:
-                        // PersonalRoute.goToPersonalDetailsPage(context);
+                      PersonalAgencyRoute.goToPersonalDetailsPage(context);
                         break;
                       case MenuAgencyType.CompletedOrders:
                         CompletedOrderAgencyRoute.goToCompletedOrderAgencyPage(context);
                         break;
                       case MenuAgencyType.BoutiqueList:
                         // CustomerRoute.goToCustomerListPage(context,ScreenType.AGENCY);
+                      BoutiqueListRoute.goToCustomerListPage(context);
                         break;
                       case MenuAgencyType.Report:
                         ReportAgencyRoute.goToReportPage(context);
@@ -132,7 +134,6 @@ class _AgencyMenuPageState extends State<AgencyMenuPage> {
                         QueryAgencyRoute.goToQueryPage(context);
                         break;
                       case MenuAgencyType.DeleteAccount:
-                        // QueryRoute.goToQueryPage(context);
                         break;
                       case MenuAgencyType.Logout:
                         CustomShowModalBottomSheetPopup(context,
