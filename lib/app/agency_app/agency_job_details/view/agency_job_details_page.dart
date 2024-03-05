@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:odhani_design_sqt/app/boutique_app/order/component/job_status_widget.dart';
 import 'package:odhani_design_sqt/utils/sizer/enum.dart';
@@ -242,43 +243,37 @@ class _AgencyJobDetailsPageState extends State<AgencyJobDetailsPage> {
                                 SizedBox(
                                   width: 5.sp,
                                 ),
-                                Expanded(
-                                  child: Row(
-                                     crossAxisAlignment: CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Text("Order Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 10.sp)),
-                                      Flexible(
-                                        child: Tooltip(
-                                          message: DateTime.now().formatCommonDate(),
-                                          child: Text(DateTime.now().formatCommonDate(),
-                                              style: CustomTextStyle.semiBoldFont14Style.copyWith(
-                                                  fontSize: 10.sp
-                                              )),
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                Row(
+                                   crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text("Order Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 12.sp)),
+                                    Tooltip(
+                                      message: DateTime.now().formatCommonDate(),
+                                      child: Text(DateTime.now().formatCommonDate(),
+                                          style: CustomTextStyle.semiBoldFont14Style.copyWith(
+                                              fontSize: 12.sp
+                                          )),
+                                    )
+                                  ],
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                                Expanded(
                                   child: Container(
+                                    margin: EdgeInsets.symmetric(horizontal: 25.sp),
                                     height: 1.sp,
                                     width: 5.sp,
                                     color: kBlackColor,
                                   ),
                                 ),
-                                Expanded(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Text("Due Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 10.sp)),
-                                      Flexible(child: Tooltip(
-                                          message:DateTime.now().formatCommonDate(),
-                                          child: Text(DateTime.now().formatCommonDate(),style: CustomTextStyle.semiBoldFont14Style.copyWith(fontSize: 10.sp))))
-                                    ],
-                                  ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text("Due Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 12.sp)),
+                                    Tooltip(
+                                        message:DateTime.now().formatCommonDate(),
+                                        child: Text(DateTime.now().formatCommonDate(),style: CustomTextStyle.semiBoldFont14Style.copyWith(fontSize: 12.sp)))
+                                  ],
                                 ),
                               ],
                             ),

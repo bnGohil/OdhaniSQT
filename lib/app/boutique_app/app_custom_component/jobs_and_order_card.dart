@@ -181,59 +181,54 @@ class _JobsAndOrderCardWidgetState extends State<JobsAndOrderCardWidget> {
                 SizedBox(
                   width: 5.sp,
                 ),
-                Expanded(
-                  child: Row(
-                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text("Order Date - ",
-                          style: CustomTextStyle.regularFont16Style
-                              .copyWith(fontSize: 10.sp)),
-                      Flexible(
-                        child: Tooltip(
-                          message: DateFormat("dd/MM/yyyy").format(
-                              widget.jobsAndOrderDummyModel!.orderDate!),
-                          child: Text(
-                              widget.jobsAndOrderDummyModel?.dueDate != null
-                                  ? DateFormat("dd/MM/yyyy").format(
-                                      widget.jobsAndOrderDummyModel!.dueDate!)
-                                  : "",
-                              style: CustomTextStyle.semiBoldFont14Style
-                                  .copyWith(fontSize: 10.sp)),
-                        ),
-                      )
-                    ],
-                  ),
+                Row(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text("Order Date - ",
+                        style: CustomTextStyle.regularFont16Style
+                            .copyWith(fontSize: 12.sp)),
+                    Tooltip(
+                      message: DateFormat("dd/MM/yyyy").format(
+                          widget.jobsAndOrderDummyModel!.orderDate!),
+                      child: Text(
+                          widget.jobsAndOrderDummyModel?.dueDate != null
+                              ? DateFormat("dd/MM/yyyy").format(
+                                  widget.jobsAndOrderDummyModel!.dueDate!)
+                              : "",
+                          style: CustomTextStyle.semiBoldFont14Style
+                              .copyWith(fontSize: 12.sp)),
+                    )
+                  ],
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.sp),
+
+                Expanded(
                   child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 26.sp),
                     height: 1.sp,
                     width: 5.sp,
                     color: kBlackColor,
                   ),
                 ),
-                Expanded(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text("Due Date - ",
-                          style: CustomTextStyle.regularFont16Style
-                              .copyWith(fontSize: 10.sp)),
-                      Flexible(
-                          child: Tooltip(
-                              message: DateFormat("dd/MM/yyyy").format(
-                                  widget.jobsAndOrderDummyModel!.dueDate!),
-                              child: Text(
-                                  widget.jobsAndOrderDummyModel?.dueDate != null
-                                      ? DateFormat("dd/MM/yyyy").format(widget
-                                          .jobsAndOrderDummyModel!.dueDate!)
-                                      : "",
-                                  style: CustomTextStyle.semiBoldFont14Style
-                                      .copyWith(fontSize: 10.sp))))
-                    ],
-                  ),
+
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text("Due Date - ",
+                        style: CustomTextStyle.regularFont16Style
+                            .copyWith(fontSize: 12.sp)),
+                    Tooltip(
+                        message: DateFormat("dd/MM/yyyy").format(
+                            widget.jobsAndOrderDummyModel!.dueDate!),
+                        child: Text(
+                            widget.jobsAndOrderDummyModel?.dueDate != null
+                                ? DateFormat("dd/MM/yyyy").format(widget
+                                    .jobsAndOrderDummyModel!.dueDate!)
+                                : "",
+                            style: CustomTextStyle.semiBoldFont14Style
+                                .copyWith(fontSize: 12.sp)))
+                  ],
                 ),
               ],
             ),

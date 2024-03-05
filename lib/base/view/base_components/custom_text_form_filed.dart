@@ -62,7 +62,7 @@ class CustomTextField extends StatelessWidget {
         ),
         child: TextFormField(
           cursorColor: kBlackColor,
-          cursorHeight: 20.sp,
+          // cursorHeight: 20.sp,
           onTap: onTap,
           readOnly: readOnly ?? false,
           maxLength: maxLength,
