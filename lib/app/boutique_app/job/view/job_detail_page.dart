@@ -220,42 +220,39 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                                 SizedBox(
                                   width: 5.sp,
                                 ),
-                                Expanded(
-                                  child: Row(
-                                    // crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Text("Order Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 14.sp)),
-                                      Flexible(
-                                        child: Tooltip(
-                                          message: DateTime.now().formatCommonDate(),
-                                          child: Text(DateTime.now().formatCommonDate(),
-                                              style: CustomTextStyle.semiBoldFont14Style.copyWith(
-                                                  overflow: TextOverflow.ellipsis,
-                                                  decoration: TextDecoration.none
-                                              )),
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                Row(
+                                  // crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text("Order Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 12.sp)),
+                                    Tooltip(
+                                      message: DateTime.now().formatCommonDate(),
+                                      child: Text(DateTime.now().formatCommonDate(),
+                                          style: CustomTextStyle.semiBoldFont14Style.copyWith(
+                                            fontSize: 12.sp,
+                                              overflow: TextOverflow.ellipsis,
+                                              decoration: TextDecoration.none,
+                                          )),
+                                    )
+                                  ],
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                                Expanded(
                                   child: Container(
+                                    margin: EdgeInsets.symmetric(horizontal: 28.sp),
                                     height: 1.sp,
                                     width: 5.sp,
                                     color: kBlackColor,
                                   ),
                                 ),
-                                Expanded(
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Text("Due Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 14.sp)),
-                                      Flexible(child: Tooltip(
-                                          message:DateTime.now().formatCommonDate(),
-                                          child: Text(DateTime.now().formatCommonDate(),style: CustomTextStyle.semiBoldFont14Style)))
-                                    ],
-                                  ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text("Due Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 12.sp)),
+                                    Tooltip(
+                                        message:DateTime.now().formatCommonDate(),
+                                        child: Text(DateTime.now().formatCommonDate(),style: CustomTextStyle.semiBoldFont14Style.copyWith(
+                                          fontSize: 12.sp
+                                        )))
+                                  ],
                                 ),
                               ],
                             ),
