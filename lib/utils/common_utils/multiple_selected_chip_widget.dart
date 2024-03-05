@@ -44,18 +44,7 @@ class _MultipleSelectedChipWidgetState extends State<MultipleSelectedChipWidget>
     return Scaffold(
       appBar: CustomAppbar(
         height: 100.sp,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: SizedBox(
-            height: 24.sp,
-            width: 24.sp,
-            child: ImageUtil.iconImageClass.backArrowIcon,
-          ),
-        ),
         title: widget.text,
-
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 10.sp),

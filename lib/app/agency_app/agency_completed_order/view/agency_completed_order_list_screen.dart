@@ -18,16 +18,6 @@ class _AgencyCompletedOrderScreenState extends State<AgencyCompletedOrderScreen>
     return Scaffold(
       appBar: CustomAppbar(
         height: 100.sp,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.of(context).pop();
-          },
-          child: SizedBox(
-            height: 24.sp,
-            width: 24.sp,
-            child: ImageUtil.iconImageClass.backArrowIcon,
-          ),
-        ),
         title: "Complete Order",
         action: GestureDetector(
             onTap: () {
