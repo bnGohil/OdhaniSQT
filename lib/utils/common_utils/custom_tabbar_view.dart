@@ -40,7 +40,7 @@ class _CustomTabBarViewState extends State<CustomTabBarView> {
                   });
                 },
                 child: Container(
-                    width: isValue ? (width / 3): ((width - 50.sp) / 2),
+                    width: isValue ? ((width - 50.sp) / 3): ((width - 50.sp) / 2),
                     padding: EdgeInsets.symmetric(vertical: 11.sp),
                     alignment: Alignment.center,
                     decoration: selectedValue ?  BoxDecoration(

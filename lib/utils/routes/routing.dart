@@ -31,7 +31,8 @@ class Routes {
 
     // ======================================================================
 
-    AgencyTabRoute.route : (context) => AgencyTabRoute.child
+    AgencyTabRoute.route : (context) => AgencyTabRoute.child,
+    AgencyJobDetailsRoute.agencyJobDetailsRoute : (context) => AgencyJobDetailsRoute.agencyJobDetailsChild
 
 
  };
