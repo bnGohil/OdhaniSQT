@@ -31,7 +31,7 @@ extension CustomTextStyle on TextStyle{
   static TextStyle get lightFont16Style=> TextStyle(
       color: kMainTextColor,
       fontSize: 16.sp,
-      fontWeight: FontWeight.w300
+      fontWeight: FontWeight.w400
   );
 
   static TextStyle get regularFont18Style=> TextStyle(

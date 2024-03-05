@@ -63,7 +63,7 @@ class HomeGridCardView extends StatelessWidget {
                           height: 20.sp,
                           width: 80.sp,
                         ),
-                        child: Text("${gridData.cardText}",style: CustomTextStyle.lightFont16Style)),
+                        child: Text("${gridData.cardText}",style: CustomTextStyle.lightFont16Style.copyWith(color: kSecondaryColor))),
 
                   ],
                 ),
