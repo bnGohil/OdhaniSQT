@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:odhani_design_sqt/app/agency_app/agency_menu/view/agency_menu_page.dart';
-import 'package:odhani_design_sqt/app/agency_app/agency_order/view/agency_order_page.dart';
-
 import '../../../../utils/utils.dart';
-import '../../../boutique_app/home/view/home_page.dart';
-import '../../../boutique_app/menu/view/menu_page.dart';
-import '../../../boutique_app/order/domian/order_model.dart';
-import '../../../boutique_app/order/view/order_page.dart';
 import '../../agency_home/view/agency_home_page.dart';
+import '../../agency_menu/view/agency_menu_page.dart';
+import '../../agency_order/view/agency_order_page.dart';
+import '../../../boutique_app/order/domian/order_model.dart';
 
 class AgencyTabPage extends StatefulWidget {
   const AgencyTabPage({super.key});
