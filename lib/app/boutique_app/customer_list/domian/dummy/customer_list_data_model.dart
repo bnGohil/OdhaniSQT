@@ -17,6 +17,13 @@ class CustomerListDataModel{
 
 
 
+  static List<CustomerListDataModel> boutiqueDummyList = [
+    CustomerListDataModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",name: "Odhani Boutique",location: "27, Via Domenico Maria Manni Naroda,Ahmedabad - 382330"),
+    CustomerListDataModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",name: "Kisha Boutique",location: "27, Via Domenico Maria Manni Naroda,Ahmedabad - 382330"),
+  ];
+
+
+
 
 
 
