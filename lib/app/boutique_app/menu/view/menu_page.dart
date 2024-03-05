@@ -121,7 +121,7 @@ class _MenuPageState extends State<MenuPage> {
           children: [
             Padding(
               padding:  EdgeInsets.symmetric(vertical: 2.sp),
-              child: GestureDetector(
+              child: InkWell(
                 onTap: () {
                   switch(menu.menuType){
                     case MenuType.BoutiqueDetail:

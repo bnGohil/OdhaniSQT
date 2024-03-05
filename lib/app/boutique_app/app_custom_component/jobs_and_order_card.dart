@@ -77,6 +77,16 @@ class _JobsAndOrderCardWidgetState extends State<JobsAndOrderCardWidget> {
                                 )
                               ],
                             )
+                          else if(widget.jobsAndOrderDummyModel?.jobStatus == JobStatus.ACCEPT)
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 15.sp,vertical: 8.sp),
+                                decoration: BoxDecoration(
+                                  color: kPrimaryColor,
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                child: Text(widget.jobsAndOrderDummyModel?.jobStatus?.jobTitle ?? "",style: CustomTextStyle.mediumFont16Style.copyWith(fontSize: 12.sp,color: kWhiteColor),))
+
+
                         ],
                       )
                     else

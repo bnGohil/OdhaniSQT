@@ -56,6 +56,17 @@ class _GalleryPageState extends State<GalleryPage> {
 
     };
 
+    customImagePicker.onFile = (file){
+
+
+      setState(() {
+
+        imageFile.add(File(file.first));
+
+      });
+
+    };
+
 
     customImagePicker.onError = (error){
 
@@ -100,122 +111,130 @@ class _GalleryPageState extends State<GalleryPage> {
           color: kPrimaryColor,
         ),
       ):
-      GridView.builder(
-        itemCount: imageFile.length,
-          padding: EdgeInsets.zero,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,crossAxisSpacing: 5.sp,mainAxisSpacing: 5.sp),
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                showDialog(context: context, builder: (context) {
-                  return BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 4,sigmaY: 4),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 24.sp),
-                          height: 350.sp,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15.sp),
-                              image: DecorationImage(image: FileImage(imageFile[index]),fit: BoxFit.fill)
-                            ),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.sp),
+        child: GridView.builder(
+          itemCount: imageFile.length,
+            padding: EdgeInsets.zero,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,crossAxisSpacing: 5.sp,mainAxisSpacing: 5.sp),
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  showDialog(context: context, builder: (context) {
+                    return BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 4,sigmaY: 4),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: 24.sp),
+                            height: 350.sp,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15.sp),
+                                image: DecorationImage(image: FileImage(imageFile[index]),fit: BoxFit.fill)
+                              ),
 
-                        ),
-                        SizedBox(height: 25.sp),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Column(
-                              children: [
-                                IconButton.outlined(
-                                  onPressed: (){},
-                                  style: ButtonStyle(
-                                            side: MaterialStateProperty.all(
-                                              BorderSide(
-                                                  width: 1,
-                                                  color: Colors.white),
+                          ),
+                          SizedBox(height: 25.sp),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Column(
+                                children: [
+                                  IconButton.outlined(
+                                    onPressed: (){},
+                                    style: ButtonStyle(
+                                              side: MaterialStateProperty.all(
+                                                BorderSide(
+                                                    width: 1,
+                                                    color: Colors.white),
+                                              ),
                                             ),
-                                          ),
-                                  color: Colors.white,
-                                  icon:Icon(Icons.share,size: 32.sp,),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                IconButton(
-                                  onPressed: (){
-                                    Navigator.of(context).pop();
-                                  },
-                                  color: Colors.white,
-                                  style: ButtonStyle(
-                                    side: MaterialStateProperty.all(
-                                      BorderSide(
-                                          width: 1,
-                                          color: Colors.white),
-                                    ),
+                                    color: Colors.white,
+                                    icon:Icon(Icons.share,size: 32.sp,),
                                   ),
-                                  icon:Icon(Icons.close,size: 32.sp,),
-                                ),
-                                // Text("Close",style: CustomTextStyle.whiteBoldFont20Style,)
-                              ],
-                            ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  IconButton(
+                                    onPressed: (){
+                                      Navigator.of(context).pop();
+                                    },
+                                    color: Colors.white,
+                                    style: ButtonStyle(
+                                      side: MaterialStateProperty.all(
+                                        BorderSide(
+                                            width: 1,
+                                            color: Colors.white),
+                                      ),
+                                    ),
+                                    icon:Icon(Icons.close,size: 32.sp,),
+                                  ),
+                                  // Text("Close",style: CustomTextStyle.whiteBoldFont20Style,)
+                                ],
+                              ),
 
-                          ],
-                        )
-                      ],
-                    )
-                  );
-                },);
+                            ],
+                          )
+                        ],
+                      )
+                    );
+                  },);
 
-              },
-              child: Stack(
-                children: [
+                },
+                child: Stack(
+                  children: [
 
-                  Container(
-                    margin: EdgeInsets.all(5.sp),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25.sp),
-                      image: DecorationImage(image: FileImage(imageFile[index]),fit: BoxFit.cover),
-                      border: Border.all(color: kBorderColor)
+                    Container(
+                      margin: EdgeInsets.all(5.sp),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25.sp),
+                        image: DecorationImage(image: FileImage(imageFile[index]),fit: BoxFit.cover),
+                        border: Border.all(color: kBorderColor)
+                      ),
+
                     ),
 
-                  ),
+                    Positioned(
+                        right: 0,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              imageFile.remove(imageFile[index]);
+                            });
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: kBlackColor,width: 1.sp),
+                              shape: BoxShape.circle
+                            ),
+                            child: Icon(Icons.close,size: 20.sp,color: kBlackColor,),),
+                        ))
 
-                  Positioned(
-                      right: 0,
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            imageFile.remove(imageFile[index]);
-                          });
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: kBlackColor,width: 1.sp),
-                            shape: BoxShape.circle
-                          ),
-                          child: Icon(Icons.close,size: 20.sp,color: kBlackColor,),),
-                      ))
+                  ],
+                ),
+              );
+            },),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(vertical: 20.sp,horizontal: 20.sp),
+        height: 100.sp,
+        child: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              CustomButton(
+                onTap: () {
+                  customImagePicker.bottomMultiple(context);
+                },
+                radius: 100.sp,
+                btnColor: kPrimaryColor,
+                btnText: "Add Images",
 
-                ],
               ),
-            );
-          },),
-      bottomNavigationBar: SafeArea(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20.sp),
-            height: 60.sp,
-            child: CustomButton(
-              onTap: () {
-                customImagePicker.bottomMultiple(context);
-              },
-              radius: 100.sp,
-              btnColor: kPrimaryColor,
-              btnText: "Add Images",
-
-            )
+            ],
+          ),
         ),
       ),
     );
