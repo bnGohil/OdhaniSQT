@@ -9,9 +9,15 @@ class AgencyJobDetailsRoute{
 
   static Widget agencyJobDetailsChild = const AgencyJobDetailsPage();
 
-  static goToAgencyJobDetailsPage(BuildContext context,JobStatus? jobStatus){
-    Navigator.pushNamed(context,agencyJobDetailsRoute,arguments: jobStatus);
+  static  goToAgencyJobDetailsPage(BuildContext context,GetHomeAgencyData? getHomeAgencyData){
+    Navigator.pushNamed(context,agencyJobDetailsRoute,arguments: getHomeAgencyData);
   }
 
 }
+class GetHomeAgencyData{
+  JobStatus? jobStatus;
+  int? index;
 
+  GetHomeAgencyData({this.jobStatus,this.index});
+
+}

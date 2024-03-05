@@ -81,128 +81,125 @@ class _CreateJobOrderScreenState extends State<CreateJobOrderScreen> {
             },
             child: ImageUtil.iconImageClass.notificationIcon),
       ),
-      body: Padding(
+      body: ListView(
         padding:  EdgeInsets.symmetric(horizontal: 20.sp,vertical: 20.sp),
-        child: Column(
+        children: [
+          CustomAutoSearchTextField(
+            headerText: "Job Order No.",
+            suggestions: [],
+            // controller: ,
+            focusNode: jobOrderNoFocus,
+            hint: "Enter Your Name",
+            // onSearchTextChanged: (query) {
+            //   final filter = firstName
+            //       .where((element) =>
+            //       element.toLowerCase().contains(query.toLowerCase()))
+            //       .toList();
+            //   return filter
+            //       .map((e) =>
+            //       SearchFieldListItem<String>(e, child: searchChild(e)))
+            //       .toList();
+            // },
+          ),
 
-          children: [
-            CustomAutoSearchTextField(
-              headerText: "Job Order No.",
-              suggestions: [],
-              // controller: ,
-              focusNode: jobOrderNoFocus,
-              hint: "Enter Your Name",
-              // onSearchTextChanged: (query) {
-              //   final filter = firstName
-              //       .where((element) =>
-              //       element.toLowerCase().contains(query.toLowerCase()))
-              //       .toList();
-              //   return filter
-              //       .map((e) =>
-              //       SearchFieldListItem<String>(e, child: searchChild(e)))
-              //       .toList();
-              // },
+          SizedBox(height: 10.sp),
+
+          CustomAutoSearchTextField(
+            headerText: "Boutique Name",
+            suggestions: lastName.map((e) => SearchFieldListItem<String>(e, child: searchChild(e))).toList(),
+            // controller: ,
+            hint: "Boutique Name",
+            focusNode: lastNameFocus,
+            onSearchTextChanged: (query) {
+              final filter = lastName
+                  .where((element) =>
+                  element.toLowerCase().contains(query.toLowerCase()))
+                  .toList();
+              return filter
+                  .map((e) =>
+                  SearchFieldListItem<String>(e, child: searchChild(e)))
+                  .toList();
+            },
+            suffixIcon: Padding(
+              padding:  EdgeInsets.only(right: 10.sp),
+              child: Icon(Icons.arrow_drop_down),
             ),
+          ),
 
-            SizedBox(height: 10.sp),
+          SizedBox(height: 10.sp),
 
-            CustomAutoSearchTextField(
-              headerText: "Boutique Name",
-              suggestions: lastName.map((e) => SearchFieldListItem<String>(e, child: searchChild(e))).toList(),
-              // controller: ,
-              hint: "Boutique Name",
-              focusNode: lastNameFocus,
-              onSearchTextChanged: (query) {
-                final filter = lastName
-                    .where((element) =>
-                    element.toLowerCase().contains(query.toLowerCase()))
-                    .toList();
-                return filter
-                    .map((e) =>
-                    SearchFieldListItem<String>(e, child: searchChild(e)))
-                    .toList();
-              },
-              suffixIcon: Padding(
-                padding:  EdgeInsets.only(right: 10.sp),
-                child: Icon(Icons.arrow_drop_down),
-              ),
-            ),
+          CustomAutoSearchTextField(
+            headerText: "Boutique Address",
+            suggestions: [],
+            // controller: ,
+            hint: "Enter your number",
+            maxLine: 2,
+            focusNode: numberFocus,
+            // onSearchTextChanged: (query) {
+            //   final filter = number
+            //       .where((element) =>
+            //       element.toLowerCase().contains(query.toLowerCase()))
+            //       .toList();
+            //   return filter
+            //       .map((e) =>
+            //       SearchFieldListItem<String>(e, child: searchChild(e)))
+            //       .toList();
+            // },
+          ),
 
-            SizedBox(height: 10.sp),
+          SizedBox(height: 10.sp),
 
-            CustomAutoSearchTextField(
-              headerText: "Boutique Address",
-              suggestions: [],
-              // controller: ,
-              hint: "Enter your number",
-              maxLine: 2,
-              focusNode: numberFocus,
-              // onSearchTextChanged: (query) {
-              //   final filter = number
-              //       .where((element) =>
-              //       element.toLowerCase().contains(query.toLowerCase()))
-              //       .toList();
-              //   return filter
-              //       .map((e) =>
-              //       SearchFieldListItem<String>(e, child: searchChild(e)))
-              //       .toList();
-              // },
-            ),
+          CustomAutoSearchTextField(
+            headerText: "Product Name",
+            suggestions: [],
+            // controller: ,
+            hint: "Product Name",
+            focusNode: emailFocus,
+            // onSearchTextChanged: (query) {
+            //   final filter = empty
+            //       .where((element) =>
+            //       element.toLowerCase().contains(query.toLowerCase()))
+            //       .toList();
+            //   return filter
+            //       .map((e) =>
+            //       SearchFieldListItem<String>(e, child: searchChild(e)))
+            //       .toList();
+            // },
+            // suffixIcon: Padding(
+            //   padding:  EdgeInsets.only(right: 10.sp),
+            //   child: Icon(Icons.arrow_drop_down),
+            // ),
+          ),
 
-            SizedBox(height: 10.sp),
+          SizedBox(height: 15.sp),
 
-            CustomAutoSearchTextField(
-              headerText: "Product Name",
-              suggestions: [],
-              // controller: ,
-              hint: "Product Name",
-              focusNode: emailFocus,
-              // onSearchTextChanged: (query) {
-              //   final filter = empty
-              //       .where((element) =>
-              //       element.toLowerCase().contains(query.toLowerCase()))
-              //       .toList();
-              //   return filter
-              //       .map((e) =>
-              //       SearchFieldListItem<String>(e, child: searchChild(e)))
-              //       .toList();
-              // },
-              // suffixIcon: Padding(
-              //   padding:  EdgeInsets.only(right: 10.sp),
-              //   child: Icon(Icons.arrow_drop_down),
-              // ),
-            ),
+          CustomAutoSearchTextField(
+            headerText: "Product Quantity",
+            suggestions: [],
+            // controller: ,
+            hint: "Product Quantity",
+            focusNode: addressFocus ,
+            // onSearchTextChanged: (query) {
+            //   final filter = empty
+            //       .where((element) =>
+            //       element.toLowerCase().contains(query.toLowerCase()))
+            //       .toList();
+            //   return filter
+            //       .map((e) =>
+            //       SearchFieldListItem<String>(e, child: searchChild(e)))
+            //       .toList();
+            // },
+          ),
 
-            SizedBox(height: 15.sp),
+          SizedBox(height: 10.sp),
 
-            CustomAutoSearchTextField(
-              headerText: "Product Quantity",
-              suggestions: [],
-              // controller: ,
-              hint: "Product Quantity",
-              focusNode: addressFocus ,
-              // onSearchTextChanged: (query) {
-              //   final filter = empty
-              //       .where((element) =>
-              //       element.toLowerCase().contains(query.toLowerCase()))
-              //       .toList();
-              //   return filter
-              //       .map((e) =>
-              //       SearchFieldListItem<String>(e, child: searchChild(e)))
-              //       .toList();
-              // },
-            ),
+          ChipTextField(
+            selectedList: [],
+            apiList: materialList,
+            headerText: "Product Material",
+          ),
 
-            SizedBox(height: 10.sp),
-
-            ChipTextField(
-              selectedList: [],
-              apiList: materialList,
-              headerText: "Product Material",
-            ),
-
-          ],
-        ),
+        ],
       ),
       bottomNavigationBar: SafeArea(
         child: Container(

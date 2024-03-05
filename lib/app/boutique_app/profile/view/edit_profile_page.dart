@@ -73,9 +73,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
       ),
       bottomNavigationBar: SafeArea(
         child: SizedBox(
-          height: 70.sp,
+          height: 80.sp,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.sp),
+            padding: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 10.sp),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

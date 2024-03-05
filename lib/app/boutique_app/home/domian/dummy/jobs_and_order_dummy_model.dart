@@ -11,10 +11,12 @@ class JobsAndOrderDummyModel{
   List<String>? ordersImages;
   DateTime? orderDate;
   DateTime? dueDate;
+  int? index;
 
   JobsAndOrderDummyModel({this.profilePic,this.orderDate,this.dueDate,this.location,this.ordersImages,
     this.typesOfApp,
     this.jobStatus,
+    this.index,
   this.ordersValue,this.title,this.count});
 
 
@@ -23,8 +25,7 @@ class JobsAndOrderDummyModel{
         location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
         typesOfApp: TypesOfApp.BOUTIQUE,
         ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
-        ordersValue:
-        ["Anarkali Kurti","Blouse"]
+        ordersValue: ["Anarkali Kurti","Blouse"],
     ),
     JobsAndOrderDummyModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",count: 500,dueDate: DateTime.now(),
         location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
@@ -143,8 +144,19 @@ class JobsAndOrderDummyModel{
 
 
   static List<JobsAndOrderDummyModel> jobAgencyPendingListData = [
+    JobsAndOrderDummyModel(
+      index: 0,
+        profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
+        location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
+        ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
+        typesOfApp: TypesOfApp.AGENCY,
+        jobStatus: JobStatus.PENDING,
+        ordersValue:
+        ["Anarkali Kurti","Blouse"]
+    ),
     JobsAndOrderDummyModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
         location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
+        index: 0,
         ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
         typesOfApp: TypesOfApp.AGENCY,
         jobStatus: JobStatus.PENDING,
@@ -156,11 +168,45 @@ class JobsAndOrderDummyModel{
         ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
         typesOfApp: TypesOfApp.AGENCY,
         jobStatus: JobStatus.PENDING,
+        index: 0,
         ordersValue:
         ["Anarkali Kurti","Blouse"]
     ),
     JobsAndOrderDummyModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
         location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
+        ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
+        typesOfApp: TypesOfApp.AGENCY,
+        index: 0,
+        jobStatus: JobStatus.PENDING,
+        ordersValue:
+        ["Anarkali Kurti","Blouse"]
+    ),
+    JobsAndOrderDummyModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
+        location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
+        ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
+        typesOfApp: TypesOfApp.AGENCY,
+        jobStatus: JobStatus.PENDING,
+        index: 0,
+        ordersValue:
+        ["Anarkali Kurti","Blouse"]
+    ),
+  ];
+
+
+  static List<JobsAndOrderDummyModel> jobAgencyTabPendingListData = [
+    JobsAndOrderDummyModel(
+        index: 0,
+        profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
+        location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
+        ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
+        typesOfApp: TypesOfApp.AGENCY,
+        jobStatus: JobStatus.PENDING,
+        ordersValue:
+        ["Anarkali Kurti","Blouse"]
+    ),
+    JobsAndOrderDummyModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
+        location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
+        index: 0,
         ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
         typesOfApp: TypesOfApp.AGENCY,
         jobStatus: JobStatus.PENDING,
@@ -172,6 +218,16 @@ class JobsAndOrderDummyModel{
         ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
         typesOfApp: TypesOfApp.AGENCY,
         jobStatus: JobStatus.PENDING,
+        index: 0,
+        ordersValue:
+        ["Anarkali Kurti","Blouse"]
+    ),
+    JobsAndOrderDummyModel(profilePic: "assets/images/dummy_img/dummy_profile_image.png",title: "Fashion Agency ",dueDate: DateTime.now(),
+        location: "34, shyam Enclave, Opp madhav FarmAhmedabad Gujrat 382330",orderDate: DateTime.now(),
+        ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
+        typesOfApp: TypesOfApp.AGENCY,
+        index: 0,
+        jobStatus: JobStatus.PENDING,
         ordersValue:
         ["Anarkali Kurti","Blouse"]
     ),
@@ -180,6 +236,7 @@ class JobsAndOrderDummyModel{
         ordersImages: ["assets/images/dummy_img/image_1.png","assets/images/dummy_img/image_2.png"],
         typesOfApp: TypesOfApp.AGENCY,
         jobStatus: JobStatus.PENDING,
+        index: 0,
         ordersValue:
         ["Anarkali Kurti","Blouse"]
     ),

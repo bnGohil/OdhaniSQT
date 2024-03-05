@@ -54,10 +54,58 @@ class _AgencyHomePageState extends State<AgencyHomePage> {
                   shrinkWrap: true,
                   itemCount: JobsAndOrderDummyModel.jobAgencyPendingListData.length,
                   itemBuilder: (context, index) {
-                    final jobsAndOrderDummyModel = JobsAndOrderDummyModel.jobAgencyPendingListData[index];
+
+                    var jobsAndOrderDummyModel = JobsAndOrderDummyModel.jobAgencyPendingListData[index];
+
+                    jobsAndOrderDummyModel.index ??= 0;
+                    jobsAndOrderDummyModel.index = index;
+
+
+
+
                     return GestureDetector(
-                      onTap: () {
-                        AgencyJobDetailsRoute.goToAgencyJobDetailsPage(context,jobsAndOrderDummyModel.jobStatus);
+                      onTap: () async{
+
+
+                        final data = await Navigator.pushNamed(context,AgencyJobDetailsRoute.agencyJobDetailsRoute,arguments: GetHomeAgencyData(index: index,jobStatus: jobsAndOrderDummyModel.jobStatus));
+
+
+                        if(data != null){
+
+
+
+
+
+                          setState(() {
+
+
+
+
+                           JobsAndOrderDummyModel.jobAgencyPendingListData.where((element) => element.index == data).forEach((element) {
+
+                             element.jobStatus = JobStatus.ACCEPT;
+
+
+                           });
+
+
+
+
+
+
+
+
+
+
+
+                          });
+
+
+
+                        }
+
+
+
                         },
                       child: JobsAndOrderCardWidget(jobsAndOrderDummyModel: jobsAndOrderDummyModel),
                     );

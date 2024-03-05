@@ -30,38 +30,40 @@ class _TabPageState extends State<TabPage> {
           MenuPage()
         ],
       ),
-      bottomNavigationBar: Padding(
-        padding:  EdgeInsets.all(10.sp),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 41.sp,vertical: 16.sp),
-          decoration: BoxDecoration(
-            color: kPrimaryColor,
-            borderRadius: BorderRadius.circular(100.sp)
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: List.generate(TabModel.tabList.length, (index) {
-              final tabData = TabModel.tabList[index];
-              final isSelected = selectedIndex == index;
-              return GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedIndex = index;
-                  });
-                },
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                  SizedBox(
-                      height: 24.sp,
-                      width: 24.sp,
-                      child: CustomSvgPictures.asset(tabData.icon ?? "",colorFilter: ColorFilter.mode(isSelected ? kBackground : kLightPinkPrimaryColor,BlendMode.srcIn),)),
-                  Flexible(child: Text(tabData.name ?? "",style: CustomTextStyle.boldFont12Style.copyWith(
-                    color: isSelected ? kBackground : kLightPinkPrimaryColor
-                  ),))
-                ],),
-              );
-            }),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding:  EdgeInsets.all(10.sp),
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 41.sp,vertical: 16.sp),
+            decoration: BoxDecoration(
+              color: kPrimaryColor,
+              borderRadius: BorderRadius.circular(100.sp)
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: List.generate(TabModel.tabList.length, (index) {
+                final tabData = TabModel.tabList[index];
+                final isSelected = selectedIndex == index;
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = index;
+                    });
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                    SizedBox(
+                        height: 24.sp,
+                        width: 24.sp,
+                        child: CustomSvgPictures.asset(tabData.icon ?? "",colorFilter: ColorFilter.mode(isSelected ? kBackground : kLightPinkPrimaryColor,BlendMode.srcIn),)),
+                    Flexible(child: Text(tabData.name ?? "",style: CustomTextStyle.boldFont12Style.copyWith(
+                      color: isSelected ? kBackground : kLightPinkPrimaryColor
+                    ),))
+                  ],),
+                );
+              }),
+            ),
           ),
         ),
       ),

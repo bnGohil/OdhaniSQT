@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:odhani_design_sqt/app/agency_app/agency_job_details/route/agency_job_details_route.dart';
 import 'package:odhani_design_sqt/app/boutique_app/order/component/job_status_widget.dart';
 import 'package:odhani_design_sqt/utils/sizer/enum.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
@@ -51,7 +52,8 @@ class _AgencyJobDetailsPageState extends State<AgencyJobDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    var jobStatus = ModalRoute.of(context)?.settings.arguments as JobStatus?;
+    var getHomeAgencyData = ModalRoute.of(context)?.settings.arguments as GetHomeAgencyData?;
+    var jobStatus = getHomeAgencyData?.jobStatus;
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
@@ -342,7 +344,18 @@ class _AgencyJobDetailsPageState extends State<AgencyJobDetailsPage> {
                         if(jobStatus == JobStatus.ACCEPT){
                           AgencyChatRoute.goToAgencyChatPage(context);
                         }else{
-                          Navigator.of(context).pop();
+                          // print("index is ${}");
+                          if(jobStatus == JobStatus.PENDING){
+
+                            Navigator.of(context).pop(getHomeAgencyData?.index);
+
+                          }else{
+
+
+                            Navigator.of(context).pop();
+
+                          }
+
                         }
 
                       },
