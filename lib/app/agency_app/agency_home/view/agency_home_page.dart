@@ -52,9 +52,9 @@ class _AgencyHomePageState extends State<AgencyHomePage> {
                 ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: JobsAndOrderDummyModel.jobAgencyListData.length,
+                  itemCount: JobsAndOrderDummyModel.jobAgencyPendingListData.length,
                   itemBuilder: (context, index) {
-                    final jobsAndOrderDummyModel = JobsAndOrderDummyModel.jobAgencyListData[index];
+                    final jobsAndOrderDummyModel = JobsAndOrderDummyModel.jobAgencyPendingListData[index];
                     return GestureDetector(
                       onTap: () {
                         AgencyJobDetailsRoute.goToAgencyJobDetailsPage(context,jobsAndOrderDummyModel.jobStatus);

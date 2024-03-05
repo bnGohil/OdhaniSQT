@@ -10,6 +10,8 @@ import '../../../boutique_app/app_custom_component/app_bar_component.dart';
 import '../../../boutique_app/chat/route/chat_route.dart';
 import '../../../boutique_app/job/route/job_route.dart';
 import '../../../boutique_app/order/domian/order_tab_list_data.dart';
+import '../../agency_chat/route/agency_chat_route.dart';
+import '../../agency_completed_order/route/completed_order_agency_route.dart';
 class AgencyJobDetailsPage extends StatefulWidget {
   const AgencyJobDetailsPage({super.key});
 
@@ -19,7 +21,7 @@ class AgencyJobDetailsPage extends StatefulWidget {
 
 class _AgencyJobDetailsPageState extends State<AgencyJobDetailsPage> {
 
-  JobStatus? jobStatus;
+  JobStatus jobStatus = JobStatus.PENDING;
   //
   // @override
   // void initState() {
@@ -50,7 +52,6 @@ class _AgencyJobDetailsPageState extends State<AgencyJobDetailsPage> {
   @override
   Widget build(BuildContext context) {
     var jobStatus = ModalRoute.of(context)?.settings.arguments as JobStatus?;
-    this.jobStatus = jobStatus;
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
@@ -66,7 +67,7 @@ class _AgencyJobDetailsPageState extends State<AgencyJobDetailsPage> {
                     leadingOnTap: () {
                       Navigator.of(context).pop();
                     },
-                    leading: Icon(Icons.arrow_back_outlined,size: 24.sp,color: kBlackColor),
+                    // leading: Icon(Icons.arrow_back_outlined,size: 24.sp,color: kBlackColor),
                     action: Icon(Icons.add,size: 24.sp,color: kBlackColor),
                     title: "Jobs Order Detail",
                   ),
@@ -74,6 +75,7 @@ class _AgencyJobDetailsPageState extends State<AgencyJobDetailsPage> {
                 ),
               ),
             ),
+            if(jobStatus == JobStatus.ACCEPT)
             SliverSafeArea(
               top: false,
               sliver: SliverAppBar(
@@ -87,7 +89,7 @@ class _AgencyJobDetailsPageState extends State<AgencyJobDetailsPage> {
                 flexibleSpace: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.sp),
                   child: JobStatusWidget(
-                    status: jobStatus,
+                    status: this.jobStatus,
                     isEdit: false,
                     isStatus: false,
                     onStatusOnTap: (p0) {
@@ -100,6 +102,7 @@ class _AgencyJobDetailsPageState extends State<AgencyJobDetailsPage> {
 
               ),
             ),
+
             SliverPadding(
               padding: EdgeInsets.symmetric(horizontal: 20.sp),
               sliver:SliverToBoxAdapter(
@@ -318,10 +321,14 @@ class _AgencyJobDetailsPageState extends State<AgencyJobDetailsPage> {
                       btnColor: kLightWhiteColor,
                       radius: 100.sp,
                       onTap: () {
-
+                        if(jobStatus == JobStatus.ACCEPT){
+                          CompletedOrderAgencyRoute.goToCompletedOrderDetailsAgencyPage(context);
+                        }else{
+                          Navigator.of(context).pop();
+                        }
                       },
                       textStyle: CustomTextStyle.mediumFont18Style,
-                      btnText: "Complete",
+                      btnText: jobStatus == JobStatus.ACCEPT ?  "Complete" : JobStatus.REJECT.jobTitle,
                       // btnText: workingStatus == WorkingStatus.PENDING ?  "Cancel Order" : workingStatus?.title,
                       isBoxShadow: false,
                     ),
@@ -330,9 +337,14 @@ class _AgencyJobDetailsPageState extends State<AgencyJobDetailsPage> {
                   Expanded(
                     child: CustomButton(
                       radius: 100.sp,
-                      btnText: "Query Log",
+                      btnText: jobStatus == JobStatus.ACCEPT ?  "Query Log" : JobStatus.ACCEPT.jobTitle,
                       onTap: () {
-                        ChatRoute.goToChatPage(context);
+                        if(jobStatus == JobStatus.ACCEPT){
+                          AgencyChatRoute.goToAgencyChatPage(context);
+                        }else{
+                          Navigator.of(context).pop();
+                        }
+
                       },
                     ),
                   ),

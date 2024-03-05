@@ -37,11 +37,14 @@ class Routes {
     ReportAgencyRoute.route:(context) => ReportAgencyRoute.child,
     QueryAgencyRoute.route:(context) => QueryAgencyRoute.child,
     CompletedOrderAgencyRoute.route: (context) => CompletedOrderAgencyRoute.child,
-    AgencyJobDetailsRoute.agencyJobDetailsRoute : (context) => AgencyJobDetailsRoute.agencyJobDetailsChild,
     CompletedOrderAgencyRoute.completedOrderDetailsRoute: (context) => CompletedOrderAgencyRoute.completedOrderDetailsChild,
+    CompletedOrderAgencyRoute.sendRequestForDeuAmountRoute: (context) => CompletedOrderAgencyRoute.sendRequestForDeuAmountChild,
+    AgencyJobDetailsRoute.agencyJobDetailsRoute : (context) => AgencyJobDetailsRoute.agencyJobDetailsChild,
+    AgencyChatRoute.route : (context) => AgencyChatRoute.child
     PersonalAgencyRoute.route: (context) => PersonalAgencyRoute.child,
     PersonalAgencyRoute.editPerRoute: (context) => PersonalAgencyRoute.editChild,
     BoutiqueListRoute.route:(context) => BoutiqueListRoute.child,
     BoutiqueListRoute.boutiqueAgencyDetailsRoute:(context) => BoutiqueListRoute.boutiqueAgencyDetailsChild,
+
  };
 }

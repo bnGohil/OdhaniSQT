@@ -7,6 +7,7 @@ import '../../../boutique_app/app_custom_component/jobs_and_order_card.dart';
 import '../../../boutique_app/home/domian/dummy/jobs_and_order_dummy_model.dart';
 import '../../../boutique_app/notification/route/notification_route.dart';
 import '../../../boutique_app/order/route/order_route.dart';
+import '../../agency_job_details/route/agency_job_details_route.dart';
 
 class AgencyOrderPage extends StatefulWidget {
   const AgencyOrderPage({super.key});
@@ -68,9 +69,9 @@ class _AgencyOrderPageState extends State<AgencyOrderPage> {
                   case 0 :
                     setState(() {list = JobsAndOrderDummyModel.jobAcceptsListData;});
                    case 1 :
-                     setState(() {list = JobsAndOrderDummyModel.jobAcceptsListData;});
+                     setState(() {list = JobsAndOrderDummyModel.jobAgencyRejectListData;});
                    case 2 :
-                     setState(() {list = JobsAndOrderDummyModel.jobAgencyListData;});
+                     setState(() {list = JobsAndOrderDummyModel.jobAgencyPendingListData;});
                      break;
 
 
@@ -87,7 +88,7 @@ class _AgencyOrderPageState extends State<AgencyOrderPage> {
               final jobsAndOrderDummyModel = list[index];
               return GestureDetector(
                 onTap: () {
-
+                  AgencyJobDetailsRoute.goToAgencyJobDetailsPage(context,jobsAndOrderDummyModel.jobStatus);
                 },
                 child: JobsAndOrderCardWidget(
                   jobsAndOrderDummyModel: jobsAndOrderDummyModel,

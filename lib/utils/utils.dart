@@ -18,6 +18,9 @@ import 'package:odhani_design_sqt/app/agency_app/agency_details/route/personal_a
 import 'package:odhani_design_sqt/app/agency_app/agency_query/route/query_agency_route.dart';
 import 'package:odhani_design_sqt/app/agency_app/agency_report/route/report_agency_route.dart';
 import 'package:odhani_design_sqt/app/agency_app/agency_tab/route/agency_tab_route.dart';
+import '../app/agency_app/agency_chat/route/agency_chat_route.dart';
+import '../app/agency_app/agency_completed_order/route/completed_order_agency_route.dart';
+import '../app/agency_app/agency_profile/route/agency_profile_route.dart';
 import '../app/agency_app/agency_job_details/route/agency_job_details_route.dart';
 import '../app/agency_app/agency_profile/route/agency_profile_route.dart';
 import '../app/boutique_app/auth/route/auth_route/auth_route.dart';

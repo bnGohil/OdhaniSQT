@@ -6,9 +6,10 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget{
   final double? height;
   final Widget? leading;
   final Widget? action;
+  final GestureTapCallback? onTap;
   final Widget? actionWidget;
   final String? title;
-  const CustomAppbar({super.key, this.height, this.leading, this.title, this.action, this.actionWidget});
+  const CustomAppbar({super.key, this.height, this.leading, this.title, this.action, this.actionWidget, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +19,28 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget{
         padding: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 10.sp),
         child: Row(
           children: [
-            if(leading != null)
-              Container(
-                padding: EdgeInsets.all(14.sp),
-                decoration: BoxDecoration(
-                  color: kWhiteColor,
-                  borderRadius: BorderRadius.circular(100),
-                  border: Border.all(color: kBorderColor),
+            GestureDetector(
+              onTap:() {
+                if(leading != null){
+
+                  onTap?.call();
+
+                }else{
+
+                  Navigator.pop(context);
+
+                }
+              },
+              child: Container(
+                  padding: EdgeInsets.all(12.sp),
+                  decoration: BoxDecoration(
+                    color: kWhiteColor,
+                    borderRadius: BorderRadius.circular(100),
+                    border: Border.all(color: kBorderColor),
+                  ),
+                  child: leading ?? ImageUtil.iconImageClass.backArrowIcon,
                 ),
-                child: leading,
-              ),
+            ),
             if(title != null)
             Expanded(
               child: Padding(

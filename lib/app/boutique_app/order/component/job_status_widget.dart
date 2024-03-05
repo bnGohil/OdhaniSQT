@@ -7,11 +7,12 @@ import 'package:odhani_design_sqt/utils/sizer/enum.dart';
 class JobStatusWidget extends StatefulWidget {
   final bool? isStatus;
   final WorkingStatus? workingStatus;
+  final String? name;
   final JobStatus? status;
   final Function(WorkingStatus)? onWorkingOnTap;
   final Function(JobStatus)? onStatusOnTap;
   final bool? isEdit;
-  const JobStatusWidget({super.key, this.workingStatus, this.onWorkingOnTap, this.isStatus, this.isEdit, this.status, this.onStatusOnTap});
+  const JobStatusWidget({super.key, this.workingStatus, this.onWorkingOnTap, this.isStatus, this.isEdit, this.status, this.onStatusOnTap, this.name});
 
   @override
   State<JobStatusWidget> createState() => _JobStatusWidgetState();
@@ -63,7 +64,7 @@ print("jobStatus is :::::::::::::::::::::::${jobStatus}");
         Row(
           children: [
             Expanded(
-              child: Text("Pooja Gajera",style: CustomTextStyle.semiBoldRegularFont24Style.copyWith(
+              child: Text(widget.name ?? "Pooja Gajera",style: CustomTextStyle.semiBoldRegularFont24Style.copyWith(
                   color: kBlackColor
               ),),
             ),
