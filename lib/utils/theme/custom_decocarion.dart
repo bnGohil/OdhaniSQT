@@ -12,6 +12,7 @@ mixin CustomDecoration on Decoration{
       borderRadius: BorderRadius.only(
         bottomLeft: Radius.circular(15.sp),
         bottomRight: Radius.circular(15.sp),
+
       ),
       color: Color(0xffF6DAE1),
 
