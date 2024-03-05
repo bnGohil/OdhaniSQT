@@ -11,7 +11,6 @@ class ImageUtil{
  static IconImageClass iconImageClass = IconImageClass();
  static LogoImage logo = LogoImage();
  static GraphicsImage graphicsImage = GraphicsImage();
-
 }
 
 
