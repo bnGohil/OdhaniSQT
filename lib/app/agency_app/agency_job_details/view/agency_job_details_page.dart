@@ -1,32 +1,56 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
+import 'package:odhani_design_sqt/app/boutique_app/order/component/job_status_widget.dart';
+import 'package:odhani_design_sqt/utils/sizer/enum.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
+
 import '../../../../base/view/base_components/custom_button.dart';
-import '../../../../utils/sizer/enum.dart';
+import '../../../../utils/common_utils/custom_tabbar_view.dart';
 import '../../../../utils/theme/custom_decocarion.dart';
-import '../../app_custom_component/app_bar_component.dart';
-import '../../chat/route/chat_route.dart';
-import '../../order/component/job_status_widget.dart';
-import '../../order/domian/order_tab_list_data.dart';
-import '../../order/route/order_route.dart';
-class JobDetailsPage extends StatefulWidget {
-  const JobDetailsPage({super.key});
+import '../../../boutique_app/app_custom_component/app_bar_component.dart';
+import '../../../boutique_app/chat/route/chat_route.dart';
+import '../../../boutique_app/job/route/job_route.dart';
+import '../../../boutique_app/order/domian/order_tab_list_data.dart';
+class AgencyJobDetailsPage extends StatefulWidget {
+  const AgencyJobDetailsPage({super.key});
 
   @override
-  State<JobDetailsPage> createState() => _JobDetailsPageState();
+  State<AgencyJobDetailsPage> createState() => _AgencyJobDetailsPageState();
 }
 
-class _JobDetailsPageState extends State<JobDetailsPage> {
+class _AgencyJobDetailsPageState extends State<AgencyJobDetailsPage> {
 
-  // WorkingStatus? workingStatus = WorkingStatus.PENDING;
+  JobStatus? jobStatus;
+  //
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //
+  //   WidgetsBinding.instance.addPostFrameCallback((timeStamp) async{
+  //
+  //
+  //
+  //     final jobStatus = ModalRoute.of(context)?.settings.arguments as JobStatus?;
+  //
+  //     setState(() {
+  //
+  //       this.jobStatus = jobStatus;
+  //
+  //     });
+  //
+  //
+  //
+  //
+  //   });
+  //
+  //
+  // }
 
-  JobStatus jobStatus = JobStatus.PENDING;
 
   @override
   Widget build(BuildContext context) {
+    var jobStatus = ModalRoute.of(context)?.settings.arguments as JobStatus?;
+    this.jobStatus = jobStatus;
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
@@ -44,7 +68,7 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                     },
                     leading: Icon(Icons.arrow_back_outlined,size: 24.sp,color: kBlackColor),
                     action: Icon(Icons.add,size: 24.sp,color: kBlackColor),
-                    title: "Jobs Detail",
+                    title: "Jobs Order Detail",
                   ),
 
                 ),
@@ -59,24 +83,18 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                 snap: false,
                 floating: true,
                 expandedHeight: 120.sp,
-                toolbarHeight: 210.sp,
+                toolbarHeight: 170.sp,
                 flexibleSpace: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.sp),
                   child: JobStatusWidget(
-                    // workingStatus: workingStatus,
                     status: jobStatus,
-                    isEdit: true,
-                    isStatus: true,
+                    isEdit: false,
+                    isStatus: false,
                     onStatusOnTap: (p0) {
                       setState(() {
                         jobStatus = p0;
                       });
                     },
-                    // onWorkingOnTap: (p0) {
-                    //   setState(() {
-                    //     workingStatus = p0;
-                    //   });
-                    // },
                   ),
                 ),
 
@@ -201,7 +219,7 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                           ),
                           SizedBox(height: 11.sp,),
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10.sp,vertical: 10.sp),
+                            padding: EdgeInsets.symmetric(horizontal: 15.sp,vertical: 10.sp),
                             decoration: BoxDecoration(
                                 color: const Color(0xffF6DAE1),
                                 borderRadius: BorderRadius.only(
@@ -223,16 +241,16 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                                 ),
                                 Expanded(
                                   child: Row(
-                                    // crossAxisAlignment: CrossAxisAlignment.center,
+                                     crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Text("Order Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 14.sp)),
+                                      Text("Order Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 10.sp)),
                                       Flexible(
                                         child: Tooltip(
                                           message: DateTime.now().formatCommonDate(),
                                           child: Text(DateTime.now().formatCommonDate(),
                                               style: CustomTextStyle.semiBoldFont14Style.copyWith(
-                                                  overflow: TextOverflow.ellipsis,
-                                                  decoration: TextDecoration.none
+                                                  fontSize: 10.sp
                                               )),
                                         ),
                                       )
@@ -249,12 +267,13 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                                 ),
                                 Expanded(
                                   child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      Text("Due Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 14.sp)),
+                                      Text("Due Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 10.sp)),
                                       Flexible(child: Tooltip(
                                           message:DateTime.now().formatCommonDate(),
-                                          child: Text(DateTime.now().formatCommonDate(),style: CustomTextStyle.semiBoldFont14Style)))
+                                          child: Text(DateTime.now().formatCommonDate(),style: CustomTextStyle.semiBoldFont14Style.copyWith(fontSize: 10.sp))))
                                     ],
                                   ),
                                 ),
@@ -288,7 +307,7 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
       bottomNavigationBar: SafeArea(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20.sp),
-          height: 70.sp,
+          height: 90.sp,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -299,12 +318,11 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                       btnColor: kLightWhiteColor,
                       radius: 100.sp,
                       onTap: () {
-                        if(jobStatus == JobStatus.COMPLETED){
-                          OrderRoute.goToCompletedOrder(context);
-                        }
+
                       },
                       textStyle: CustomTextStyle.mediumFont18Style,
-                      btnText: jobStatus == JobStatus.PENDING ?  "Cancel Order" : jobStatus.jobTitle,
+                      btnText: "Complete",
+                      // btnText: workingStatus == WorkingStatus.PENDING ?  "Cancel Order" : workingStatus?.title,
                       isBoxShadow: false,
                     ),
                   ),

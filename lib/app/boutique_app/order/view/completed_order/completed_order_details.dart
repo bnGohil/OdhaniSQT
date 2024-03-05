@@ -54,7 +54,7 @@ class _CompletedOrderDetailsPageState extends State<CompletedOrderDetailsPage> {
               padding: EdgeInsets.symmetric(horizontal: 20.sp),
               child: JobStatusWidget(
                 isStatus: false,
-                workingStatus: WorkingStatus.COMPLETED,
+                status: JobStatus.PENDING,
                 onWorkingOnTap: (p0) {
                   setState(() {
 

@@ -36,5 +36,9 @@ class Routes {
     ProfileAgencyRoute.editRoute : (context) => ProfileAgencyRoute.editChild,
     ReportAgencyRoute.route:(context) => ReportAgencyRoute.child,
     QueryAgencyRoute.route:(context) => QueryAgencyRoute.child
+    AgencyJobDetailsRoute.agencyJobDetailsRoute : (context) => AgencyJobDetailsRoute.agencyJobDetailsChild
+
+
+
  };
 }
