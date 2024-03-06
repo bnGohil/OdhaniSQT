@@ -60,11 +60,11 @@ class _OtpBottomSheetState extends State<OtpBottomSheet> {
 
 @override
   void dispose() {
-    // context.read<OtpTimer>().stopTimer();
+    // TODO: implement dispose
     super.dispose();
+
+
   }
-
-
   @override
   Widget build(BuildContext context) {
 

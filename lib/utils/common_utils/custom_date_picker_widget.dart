@@ -51,7 +51,9 @@ class _CustomDatePickerWidgetState extends State<CustomDatePickerWidget> {
         },
         child: Row(
           children: [
-            Expanded(child: Text(widget.name ?? "", style: CustomTextStyle.blackRegularFont16Style.copyWith(fontSize: 15.sp,color: Colors.grey))),
+            Expanded(child: Text(widget.name ?? "DOB", style: CustomTextStyle.semiBoldFont14Style.copyWith(
+              color: widget.name == null ? Colors.grey : Colors.black
+            ))),
             SizedBox(
                 height: 24.sp,
                 width: 24.sp,

@@ -21,8 +21,12 @@ class _SignInScreenState extends State<SignInScreen> {
   bool isPasswordSecure = true;
   bool _keyboardVisible = false;
 
-  TextEditingController emailController = TextEditingController();
+  TextEditingController numberController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+
+  FocusNode email = FocusNode();
+  FocusNode password = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -67,23 +71,46 @@ class _SignInScreenState extends State<SignInScreen> {
                         child: Column(
                           children: [
                             CustomTextField(
-                              autofillHints: const [AutofillHints.email],
+                              focusNode: email,
                               maxLength: 50,
-                              controller: emailController,
-                              hint: "Enter your Email Address",
-                              isOptional: false,
+                              controller: numberController,
+                              hint: "Enter your Mobile Number",
+                              onChanged: (value) {},
+                              onEditingComplete: () {
+
+                                setState(() {
+
+                                  email.nextFocus();
+
+                                });
+                              },
+                              isOptional: true,
                               isEnable: true,
-                              inputType: TextInputType.emailAddress,
+                              inputType: TextInputType.number,
                               name: "Email Address",
-                              regex: StringValidation.emailValidation,
+                              regex: StringValidation.mobileValidation,
                               textInputAction: TextInputAction.next,
                             ),
 
+                            SizedBox(height: 20.sp,),
+
                             CustomTextField(
+                              focusNode: password,
                               maxLength: 50,
                               controller: passwordController,
                               hint: "Enter Password",
-                              isOptional: false,
+                              isOptional: true,
+                              onEditingComplete: () {
+
+                                setState(() {
+
+                                  password.unfocus();
+
+                                });
+                              },
+                              onChanged: (value) {
+
+                              },
                               isEnable: true,
                               inputType: TextInputType.text,
                               name: "Password",
@@ -183,7 +210,8 @@ class _SignInScreenState extends State<SignInScreen> {
 
                                 InkWell(
                                     onTap: (){
-                                      Navigator.of(context).pop();
+                                      AuthRoute.goToSignUpPage(context);
+                                      // Navigator.of(context).pop();
                                       // FocusManager.instance.primaryFocus?.unfocus();
                                     },
                                     child: Text("SIGN UP",style: CustomTextStyle.boldFont14kBlackStyle,))
@@ -239,7 +267,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 CustomTextField(
                   maxLength: 50,
                   // focusNode: emailNode,
-                  controller: emailController,
+                  controller: numberController,
                   hint: "Enter Email",
                   isOptional: false,
                   isEnable: true,

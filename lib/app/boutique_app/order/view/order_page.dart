@@ -38,7 +38,7 @@ class _OrderPageState extends State<OrderPage> {
           onTap: (){
             selectedIndex == 0
                 ? OrderRoute.goToCreateOrderPage(context)
-                : OrderRoute.goToCreateOrderPage(context);
+                : JobRoute.goToCreateJobPage(context);
           },
           child: Container(
             padding: EdgeInsets.all(10.sp),
@@ -67,9 +67,9 @@ class _OrderPageState extends State<OrderPage> {
           SizedBox(height: 5.sp,),
           Expanded(child: ListView.builder(
             padding: EdgeInsets.symmetric(horizontal: 20.sp),
-            itemCount: JobsAndOrderDummyModel.jobsListData.length,
+            itemCount: !(selectedIndex == 0) ? JobsAndOrderDummyModel.jobsListData.length : JobsAndOrderDummyModel.orderListData.length,
             itemBuilder: (context, index) {
-              final jobsAndOrderDummyModel = JobsAndOrderDummyModel.jobsListData[index];
+              final jobsAndOrderDummyModel = !(selectedIndex == 0) ? JobsAndOrderDummyModel.jobsListData[index] : JobsAndOrderDummyModel.orderListData[index];
               return GestureDetector(
                 onTap: () {
                   if(selectedIndex == 0){
