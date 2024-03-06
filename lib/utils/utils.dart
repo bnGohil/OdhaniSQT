@@ -28,6 +28,7 @@ import '../app/boutique_app/chat/route/chat_route.dart';
 import '../app/boutique_app/customer_list/route/customer_route.dart';
 import '../app/boutique_app/gallery/route/gallery_route.dart';
 import '../app/boutique_app/job/route/job_route.dart';
+import '../app/boutique_app/leanding/route/lending_route.dart';
 import '../app/boutique_app/notification/route/notification_route.dart';
 import '../app/boutique_app/order/route/order_route.dart';
 import '../app/boutique_app/personal/route/personal_route.dart';

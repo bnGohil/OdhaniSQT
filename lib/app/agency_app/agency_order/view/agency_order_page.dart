@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-
+import '../../../../utils/utils.dart';
+import '../../../../utils/sizer/enum.dart';
 import '../../../../utils/common_utils/custom_app_bar.dart';
 import '../../../../utils/common_utils/custom_tabbar_view.dart';
-import '../../../../utils/sizer/enum.dart';
-import '../../../../utils/utils.dart';
+import '../../agency_job_details/route/agency_job_details_route.dart';
+import '../../../boutique_app/notification/route/notification_route.dart';
 import '../../../boutique_app/app_custom_component/jobs_and_order_card.dart';
 import '../../../boutique_app/home/domian/dummy/jobs_and_order_dummy_model.dart';
-import '../../../boutique_app/notification/route/notification_route.dart';
-import '../../../boutique_app/order/route/order_route.dart';
-import '../../agency_job_details/route/agency_job_details_route.dart';
 
 class AgencyOrderPage extends StatefulWidget {
   const AgencyOrderPage({super.key});

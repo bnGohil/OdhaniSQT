@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import '../../../../utils/utils.dart';
-import '../../auth/route/auth_route/auth_route.dart';
 import 'package:odhani_design_sqt/base/view/base_components/loading_view.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -18,11 +17,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
-      if (mounted) {
-        AuthRoute.goToIntroPage(context);
-      }
-    });
+    // Future.delayed(Duration(seconds: 2), () {
+    //   if (mounted) {
+    //     AuthRoute.goToIntroPage(context);
+    //   }
+    // });
   }
 
 

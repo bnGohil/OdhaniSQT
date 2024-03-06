@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:odhani_design_sqt/utils/utils.dart';
-import '../../../../base/view/base_components/custom_button.dart';
 import '../../../../utils/sizer/enum.dart';
+import '../../chat/route/chat_route.dart';
+import '../../order/route/order_route.dart';
+import 'package:odhani_design_sqt/utils/utils.dart';
+import '../../order/component/job_status_widget.dart';
 import '../../../../utils/theme/custom_decocarion.dart';
 import '../../app_custom_component/app_bar_component.dart';
-import '../../chat/route/chat_route.dart';
-import '../../order/component/job_status_widget.dart';
-import '../../order/domian/order_tab_list_data.dart';
-import '../../order/route/order_route.dart';
+import '../../../../base/view/base_components/custom_button.dart';
 class JobDetailsPage extends StatefulWidget {
   const JobDetailsPage({super.key});
 
