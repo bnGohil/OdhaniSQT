@@ -46,8 +46,8 @@ class _HomePageState extends State<HomePage> {
               HomeGridCardView(),
               SizedBox(height: 10.sp,),
               Text("Job’s",style: CustomTextStyle.semiBoldRegularFont20Style,),
-              SizedBox(height: 10.sp,),
               ListView.builder(
+                padding: EdgeInsets.zero,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: JobsAndOrderDummyModel.jobsListData.length,

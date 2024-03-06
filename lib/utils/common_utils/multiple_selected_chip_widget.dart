@@ -95,15 +95,20 @@ class _MultipleSelectedChipWidgetState extends State<MultipleSelectedChipWidget>
       SafeArea(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20.sp),
-          height: 60.sp,
-          child: CustomButton(
-            btnColor: kPrimaryColor,
-            radius: 100,
-            onTap: () {
-              widget.personalChipListDataOnTap!(selectedList);
-              Navigator.pop(context);
-            },
-            btnText: "Select ${widget.text}",
+          height: 70.sp,
+          child: Column(
+            children: [
+              CustomButton(
+                btnColor: kPrimaryColor,
+                radius: 100,
+                onTap: () {
+                  widget.personalChipListDataOnTap!(selectedList);
+                  Navigator.pop(context);
+                },
+                btnText: "Select ${widget.text}",
+              ),
+              SizedBox(height: 10.sp,),
+            ],
           ),
         ),
       ) : SizedBox.shrink()

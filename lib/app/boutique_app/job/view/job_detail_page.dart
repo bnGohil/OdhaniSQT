@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:odhani_design_sqt/app/boutique_app/job/route/job_route.dart';
+import 'package:odhani_design_sqt/utils/utils.dart';
+import '../../../../base/view/base_components/custom_button.dart';
 import '../../../../utils/sizer/enum.dart';
 import '../../chat/route/chat_route.dart';
 import '../../order/route/order_route.dart';
@@ -37,7 +40,11 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 10.sp),
                   child: AppBarComponent(
-                    actionOnTap: () {},
+                    actionOnTap: () {
+
+                      JobRoute.goToCreateJobPage(context);
+
+                    },
                     leadingOnTap: () {
                       Navigator.of(context).pop();
                     },
@@ -171,7 +178,21 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Krisha Creativity",style: CustomTextStyle.mediumFont18Style,),
+                                Row(
+                                  children: [
+                                    Expanded(child: Text("Krisha Creativity",style: CustomTextStyle.mediumFont18Style,)),
+                                    Tooltip(
+                                      message: "Processing",
+                                      child: Container(
+                                        padding: EdgeInsets.all(3.sp),
+                                          decoration: BoxDecoration(
+                                            color: kPrimaryColor,
+                                            shape: BoxShape.circle
+                                          ),
+                                          child: ImageUtil.iconImageClass.processingIcon),
+                                    )
+                                  ],
+                                ),
                                 SizedBox(height: 11.sp,),
                                 Row(
                                   children: [
@@ -220,7 +241,7 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                                   width: 5.sp,
                                 ),
                                 Row(
-                                  // crossAxisAlignment: CrossAxisAlignment.center,
+                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text("Order Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 12.sp)),
                                     Tooltip(
@@ -236,7 +257,7 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                                 ),
                                 Expanded(
                                   child: Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 28.sp),
+                                    margin: EdgeInsets.symmetric(horizontal: 8.sp),
                                     height: 1.sp,
                                     width: 5.sp,
                                     color: kBlackColor,
@@ -296,6 +317,8 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                       onTap: () {
                         if(jobStatus == JobStatus.COMPLETED){
                           OrderRoute.goToCompletedOrder(context);
+                        }else{
+                          Navigator.of(context).pop();
                         }
                       },
                       textStyle: CustomTextStyle.mediumFont18Style,

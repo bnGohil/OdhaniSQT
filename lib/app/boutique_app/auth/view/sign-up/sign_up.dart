@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:odhani_design_sqt/app/agency_app/agency_tab/route/agency_tab_route.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
 
 import '../../../../../base/view/base_components/custom_button.dart';
@@ -36,6 +37,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController mobileController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPassController = TextEditingController();
+
+
+  FocusNode nameFocusNode = FocusNode();
+  FocusNode emailFocusNode = FocusNode();
+  FocusNode mobileFocusNode = FocusNode();
+  FocusNode passwordFocusNode = FocusNode();
+  FocusNode confirmPassFocusNode = FocusNode();
 
 
   @override
@@ -107,53 +115,83 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       SizedBox(height: 50.sp),
                   
                       CustomTextField(
+                        focusNode: nameFocusNode,
                         // autofillHints: const [AutofillHints.email],
                         maxLength: 50,
                         controller: nameController,
                         hint: "Enter your name",
-                        isOptional: false,
+                        isOptional: true,
                         isEnable: true,
                         inputType: TextInputType.name,
                         name: "Name",
                         textInputAction: TextInputAction.next,
+                        onEditingComplete: () {
+                          setState(() {
+                            nameFocusNode.nextFocus();
+                          });
+                        },
                       ),
+
+                      SizedBox(height: 10.sp,),
                   
                       CustomTextField(
                         autofillHints: const [AutofillHints.email],
                         maxLength: 50,
                         controller: emailController,
                         hint: "Enter your Email Address",
-                        isOptional: false,
+                        isOptional: true,
                         isEnable: true,
                         inputType: TextInputType.emailAddress,
                         name: "Email Address",
                         regex: StringValidation.emailValidation,
                         textInputAction: TextInputAction.next,
+                        focusNode: emailFocusNode,
+                        onEditingComplete: () {
+                          setState(() {
+                            emailFocusNode.nextFocus();
+                          });
+                        },
                       ),
-                  
+
+                      SizedBox(height: 10.sp,),
+
                       CustomTextField(
                         // autofillHints: const [AutofillHints.email],
                         maxLength: 50,
                         controller: mobileController,
                         hint: "Enter your mobile Number",
-                        isOptional: false,
+                        isOptional: true,
                         isEnable: true,
                         inputType: TextInputType.phone,
                         name: "mobile Number",
                         regex: StringValidation.mobileValidation,
                         textInputAction: TextInputAction.next,
+                        focusNode: mobileFocusNode,
+                        onEditingComplete: () {
+                          setState(() {
+                            mobileFocusNode.nextFocus();
+                          });
+                        },
                       ),
-                  
+
+                      SizedBox(height: 10.sp,),
+
                       CustomTextField(
                         maxLength: 50,
                         controller: passwordController,
                         hint: "Enter Password",
-                        isOptional: false,
+                        isOptional: true,
                         isEnable: true,
                         inputType: TextInputType.text,
                         name: "Password",
                         isSecure: isPasswordSecure,
                         textInputAction: TextInputAction.next,
+                        focusNode: passwordFocusNode,
+                        onEditingComplete: () {
+                          setState(() {
+                            passwordFocusNode.nextFocus();
+                          });
+                        },
                         suffixIcon: InkWell(
                           onTap: () {
                             setState(() {
@@ -166,17 +204,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
+
+                      SizedBox(height: 10.sp,),
                   
                       CustomTextField(
                         maxLength: 50,
                         controller: confirmPassController,
                         hint: "Enter Confirm Password",
-                        isOptional: false,
+                        isOptional: true,
                         isEnable: true,
                         inputType: TextInputType.text,
                         name: "Password",
                         isSecure: isConfirmPassSecure,
+                        focusNode: confirmPassFocusNode,
                         textInputAction: TextInputAction.done,
+                        onEditingComplete: () {
+                          setState(() {
+                            confirmPassFocusNode.unfocus();
+                          });
+                        },
                         suffixIcon: InkWell(
                           onTap: () {
                             setState(() {
@@ -188,49 +234,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: Center(child: SizedBox(width: 20.sp, height:20.sp, child: isConfirmPassSecure ? ImageUtil.iconImageClass.eyeCloseIcon : ImageUtil.iconImageClass.eyeOpenIcon)),
                           ),
                         ),
-                      ),
-                  
-                      Column(
-                        children: List.generate(userType.length, (index) {
-                          return GestureDetector(
-                            onTap: (){
-                              currentIndex = index;
-                              setState(() {
-                  
-                              });
-                            },
-                            child: Container(
-                              padding: EdgeInsets.symmetric(vertical: 7.sp),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 18.sp,
-                                    width: 18.sp,
-                                    decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                            color: currentIndex == index ?  kBlackColor : kSecondaryColor,
-                                            width: 2.sp
-                                        )
-                                    ),
-                                    child: Container(
-                                      margin: EdgeInsets.all(2.sp),
-                                      decoration:  BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: currentIndex == index ?  kBlackColor : transparentColor
-                                      ),
-                                    ),
-                                  ),
-                  
-                                  SizedBox(width: 10.sp),
-                  
-                                  Text( userType[index]  ,style: CustomTextStyle.blackMediumFont16Style)
-                  
-                                ],
-                              ),
-                            ),
-                          );
-                        }),
                       ),
                   
                       SizedBox(height: 20.sp),
@@ -292,7 +295,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   
                       CustomButton(
                         onTap: (){
-                  
+                       AgencyTabRoute.goToAgeTabPage(context);
                         },
                         isLoading: false,
                         btnColor: kPrimaryColor,

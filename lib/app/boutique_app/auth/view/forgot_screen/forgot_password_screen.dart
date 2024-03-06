@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:odhani_design_sqt/utils/common_utils/custom_app_bar.dart';
+import 'package:provider/provider.dart';
 import '../../../../../base/view/base_components/custom_button.dart';
 import '../../../../../base/view/base_components/custom_text_form_filed.dart';
 import '../../../../../utils/utils.dart';
@@ -24,21 +26,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
   @override
   Widget build(BuildContext context) {
-    // final otpTimer = context.read<OtpTimer>();
-    // final authProvider = context.watch<AuthProvider>();
-    // final forgotLoader = authProvider.forgotOtpResponse.state == Status.LOADING;
-
     return Scaffold(
       backgroundColor: kWhiteColor,
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.transparent,
-        shape: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.transparent)
-        ),
-        centerTitle: true,
-        title: Text("Forgot Password"),
+      appBar: CustomAppbar(
+        height: 100.sp,
+        title: "Forgot Password",
       ),
       body: Form(
         key: formKey,
@@ -51,13 +44,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
                 SizedBox(height: 30.sp),
 
-                Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 15.sp),
-                  child: Text(
-                    "Enter the email associated with your account and we’ll send an email with instructions to reset your password.",
-                    style: CustomTextStyle.blackRegularFont16Style,
-                    textAlign: TextAlign.center,
-                  ),
+                Text(
+                  "Enter the email associated with your account and we’ll send an email with instructions to reset your password.",
+                  style: CustomTextStyle.blackRegularFont16Style,
+                  textAlign: TextAlign.center,
                 ),
 
                 SizedBox(height: 20.sp),
@@ -69,8 +59,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   textInputAction: TextInputAction.next,
                   controller: emailController,
                   regex: StringValidation.mobileValidation,
-                  isOptional: false,
-                  hint: "Enter number",
+                  isOptional: true,
+                  hint: "Enter Mobile number",
+                  onChanged: (value) {
+
+                  },
                 ),
 
 
@@ -97,7 +90,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                 isRegister: true,
                               );
                             },
-                          );
+                          ).then((value) {
+
+                            context.read<OtpTimer>().stopTimer();
+
+                          });
                         },
                         isLoading: false,
                         btnColor: kPrimaryColor,
@@ -106,6 +103,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         radius: 100.sp,
                         isBoxShadow: false,
                       ),
+                      SizedBox(height: 10.sp,),
 
                     ],
                   ),

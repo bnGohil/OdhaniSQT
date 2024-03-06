@@ -52,9 +52,9 @@ class HomeGridCardView extends StatelessWidget {
                         ),
                         child: Text("${gridData.cardNumber}",style: CustomTextStyle.boldFont30Style.copyWith(color: kBlackColor))),
 
-                    SizedBox(
-                       height: 5.sp,
-                    ),
+                    // SizedBox(
+                    //    height: 5.sp,
+                    // ),
 
                     SkeletonView(
                       isLoading: false,

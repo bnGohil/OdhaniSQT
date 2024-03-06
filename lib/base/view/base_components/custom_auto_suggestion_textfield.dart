@@ -36,6 +36,7 @@ class _CustomAutoSearchTextFieldState extends State<CustomAutoSearchTextField> {
           maxLine: widget.maxLine ?? 1,
           suggestionDirection: SuggestionDirection.flex,
           onSearchTextChanged: widget.onSearchTextChanged ,
+
           //     ?? (query) {
           //   final filter = suggestions
           //       .where((element) =>

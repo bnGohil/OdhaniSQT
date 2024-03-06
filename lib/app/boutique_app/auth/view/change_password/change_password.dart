@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:odhani_design_sqt/app/boutique_app/auth/route/auth_route/auth_route.dart';
+import 'package:odhani_design_sqt/utils/common_utils/custom_app_bar.dart';
 
 import '../../../../../base/view/base_components/custom_button.dart';
 import '../../../../../base/view/base_components/custom_text_form_filed.dart';
@@ -31,14 +33,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
     return Scaffold(
       backgroundColor: kWhiteColor,
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.transparent,
-        shape: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.transparent)
-        ),
-        centerTitle: true,
-        title: Text("Change Password"),
+      appBar: CustomAppbar(
+        title: "Change Password",
+        height: 100.sp,
       ),
       body: Form(
         key: formKey,
@@ -66,11 +63,16 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   maxLength: 50,
                   controller: passwordController,
                   hint: "Enter Password",
-                  isOptional: false,
+                  isOptional: true,
                   isEnable: true,
                   inputType: TextInputType.text,
                   name: "Password",
                   isSecure: isPasswordSecure,
+                  onChanged: (value) {},
+                  focusNode: passwordNode,
+                  onEditingComplete: () {
+                    passwordNode.nextFocus();
+                  },
                   textInputAction: TextInputAction.next,
                   suffixIcon: InkWell(
                     onTap: () {
@@ -85,13 +87,20 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   ),
                 ),
 
+                SizedBox(height: 10.sp,),
+
                 CustomTextField(
                   maxLength: 50,
                   controller: confirmPassController,
                   hint: "Enter Confirm Password",
-                  isOptional: false,
+                  isOptional: true,
                   isEnable: true,
                   inputType: TextInputType.text,
+                  focusNode: confirmPasswordNode,
+                  onChanged: (value) {},
+                  onEditingComplete: () {
+                    confirmPasswordNode.unfocus();
+                  },
                   name: "Password",
                   isSecure: isConfirmPassSecure,
                   textInputAction: TextInputAction.done,
@@ -113,14 +122,18 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       CustomButton(
-                        onTap: (){},
+                        onTap: (){
+                          AuthRoute.goToSignInPage(context);
+                        },
                         isLoading: false,
                         btnColor: kPrimaryColor,
-                        btnText: "Send",
+                        btnText: "Done",
                         textStyle: CustomTextStyle.whiteBoldFont18Style,
                         radius: 100.sp,
                         isBoxShadow: false,
                       ),
+
+                      SizedBox(height: 10.sp,),
 
                     ],
                   ),

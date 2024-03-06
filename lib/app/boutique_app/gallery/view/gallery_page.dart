@@ -111,6 +111,8 @@ class _GalleryPageState extends State<GalleryPage> {
           color: kPrimaryColor,
         ),
       ):
+
+      imageFile.isNotEmpty ?
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.sp),
         child: GridView.builder(
@@ -216,8 +218,25 @@ class _GalleryPageState extends State<GalleryPage> {
                 ),
               );
             },),
+      )
+      : Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.sp),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomButton(
+              onTap: () {
+                customImagePicker.bottomMultiple(context);
+              },
+              radius: 100.sp,
+              btnColor: kPrimaryColor,
+              btnText: "Add Images",
+
+            ),
+          ],
+        ),
       ),
-      bottomNavigationBar: Container(
+      bottomNavigationBar: imageFile.isNotEmpty ? Container(
         padding: EdgeInsets.symmetric(vertical: 20.sp,horizontal: 20.sp),
         height: 100.sp,
         child: SafeArea(
@@ -236,7 +255,7 @@ class _GalleryPageState extends State<GalleryPage> {
             ],
           ),
         ),
-      ),
+      ) : SizedBox.shrink(),
     );
   }
 }
