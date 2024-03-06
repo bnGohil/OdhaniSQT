@@ -20,6 +20,7 @@ class _WeeklyReportState extends State<WeeklyReport> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 20.sp),
 

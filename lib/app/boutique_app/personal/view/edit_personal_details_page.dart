@@ -106,7 +106,7 @@ class _EditPersonalDetailsPageState extends State<EditPersonalDetailsPage> {
                 ),
               ),
               SizedBox(height: 10.sp,),
-              Text("Upload Company Logo",style: CustomTextStyle.semiBoldFont14Style,),
+              Center(child: Text("Upload Company Logo",style: CustomTextStyle.semiBoldFont14Style,)),
               SizedBox(height: 30.sp,),
               CustomAutoSearchTextField(
                 headerText: "Company Name",

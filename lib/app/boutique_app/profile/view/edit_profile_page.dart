@@ -32,6 +32,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
   final FocusNode genderFocus = FocusNode();
   final FocusNode addressFocus = FocusNode();
 
+  String? _selectedItem;
+
+
 
 
   File? file;
@@ -169,31 +172,39 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
                   shoDatePicker: false,
 
-                  name: dateTime != null ? dateTime?.formatCommonDate() : "DOB"
+                  name: dateTime?.formatCommonDate()
               ),
               SizedBox(height: 15.sp,),
-              CustomAutoSearchTextField(
-                headerText: "Gender",
-                focusNode: genderFocus,
-                maxLine: 1,
-                suggestions: suggestions.map((e) => SearchFieldListItem<String>(e, child: searchChild(e))).toList(),
-                // controller: ,
-                hint: "Gender",
-                textInputAction: TextInputAction.next,
-                onSearchTextChanged: (p0) {
-                  final filter = suggestions
-                      .where((element) =>
-                      element.toLowerCase().contains(p0.toLowerCase()))
-                      .toList();
-                  return filter
-                      .map((e) =>
-                      SearchFieldListItem<String>(e, child: searchChild(e)))
-                      .toList();
-                },
-                // focusNode: areaFocus,
-                suffixIcon: Padding(
-                  padding:  EdgeInsets.only(right: 10.sp),
-                  child: Icon(Icons.arrow_drop_down),
+              Text("Gender",style: CustomTextStyle.semiBoldFont18Style,),
+              SizedBox(height: 5.sp,),
+              Container(
+                height: 45.sp,
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                decoration: BoxDecoration(
+                  color: kWhiteColor,
+                    borderRadius: BorderRadius.circular(8.sp),
+                    border: Border.all(width: 1,color: borderColor,
+                      style: BorderStyle.solid,)
+                ),
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton<String>(
+                    icon: ImageUtil.iconImageClass.dropDownIcon,
+                    padding: EdgeInsets.zero,
+                    hint: Text("Gender",style: CustomTextStyle.semiBoldFont14Style.copyWith(color: Colors.grey),),
+                    value: _selectedItem,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedItem = value ?? "";
+                      });
+                    },
+                    items: suggestions.map((String item) {
+                      return DropdownMenuItem<String>(
+                        value: item,
+                        child: Text(item,style: CustomTextStyle.semiBoldFont14Style),
+                      );
+                    }).toList(),
+                  ),
                 ),
               ),
               SizedBox(height: 15.sp,),

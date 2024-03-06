@@ -58,6 +58,7 @@ class IconImageClass{
   Widget get calenderIcon =>  const CustomSvgPictures.asset("$iconPath/calander.svg", fit: BoxFit.cover);
   Widget get stichIcon =>  const CustomSvgPictures.asset("$iconPath/stich.svg", fit: BoxFit.cover);
   Widget get rupeesIcon =>  const CustomSvgPictures.asset("$iconPath/rup.svg", fit: BoxFit.cover);
+  Widget get processingIcon =>  const CustomSvgPictures.asset("$iconPath/prossing.svg", fit: BoxFit.cover);
   Widget get rupees2Icon =>  const CustomSvgPictures.asset("$iconPath/rupee_2.svg", fit: BoxFit.cover);
   Widget get dropDownIcon =>  const CustomSvgPictures.asset("$iconPath/drop_down_icon.svg", fit: BoxFit.cover);
   Widget get dropDownWhiteIcon =>  const CustomSvgPictures.asset("$iconPath/drop_down_icon.svg", fit: BoxFit.cover,colorFilter: ColorFilter.mode(kWhiteColor,BlendMode.srcIn),);

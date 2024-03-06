@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:odhani_design_sqt/app/boutique_app/notification/route/notification_route.dart';
 import '../../../../base/view/base_components/custom_option_bottom_sheet.dart';
 import '../../order/route/order_route.dart';
 import '../../personal/route/personal_route.dart';
@@ -70,15 +71,40 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.all(14.sp),
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(100),
-                      border: Border.all(color: kBorderColor),
-                    ),
-                    child: ImageUtil.iconImageClass.notificationIcon,
-                  ),
+                  Stack(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          NotificationRoute.goToNotification(context);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(14.sp),
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(100),
+                            border: Border.all(color: kBorderColor),
+                          ),
+                          child: ImageUtil.iconImageClass.notificationIcon,
+                        ),
+                      ),
+                      Positioned(
+                        right: 0,
+                        child: Container(
+                          padding: EdgeInsets.only(right: 8.sp,top: 2.sp),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: kPrimaryColor
+                            ),
+                            height: 7.sp,
+                            width: 7.sp,
+                          ),
+                        ),
+                      )
+
+                    ],
+                  )
+
                 ],
               ),
               SizedBox(height: 15.sp,),

@@ -410,6 +410,109 @@ class _CompletedOrderDetailsPageState extends State<CompletedOrderDetailsPage> {
                     ),
                   ),
                   SizedBox(height: 10.sp),
+                  // Container(
+                  //   width: double.infinity,
+                  //   decoration: CustomDecoration.detailDecoration,
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Padding(
+                  //         padding: EdgeInsets.only(top: 10.sp,right: 20.sp,left: 20.sp),
+                  //         child: Column(
+                  //           crossAxisAlignment: CrossAxisAlignment.start,
+                  //           children: [
+                  //             Text("Krisha Creativity",style: CustomTextStyle.mediumFont18Style,),
+                  //             SizedBox(height: 11.sp,),
+                  //             Row(
+                  //               children: [
+                  //                 SizedBox(
+                  //                     height: 18.sp,
+                  //                     width: 18.sp,
+                  //                     child: ImageUtil.iconImageClass.stichIcon),
+                  //                 SizedBox(width: 5.sp,),
+                  //                 Expanded(child: Text("Stich",style: CustomTextStyle.regularFont16Style))
+                  //               ],
+                  //             ),
+                  //             SizedBox(height: 11.sp,),
+                  //             Row(
+                  //               children: [
+                  //                 SizedBox(
+                  //                     height: 18.sp,
+                  //                     width: 18.sp,
+                  //                     child: ImageUtil.iconImageClass.rupeesIcon),
+                  //                 SizedBox(width: 5.sp,),
+                  //                 Expanded(child: Text("6000",style: CustomTextStyle.regularFont16Style))
+                  //               ],
+                  //             ),
+                  //           ],
+                  //         ),
+                  //       ),
+                  //       SizedBox(height: 11.sp,),
+                  //       Container(
+                  //         padding: EdgeInsets.symmetric(horizontal: 10.sp,vertical: 10.sp),
+                  //         decoration: BoxDecoration(
+                  //             color: const Color(0xffF6DAE1),
+                  //             borderRadius: BorderRadius.only(
+                  //               bottomRight: Radius.circular(15.sp),
+                  //               bottomLeft: Radius.circular(15.sp),
+                  //             )
+                  //
+                  //         ),
+                  //         child: Row(
+                  //
+                  //           children: [
+                  //             SizedBox(
+                  //               height: 18.sp,
+                  //               width: 18.sp,
+                  //               child: ImageUtil.iconImageClass.calenderIcon,
+                  //             ),
+                  //             SizedBox(
+                  //               width: 5.sp,
+                  //             ),
+                  //             Expanded(
+                  //               child: Row(
+                  //                 // crossAxisAlignment: CrossAxisAlignment.center,
+                  //                 children: [
+                  //                   Text("Order Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 14.sp)),
+                  //                   Flexible(
+                  //                     child: Tooltip(
+                  //                       message: DateTime.now().formatCommonDate(),
+                  //                       child: Text(DateTime.now().formatCommonDate(),
+                  //                           style: CustomTextStyle.semiBoldFont14Style.copyWith(
+                  //                               overflow: TextOverflow.ellipsis,
+                  //                               decoration: TextDecoration.none
+                  //                           )),
+                  //                     ),
+                  //                   )
+                  //                 ],
+                  //               ),
+                  //             ),
+                  //             Padding(
+                  //               padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                  //               child: Container(
+                  //                 height: 1.sp,
+                  //                 width: 5.sp,
+                  //                 color: kBlackColor,
+                  //               ),
+                  //             ),
+                  //             Expanded(
+                  //               child: Row(
+                  //                 crossAxisAlignment: CrossAxisAlignment.center,
+                  //                 children: [
+                  //                   Text("Due Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 14.sp)),
+                  //                   Flexible(child: Tooltip(
+                  //                       message:DateTime.now().formatCommonDate(),
+                  //                       child: Text(DateTime.now().formatCommonDate(),style: CustomTextStyle.semiBoldFont14Style)))
+                  //                 ],
+                  //               ),
+                  //             ),
+                  //           ],
+                  //         ),
+                  //       ),
+                  //
+                  //     ],
+                  //   ),
+                  // ),
                   Container(
                     width: double.infinity,
                     decoration: CustomDecoration.detailDecoration,
@@ -449,7 +552,7 @@ class _CompletedOrderDetailsPageState extends State<CompletedOrderDetailsPage> {
                         ),
                         SizedBox(height: 11.sp,),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10.sp,vertical: 10.sp),
+                          padding: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 10.sp),
                           decoration: BoxDecoration(
                               color: const Color(0xffF6DAE1),
                               borderRadius: BorderRadius.only(
@@ -469,42 +572,39 @@ class _CompletedOrderDetailsPageState extends State<CompletedOrderDetailsPage> {
                               SizedBox(
                                 width: 5.sp,
                               ),
-                              Expanded(
-                                child: Row(
-                                  // crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text("Order Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 14.sp)),
-                                    Flexible(
-                                      child: Tooltip(
-                                        message: DateTime.now().formatCommonDate(),
-                                        child: Text(DateTime.now().formatCommonDate(),
-                                            style: CustomTextStyle.semiBoldFont14Style.copyWith(
-                                                overflow: TextOverflow.ellipsis,
-                                                decoration: TextDecoration.none
-                                            )),
-                                      ),
-                                    )
-                                  ],
-                                ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text("Order Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 11.sp)),
+                                  Tooltip(
+                                    message: DateTime.now().formatCommonDate(),
+                                    child: Text(DateTime.now().formatCommonDate(),
+                                        style: CustomTextStyle.semiBoldFont14Style.copyWith(
+                                          fontSize: 11.sp,
+                                          overflow: TextOverflow.ellipsis,
+                                          decoration: TextDecoration.none,
+                                        )),
+                                  )
+                                ],
                               ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                              Expanded(
                                 child: Container(
-                                  height: 1.sp,
+                                  margin: EdgeInsets.symmetric(horizontal: 12.sp),
+                                  height: 1.5.sp,
                                   width: 5.sp,
                                   color: kBlackColor,
                                 ),
                               ),
-                              Expanded(
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text("Due Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 14.sp)),
-                                    Flexible(child: Tooltip(
-                                        message:DateTime.now().formatCommonDate(),
-                                        child: Text(DateTime.now().formatCommonDate(),style: CustomTextStyle.semiBoldFont14Style)))
-                                  ],
-                                ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text("Due Date - ",style: CustomTextStyle.regularFont16Style.copyWith(fontSize: 11.sp)),
+                                  Tooltip(
+                                      message:DateTime.now().formatCommonDate(),
+                                      child: Text(DateTime.now().formatCommonDate(),style: CustomTextStyle.semiBoldFont14Style.copyWith(
+                                          fontSize: 11.sp
+                                      )))
+                                ],
                               ),
                             ],
                           ),
@@ -517,8 +617,8 @@ class _CompletedOrderDetailsPageState extends State<CompletedOrderDetailsPage> {
                   Text("Photos",style: CustomTextStyle.mediumFont16Style,),
                   SizedBox(height: 10.sp),
                   Wrap(
-                    spacing: 5.sp,
-                    runSpacing: 5.sp,
+                    spacing: 8.sp,
+                    runSpacing: 8.sp,
                     children: List.generate(5 ?? 0, (index) => SizedBox(
                         width: 80.sp,
                         height: 80.sp,

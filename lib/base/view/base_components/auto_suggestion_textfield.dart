@@ -697,13 +697,14 @@ class _SearchFieldState<T> extends State<SearchField<T>> {
       child: TextFormField(
         cursorColor: kBlackColor,
         key: key,
+
         enabled: widget.enabled,
         autofocus: widget.autofocus,
         onTapOutside: widget.onTapOutside,
         autocorrect: widget.autoCorrect,
         readOnly: widget.readOnly,
         autovalidateMode: widget.autovalidateMode,
-        cursorHeight: 18.sp,
+        // cursorHeight: 18.sp,
         maxLines: widget.maxLine,
         onFieldSubmitted: (x) {
           if (widget.onSubmit != null) widget.onSubmit!(x);

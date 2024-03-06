@@ -101,7 +101,7 @@ class _JobsAndOrderCardWidgetState extends State<JobsAndOrderCardWidget> {
                                      borderRadius: BorderRadius.circular(100.sp)),
                                  child: Text(
                                    widget.jobsAndOrderDummyModel?.count != null
-                                       ? "${widget.jobsAndOrderDummyModel?.count}"
+                                       ? "₹${widget.jobsAndOrderDummyModel?.count}"
                                        : "",
                                    style: CustomTextStyle.mediumFont16Style
                                        .copyWith(color: kWhiteColor),
@@ -182,6 +182,7 @@ class _JobsAndOrderCardWidgetState extends State<JobsAndOrderCardWidget> {
                   bottomLeft: Radius.circular(15.sp),
                 )),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
                   height: 18.sp,
@@ -212,13 +213,11 @@ class _JobsAndOrderCardWidgetState extends State<JobsAndOrderCardWidget> {
                   ],
                 ),
 
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 26.sp),
-                    height: 1.sp,
-                    width: 5.sp,
-                    color: kBlackColor,
-                  ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 5.sp),
+                  height: 1.5.sp,
+                  width: 5.sp,
+                  color: kBlackColor,
                 ),
 
                 Row(

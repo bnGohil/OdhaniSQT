@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:odhani_design_sqt/app/boutique_app/order/route/order_route.dart';
 import 'package:odhani_design_sqt/base/view/base_components/custom_button.dart';
 import 'package:odhani_design_sqt/utils/common_utils/custom_tabbar_view.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
@@ -34,7 +35,9 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.sp,vertical: 10.sp),
                   child: AppBarComponent(
-                    actionOnTap: () {},
+                    actionOnTap: () {
+                      OrderRoute.goToCreateOrderPage(context);
+                    },
                     leadingOnTap: () {
                       Navigator.of(context).pop();
                     },
