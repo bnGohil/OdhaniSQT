@@ -2,6 +2,7 @@ part of utils;
 
 class Routes {
   Map<String, WidgetBuilder> routes = {
+    LendingRoute.route:(context) => LendingRoute.child,
     AuthRoute.signInRoute : (context) => AuthRoute.signInChild,
     AuthRoute.introRoute : (context) => AuthRoute.introChild,
     AuthRoute.signUpRoute : (context) => AuthRoute.signUpChild,

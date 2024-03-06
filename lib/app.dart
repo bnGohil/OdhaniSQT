@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:odhani_design_sqt/provider.dart';
 import 'package:odhani_design_sqt/utils/utils.dart';
+import 'app/boutique_app/leanding/route/lending_route.dart';
 import 'app/boutique_app/splash/view/splash_screen.dart';
 
 
@@ -17,6 +18,7 @@ class OdhaniApp extends StatelessWidget {
       child: MultiProvider(
         providers: [
           AppProviders.otpTimerProvider,
+          AppProviders.lendingProvider,
         ],
         child: Sizer(
         builder: (context, orientation, deviceType) {
@@ -24,8 +26,7 @@ class OdhaniApp extends StatelessWidget {
             title: 'Odhani',
             routes: Routes().routes,
             theme: appTheme(context),
-            // initialRoute: LendingRoute.route,
-            home:  SplashScreen(),
+            initialRoute: LendingRoute.route,
             debugShowCheckedModeBanner: false,
           );
         }
